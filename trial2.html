@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real-time Chat</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .chat-container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+    }
+    .messages {
+        list-style-type: none;
+        padding: 0;
+    }
+    .message {
+        margin-bottom: 10px;
+    }
+    .message span {
+        display: block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        max-width: 70%;
+    }
+    .own-message span {
+        background-color: #DCF8C6;
+        align-self: flex-end;
+    }
+    .other-message span {
+        background-color: #E5E5EA;
+    }
+    #messageInput {
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    #sendButton {
+        width: 100px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="chat-container">
+    <ul class="messages" id="messages">
+        <!-- Messages will be added here dynamically -->
+    </ul>
+    <div>
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button id="sendButton">Send</button>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const socket = io(); // Connect to server
+
+        const messages = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        // Function to add a message to the chat
+        function addMessage(text, sender) {
+            const li = document.createElement('li');
+            const span = document.createElement('span');
+            span.textContent = text;
+            li.appendChild(span);
+            li.classList.add('message');
+            if (sender === 'self') {
+                li.classList.add('own-message');
+            } else {
+                li.classList.add('other-message');
+            }
+            messages.appendChild(li);
+        }
+
+        // Function to send message
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message !== '') {
+                addMessage(message, 'self');
+                socket.emit('chat message', message); // Send message to server
+                messageInput.value = ''; // Clear input field
+            }
+        }
+
+        // Event listener for send button
+        sendButton.addEventListener('click', sendMessage);
+
+        // Event listener for Enter key
+        messageInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Receive message from server
+        socket.on('chat message', function (msg) {
+            addMessage(msg, 'other');
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Mode</title>
+    <style>
+/* Base CSS for beautifying the questionnaire section */
+
+/* Global styles */
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background color */
+}
+
+/* Progress bar styles */
+.progress-bar-container {
+    width: 100%;
+    background-color: #1e90ff; /* Dodger blue background color */
+    height: 10px; /* Reduce height for better appearance */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px;
+    position: fixed; /* Fixed position to keep it at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 10px; /* Rounded corners */
+    background-color: #ffd700; /* Yellow by default */
+    width: 100%; /* Initially full width */
+    transition: width 1s linear; /* Smooth transition */
+}
+
+/* Contact form styles */
+.contact-container {
+    background-color: #1e90ff; /* Dodger blue background color */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    height: 90vh; /* Full height of viewport */
+    width: auto; /* Full width of viewport */
+    overflow-y: auto; /* Enable vertical scrollbar */
+}
+
+.contact-left {
+    background-color: #fff; /* White background color */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+.contact-left-title {
+    text-align: center;
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+/* Input and textarea styles */
+.contact-left input[type="text"],
+.contact-left input[type="email"],
+.contact-left textarea {
+    width: calc(100% - 42px); /* Adjusted width for inputs to fit within the container */
+    padding: 10px;
+    margin-bottom: 20px; /* Add spacing between input fields */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+}
+
+.contact-left textarea {
+    height: 100px; /* Reduced height for better appearance */
+}
+
+/* Submit button styles */
+.sub {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    background-color: #ffd700; /* Dodger blue background color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 35px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 26px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.contact-left button[type="submit"] {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #1e90ff; /* Dodger blue background color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.contact-left button[type="submit"]:hover {
+    background-color: #187bcd; /* Darker blue on hover */
+    text-align: center;
+
+}
+
+/* Questionnaire styles */
+.question-container {
+    margin-top: 20px; /* Add spacing between form and questions */
+}
+
+.question {
+    background-color: #fff; /* White background color */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    margin-bottom: 20px; /* Add spacing between questions */
+}
+
+.question h3 {
+    margin-top: 0; /* Remove default margin */
+}
+
+/* Options styles */
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.options label {
+    background-color: #f9f9f9;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.options label:hover {
+    background-color: #e0e0e0;
+}
+
+.options input[type="radio"] {
+    display: none;
+}
+
+.options input[type="radio"]:checked+label {
+    background-color: #17b63e;
+    color: #fff;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        height: auto; /* Auto height for smaller screens */
+        width: auto;
+    }
+
+    .contact-left {
+        max-width: 100%; /* Fill the screen width */
+        margin: 0; /* Remove margin */
+    }
+
+    .contact-left input[type="text"],
+    .contact-left input[type="email"],
+    .contact-left textarea {
+        width: calc(100% - 20px); /* Adjusted width for inputs to fit within the container */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Progress bar container -->
+    <div class="progress-bar-container">
+        <div id="progress-fill" class="progress-bar"></div>
+    </div>
+
+    <!-- Contact form container -->
+    <div class="contact-container">
+        <form id="payment-form" action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <div class="contact-left-title">
+                <h2>Message Us</h2>
+                <hr>
+            </div>
+            <input type="hidden" name="access_key" value="32f2745b-fa77-4668-8e3e-45105a8205cd">
+            <input type="text" name="name" placeholder="Enter your name here..." class="contact-inputs" required>
+            <input type="text" name="school" placeholder="Enter your school here..." class="contact-inputs" required>
+            <input type="email" name="email" placeholder="school@example.com" class="contact-inputs" required>
+            <textarea name="message" placeholder="Which course are you after?" class="contact-inputs" required></textarea>
+
+            <!-- Question form layout -->
+<!-- English -->
+<div class="question">
+    <label for="question1">1. What is a synonym for "happy"?</label>
+    <div class="options">
+        <input type="radio" id="happy" name="synonym" value="happy">
+        <label for="happy">Joyful</label>
+
+        <input type="radio" id="sad" name="synonym" value="sad">
+        <label for="sad">Sad</label>
+
+        <input type="radio" id="angry" name="synonym" value="angry">
+        <label for="angry">Angry</label>
+
+        <input type="radio" id="excited" name="synonym" value="excited">
+        <label for="excited">Excited</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question2">2. What is the value of π (pi) to two decimal places?</label>
+    <div class="options">
+        <input type="radio" id="pi3.14" name="pi_value" value="3.14">
+        <label for="pi3.14">3.14</label>
+
+        <input type="radio" id="pi3.16" name="pi_value" value="3.16">
+        <label for="pi3.16">3.16</label>
+
+        <input type="radio" id="pi3.12" name="pi_value" value="3.12">
+        <label for="pi3.12">3.12</label>
+
+        <input type="radio" id="pi3.18" name="pi_value" value="3.18">
+        <label for="pi3.18">3.18</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question3">3. What is the chemical symbol for sodium?</label>
+    <div class="options">
+        <input type="radio" id="na" name="sodium_symbol" value="na">
+        <label for="na">Na</label>
+
+        <input type="radio" id="na2" name="sodium_symbol" value="na2">
+        <label for="na2">Na2</label>
+
+        <input type="radio" id="so" name="sodium_symbol" value="so">
+        <label for="so">So</label>
+
+        <input type="radio" id="nacl" name="sodium_symbol" value="nacl">
+        <label for="nacl">NaCl</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question4">4. What does "HTML" stand for?</label>
+    <div class="options">
+        <input type="radio" id="html" name="html_acronym" value="html">
+        <label for="html">HyperText Markup Language</label>
+
+        <input type="radio" id="xml" name="html_acronym" value="xml">
+        <label for="xml">eXtensible Markup Language</label>
+
+        <input type="radio" id="css" name="html_acronym" value="css">
+        <label for="css">Cascading Style Sheets</label>
+
+        <input type="radio" id="http" name="html_acronym" value="http">
+        <label for="http">HyperText Transfer Protocol</label>
+    </div>
+</div>
+
+<!-- English -->
+<div class="question">
+    <label for="question5">5. Define the term "metaphor" in literature.</label>
+    <div class="options">
+        <input type="radio" id="metaphor" name="literature_term" value="metaphor">
+        <label for="metaphor">A figure of speech that compares two unlike things, without using "like" or "as".</label>
+
+        <input type="radio" id="simile" name="literature_term" value="simile">
+        <label for="simile">A comparison between two unlike things using "like" or "as".</label>
+
+        <input type="radio" id="personification" name="literature_term" value="personification">
+        <label for="personification">Giving human qualities to non-human entities.</label>
+
+        <input type="radio" id="irony" name="literature_term" value="irony">
+        <label for="irony">The use of words to convey a meaning that is the opposite of its literal meaning.</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question6">6. Solve the equation: 2x + 5 = 15.</label>
+    <div class="options">
+        <input type="radio" id="x5" name="equation_solution" value="x5">
+        <label for="x5">x = 5</label>
+
+        <input type="radio" id="x10" name="equation_solution" value="x10">
+        <label for="x10">x = 10</label>
+
+        <input type="radio" id="x15" name="equation_solution" value="x15">
+        <label for="x15">x = 15</label>
+
+        <input type="radio" id="x20" name="equation_solution" value="x20">
+        <label for="x20">x = 20</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question7">7. What is the boiling point of water in Celsius?</label>
+    <div class="options">
+        <input type="radio" id="c100" name="water_boiling_point" value="100">
+        <label for="c100">100°C</label>
+
+        <input type="radio" id="c0" name="water_boiling_point" value="0">
+        <label for="c0">0°C</label>
+
+        <input type="radio" id="c-100" name="water_boiling_point" value="-100">
+        <label for="c-100">-100°C</label>
+
+        <input type="radio" id="c50" name="water_boiling_point" value="50">
+        <label for="c50">50°C</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question8">8. Which programming language is commonly used for creating mobile applications?</label>
+    <div class="options">
+        <input type="radio" id="java" name="mobile_app_language" value="java">
+        <label for="java">Java</label>
+
+        <input type="radio" id="python" name="mobile_app_language" value="python">
+        <label for="python">Python</label>
+
+        <input type="radio" id="swift" name="mobile_app_language" value="swift">
+        <label for="swift">Swift</label>
+
+        <input type="radio" id="c" name="mobile_app_language" value="c">
+        <label for="c">C</label>
+    </div>
+</div>
+
+<!-- English -->
+<div class="question">
+    <label for="question9">9. Who wrote the play "Romeo and Juliet"?</label>
+    <div class="options">
+        <input type="radio" id="shakespeare" name="play_author" value="shakespeare">
+        <label for="shakespeare">William Shakespeare</label>
+
+        <input type="radio" id="tolstoy" name="play_author" value="tolstoy">
+        <label for="tolstoy">Leo Tolstoy</label>
+
+        <input type="radio" id="homer" name="play_author" value="homer">
+        <label for="homer">Homer</label>
+
+        <input type="radio" id="dickens" name="play_author" value="dickens">
+        <label for="dickens">Charles Dickens</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question10">10. What is the area of a rectangle with length 8 units and width 4 units?</label>
+    <div class="options">
+        <input type="radio" id="area16" name="rectangle_area" value="16">
+        <label for="area16">16 square units</label>
+
+        <input type="radio" id="area24" name="rectangle_area" value="24">
+        <label for="area24">24 square units</label>
+
+        <input type="radio" id="area32" name="rectangle_area" value="32">
+        <label for="area32">32 square units</label>
+
+        <input type="radio" id="area40" name="rectangle_area" value="40">
+        <label for="area40">40 square units</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question11">11. What is the largest planet in our solar system?</label>
+    <div class="options">
+        <input type="radio" id="jupiter" name="largest_planet" value="jupiter">
+        <label for="jupiter">Jupiter</label>
+
+        <input type="radio" id="mars" name="largest_planet" value="mars">
+        <label for="mars">Mars</label>
+
+        <input type="radio" id="earth" name="largest_planet" value="earth">
+        <label for="earth">Earth</label>
+
+        <input type="radio" id="neptune" name="largest_planet" value="neptune">
+        <label for="neptune">Neptune</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question12">12. What is the function of RAM in a computer?</label>
+    <div class="options">
+        <input type="radio" id="ram_storage" name="ram_function" value="ram_storage">
+        <label for="ram_storage">To store data permanently</label>
+
+        <input type="radio" id="ram_processing" name="ram_function" value="ram_processing">
+        <label for="ram_processing">To perform calculations</label>
+
+        <input type="radio" id="ram_temporary" name="ram_function" value="ram_temporary">
+        <label for="ram_temporary">To store data temporarily</label>
+
+        <input type="radio" id="ram_networking" name="ram_function" value="ram_networking">
+        <label for="ram_networking">To connect to the internet</label>
+    </div>
+</div>
+
+<!-- English -->
+<div class="question">
+    <label for="question13">13. What is the opposite of the word "empty"?</label>
+    <div class="options">
+        <input type="radio" id="full" name="opposite_empty" value="full">
+        <label for="full">Full</label>
+
+        <input type="radio" id="half" name="opposite_empty" value="half">
+        <label for="half">Half</label>
+
+        <input type="radio" id="empty" name="opposite_empty" value="empty">
+        <label for="empty">Empty</label>
+
+        <input type="radio" id="overflowing" name="opposite_empty" value="overflowing">
+        <label for="overflowing">Overflowing</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question14">14. What is the sum of the first 10 prime numbers?</label>
+    <div class="options">
+        <input type="radio" id="sum255" name="prime_sum" value="255">
+        <label for="sum255">255</label>
+
+        <input type="radio" id="sum285" name="prime_sum" value="285">
+        <label for="sum285">285</label>
+
+        <input type="radio" id="sum335" name="prime_sum" value="335">
+        <label for="sum335">335</label>
+
+        <input type="radio" id="sum365" name="prime_sum" value="365">
+        <label for="sum365">365</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question15">15. What is the chemical symbol for helium?</label>
+    <div class="options">
+        <input type="radio" id="he" name="helium_symbol" value="he">
+        <label for="he">He</label>
+
+        <input type="radio" id="h" name="helium_symbol" value="h">
+        <label for="h">H</label>
+
+        <input type="radio" id="h2" name="helium_symbol" value="h2">
+        <label for="h2">H2</label>
+
+        <input type="radio" id="hn" name="helium_symbol" value="hn">
+        <label for="hn">Hn</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question16">16. What does "URL" stand for?</label>
+    <div class="options">
+        <input type="radio" id="url" name="url_acronym" value="url">
+        <label for="url">Uniform Resource Locator</label>
+
+        <input type="radio" id="uri" name="url_acronym" value="uri">
+        <label for="uri">Uniform Resource Identifier</label>
+
+        <input type="radio" id="urn" name="url_acronym" value="urn">
+        <label for="urn">Uniform Resource Name</label>
+
+        <input type="radio" id="uon" name="url_acronym" value="uon">
+        <label for="uon">Uniform Online Name</label>
+    </div>
+</div>
+
+<!-- English -->
+<div class="question">
+    <label for="question17">17. What is the plural form of "child"?</label>
+    <div class="options">
+        <input type="radio" id="childs" name="plural_child" value="childs">
+        <label for="childs">Childs</label>
+
+        <input type="radio" id="children" name="plural_child" value="children">
+        <label for="children">Children</label>
+
+        <input type="radio" id="child" name="plural_child" value="child">
+        <label for="child">Child</label>
+
+        <input type="radio" id="childrens" name="plural_child" value="childrens">
+        <label for="childrens">Childrens</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question18">18. What is the value of 5 factorial (5!)?</label>
+    <div class="options">
+        <input type="radio" id="factorial120" name="factorial_value" value="120">
+        <label for="factorial120">120</label>
+
+        <input type="radio" id="factorial100" name="factorial_value" value="100">
+        <label for="factorial100">100</label>
+
+        <input type="radio" id="factorial150" name="factorial_value" value="150">
+        <label for="factorial150">150</label>
+
+        <input type="radio" id="factorial110" name="factorial_value" value="110">
+        <label for="factorial110">110</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question19">19. What is the atomic number of carbon?</label>
+    <div class="options">
+        <input type="radio" id="c5" name="carbon_atomic_number" value="5">
+        <label for="c5">5</label>
+
+        <input type="radio" id="c12" name="carbon_atomic_number" value="12">
+        <label for="c12">12</label>
+
+        <input type="radio" id="c8" name="carbon_atomic_number" value="8">
+        <label for="c8">8</label>
+
+        <input type="radio" id="c6" name="carbon_atomic_number" value="6">
+        <label for="c6">6</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question20">20. What is the purpose of a firewall in computer networks?</label>
+    <div class="options">
+        <input type="radio" id="firewall_protect" name="firewall_purpose" value="firewall_protect">
+        <label for="firewall_protect">To protect the network from unauthorized access</label>
+
+        <input type="radio" id="firewall_speed" name="firewall_purpose" value="firewall_speed">
+        <label for="firewall_speed">To increase internet speed</label>
+
+        <input type="radio" id="firewall_monitor" name="firewall_purpose" value="firewall_monitor">
+        <label for="firewall_monitor">To monitor network traffic</label>
+
+        <input type="radio" id="firewall_connect" name="firewall_purpose" value="firewall_connect">
+        <label for="firewall_connect">To connect multiple networks</label>
+    </div>
+</div>
+
+<!-- English -->
+<div class="question">
+    <label for="question21">21. What is the past tense of the verb "run"?</label>
+    <div class="options">
+        <input type="radio" id="run" name="past_tense_run" value="run">
+        <label for="run">Run</label>
+
+        <input type="radio" id="ran" name="past_tense_run" value="ran">
+        <label for="ran">Ran</label>
+
+        <input type="radio" id="running" name="past_tense_run" value="running">
+        <label for="running">Running</label>
+
+        <input type="radio" id="runs" name="past_tense_run" value="runs">
+        <label for="runs">Runs</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question22">22. What is the square root of 64?</label>
+    <div class="options">
+        <input type="radio" id="sqrt8" name="sqrt64" value="8">
+        <label for="sqrt8">8</label>
+
+        <input type="radio" id="sqrt6" name="sqrt64" value="6">
+        <label for="sqrt6">6</label>
+
+        <input type="radio" id="sqrt10" name="sqrt64" value="10">
+        <label for="sqrt10">10</label>
+
+        <input type="radio" id="sqrt12" name="sqrt64" value="12">
+        <label for="sqrt12">12</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question23">23. What is the chemical formula for water?</label>
+    <div class="options">
+        <input type="radio" id="h2o" name="water_formula" value="h2o">
+        <label for="h2o">H2O</label>
+
+        <input type="radio" id="ho2" name="water_formula" value="ho2">
+        <label for="ho2">HO2</label>
+
+        <input type="radio" id="o2h" name="water_formula" value="o2h">
+        <label for="o2h">O2H</label>
+
+        <input type="radio" id="oh" name="water_formula" value="oh">
+        <label for="oh">OH</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question24">24. What does "LAN" stand for?</label>
+    <div class="options">
+        <input type="radio" id="lan" name="lan_acronym" value="lan">
+        <label for="lan">Local Area Network</label>
+
+        <input type="radio" id="man" name="lan_acronym" value="man">
+        <label for="man">Metropolitan Area Network</label>
+
+        <input type="radio" id="wan" name="lan_acronym" value="wan">
+        <label for="wan">Wide Area Network</label>
+
+        <input type="radio" id="pan" name="lan_acronym" value="pan">
+        <label for="pan">Personal Area Network</label>
+    </div>
+</div>
+
+<!-- English -->
+<div class="question">
+    <label for="question25">25. What is the comparative form of "good"?</label>
+    <div class="options">
+        <input type="radio" id="best" name="comparative_good" value="best">
+        <label for="best">Best</label>
+
+        <input type="radio" id="better" name="comparative_good" value="better">
+        <label for="better">Better</label>
+
+        <input type="radio" id="goodest" name="comparative_good" value="goodest">
+        <label for="goodest">Goodest</label>
+
+        <input type="radio" id="good" name="comparative_good" value="good">
+        <label for="good">Good</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question26">26. What is the perimeter of a square with each side measuring 6 units?</label>
+    <div class="options">
+        <input type="radio" id="perimeter20" name="square_perimeter" value="20">
+        <label for="perimeter20">20 units</label>
+
+        <input type="radio" id="perimeter24" name="square_perimeter" value="24">
+        <label for="perimeter24">24 units</label>
+
+        <input type="radio" id="perimeter30" name="square_perimeter" value="30">
+        <label for="perimeter30">30 units</label>
+
+        <input type="radio" id="perimeter36" name="square_perimeter" value="36">
+        <label for="perimeter36">36 units</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question27">27. What is the chemical formula for oxygen?</label>
+    <div class="options">
+        <input type="radio" id="o2" name="oxygen_formula" value="o2">
+        <label for="o2">O2</label>
+
+        <input type="radio" id="o" name="oxygen_formula" value="o">
+        <label for="o">O</label>
+
+        <input type="radio" id="ox" name="oxygen_formula" value="ox">
+        <label for="ox">Ox</label>
+
+        <input type="radio" id="oxy" name="oxygen_formula" value="oxy">
+        <label for="oxy">Oxy</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question28">28. What is the purpose of an operating system?</label>
+    <div class="options">
+        <input type="radio" id="os_run" name="os_purpose" value="os_run">
+        <label for="os_run">To run applications and manage computer hardware</label>
+
+        <input type="radio" id="os_develop" name="os_purpose" value="os_develop">
+        <label for="os_develop">To develop software programs</label>
+
+        <input type="radio" id="os_network" name="os_purpose" value="os_network">
+        <label for="os_network">To connect computers in a network</label>
+
+        <input type="radio" id="os_store" name="os_purpose" value="os_store">
+        <label for="os_store">To store files and documents</label>
+    </div>
+</div>
+
+<!-- English -->
+<div class="question">
+    <label for="question29">29. What is the past participle of the verb "eat"?</label>
+    <div class="options">
+        <input type="radio" id="eat" name="past_part_eat" value="eat">
+        <label for="eat">Eat</label>
+
+        <input type="radio" id="eaten" name="past_part_eat" value="eaten">
+        <label for="eaten">Eaten</label>
+
+        <input type="radio" id="ate" name="past_part_eat" value="ate">
+        <label for="ate">Ate</label>
+
+        <input type="radio" id="eating" name="past_part_eat" value="eating">
+        <label for="eating">Eating</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question30">30. What is the next prime number after 17?</label>
+    <div class="options">
+        <input type="radio" id="prime19" name="next_prime" value="19">
+        <label for="prime19">19</label>
+
+        <input type="radio" id="prime21" name="next_prime" value="21">
+        <label for="prime21">21</label>
+
+        <input type="radio" id="prime23" name="next_prime" value="23">
+        <label for="prime23">23</label>
+
+        <input type="radio" id="prime25" name="next_prime" value="25">
+        <label for="prime25">25</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question31">31. Which gas is most abundant in Earth's atmosphere?</label>
+    <div class="options">
+        <input type="radio" id="nitrogen" name="abundant_gas" value="nitrogen">
+        <label for="nitrogen">Nitrogen</label>
+
+        <input type="radio" id="oxygen" name="abundant_gas" value="oxygen">
+        <label for="oxygen">Oxygen</label>
+
+        <input type="radio" id="carbon_dioxide" name="abundant_gas" value="carbon_dioxide">
+        <label for="carbon_dioxide">Carbon Dioxide</label>
+
+        <input type="radio" id="argon" name="abundant_gas" value="argon">
+        <label for="argon">Argon</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question32">32. What is the purpose of a router in a computer network?</label>
+    <div class="options">
+        <input type="radio" id="router_packet" name="router_purpose" value="router_packet">
+        <label for="router_packet">To forward data packets between computer networks</label>
+
+        <input type="radio" id="router_display" name="router_purpose" value="router_display">
+        <label for="router_display">To display websites</label>
+
+        <input type="radio" id="router_protect" name="router_purpose" value="router_protect">
+        <label for="router_protect">To protect computers from viruses</label>
+
+        <input type="radio" id="router_store" name="router_purpose" value="router_store">
+        <label for="router_store">To store data files</label>
+    </div>
+</div>
+
+<!-- English -->
+<div class="question">
+    <label for="question33">33. What is a synonym for "brave"?</label>
+    <div class="options">
+        <input type="radio" id="fearful" name="synonym_brave" value="fearful">
+        <label for="fearful">Fearful</label>
+
+        <input type="radio" id="bold" name="synonym_brave" value="bold">
+        <label for="bold">Bold</label>
+
+        <input type="radio" id="weak" name="synonym_brave" value="weak">
+        <label for="weak">Weak</label>
+
+        <input type="radio" id="shy" name="synonym_brave" value="shy">
+        <label for="shy">Shy</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question34">34. If a triangle has angles measuring 45°, 45°, and 90°, what type of triangle is it?</label>
+    <div class="options">
+        <input type="radio" id="acute" name="triangle_type" value="acute">
+        <label for="acute">Acute</label>
+
+        <input type="radio" id="right" name="triangle_type" value="right">
+        <label for="right">Right</label>
+
+        <input type="radio" id="obtuse" name="triangle_type" value="obtuse">
+        <label for="obtuse">Obtuse</label>
+
+        <input type="radio" id="equilateral" name="triangle_type" value="equilateral">
+        <label for="equilateral">Equilateral</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question35">35. What is the SI unit of electric current?</label>
+    <div class="options">
+        <input type="radio" id="ampere" name="electric_current_unit" value="ampere">
+        <label for="ampere">Ampere</label>
+
+        <input type="radio" id="volt" name="electric_current_unit" value="volt">
+        <label for="volt">Volt</label>
+
+        <input type="radio" id="ohm" name="electric_current_unit" value="ohm">
+        <label for="ohm">Ohm</label>
+
+        <input type="radio" id="watt" name="electric_current_unit" value="watt">
+        <label for="watt">Watt</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question36">36. What is the purpose of a modem in a computer network?</label>
+    <div class="options">
+        <input type="radio" id="modem_speed" name="modem_purpose" value="modem_speed">
+        <label for="modem_speed">To increase internet speed</label>
+
+        <input type="radio" id="modem_connect" name="modem_purpose" value="modem_connect">
+        <label for="modem_connect">To connect to the internet</label>
+
+        <input type="radio" id="modem_protect" name="modem_purpose" value="modem_protect">
+        <label for="modem_protect">To protect computers from viruses</label>
+
+        <input type="radio" id="modem_display" name="modem_purpose" value="modem_display">
+        <label for="modem_display">To display websites</label>
+    </div>
+</div>
+
+<!-- English -->
+<div class="question">
+    <label for="question37">37. What is the plural form of "ox"?</label>
+    <div class="options">
+        <input type="radio" id="oxes" name="plural_ox" value="oxes">
+        <label for="oxes">Oxes</label>
+
+        <input type="radio" id="oxen" name="plural_ox" value="oxen">
+        <label for="oxen">Oxen</label>
+
+        <input type="radio" id="ox" name="plural_ox" value="ox">
+        <label for="ox">Ox</label>
+
+        <input type="radio" id="oxs" name="plural_ox" value="oxs">
+        <label for="oxs">Oxs</label>
+    </div>
+</div>
+
+<!-- Math -->
+<div class="question">
+    <label for="question38">38. What is the value of 3 raised to the power of 4 (3^4)?</label>
+    <div class="options">
+        <input type="radio" id="power81" name="power_value" value="81">
+        <label for="power81">81</label>
+
+        <input type="radio" id="power64" name="power_value" value="64">
+        <label for="power64">64</label>
+
+        <input type="radio" id="power27" name="power_value" value="27">
+        <label for="power27">27</label>
+
+        <input type="radio" id="power12" name="power_value" value="12">
+        <label for="power12">12</label>
+    </div>
+</div>
+
+<!-- Science -->
+<div class="question">
+    <label for="question39">39. What is the largest organ in the human body?</label>
+    <div class="options">
+        <input type="radio" id="liver" name="largest_organ" value="liver">
+        <label for="liver">Liver</label>
+
+        <input type="radio" id="heart" name="largest_organ" value="heart">
+        <label for="heart">Heart</label>
+
+        <input type="radio" id="lung" name="largest_organ" value="lung">
+        <label for="lung">Lung</label>
+
+        <input type="radio" id="skin" name="largest_organ" value="skin">
+        <label for="skin">Skin</label>
+    </div>
+</div>
+
+<!-- ICT -->
+<div class="question">
+    <label for="question40">40. What is the purpose of a CPU in a computer?</label>
+    <div class="options">
+        <input type="radio" id="cpu_run" name="cpu_purpose" value="cpu_run">
+        <label for="cpu_run">To execute instructions and process data</label>
+
+        <input type="radio" id="cpu_connect" name="cpu_purpose" value="cpu_connect">
+        <label for="cpu_connect">To connect to the internet</label>
+
+        <input type="radio" id="cpu_protect" name="cpu_purpose" value="cpu_protect">
+        <label for="cpu_protect">To protect computers from viruses</label>
+
+        <input type="radio" id="cpu_store" name="cpu_purpose" value="cpu_store">
+        <label for="cpu_store">To store data files</label>
+    </div>
+</div>
+
+            </div>
+
+
+            <button type="submit" class="sub">Submit <img src="images/send.png" alt=""></button>
+        </form>
+    </div>
+
+    <script>
+        // Countdown timer function
+        function startTimer(duration) {
+            var timer = duration;
+            var progressBar = document.getElementById('progress-fill');
+            var progress = 100;
+            var interval = setInterval(function () {
+                timer--;
+
+                // Calculate progress percentage
+                var progressPercentage = (timer / duration) * 100;
+
+                // Update progress bar color based on remaining time
+                if (progressPercentage > 70) {
+                    progressBar.style.backgroundColor = "#ffd700"; // Yellow
+                } else if (progressPercentage > 30) {
+                    progressBar.style.backgroundColor = "#87ceeb"; // Sky blue
+                } else {
+                    progressBar.style.backgroundColor = "#ff6347"; // Tomato red
+                }
+
+                // Update progress bar width
+                progressBar.style.width = progressPercentage + "%";
+
+                // Check if timer has finished
+                if (timer <= 0) {
+                    clearInterval(interval);
+                    // After countdown finishes, submit the form and then disable access
+                    submitForm();
+                }
+            }, 1000); // Update every second
+        }
+
+        // Function to submit the form
+        function submitForm() {
+            // Get the form element
+            var form = document.getElementById('payment-form');
+
+            // Create a FormData object from the form
+            var formData = new FormData(form);
+
+            // Send the form data using AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action, true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Form submission successful
+                    console.log('Form submitted successfully!');
+                } else {
+                    // Form submission failed
+                    console.error('Form submission failed. Status: ' + xhr.status);
+                }
+                // After submitting the form, disable access for 12 hours
+                disableAccessFor12Hours();
+            };
+            xhr.onerror = function () {
+                // Error occurred during form submission
+                console.error('Error occurred during form submission.');
+                // After submitting the form, disable access for 12 hours
+                disableAccessFor12Hours();
+            };
+            xhr.send(formData);
+        }
+
+        // Function to disable access to the page for 12 hours
+        function disableAccessFor12Hours() {
+            // Set a cookie to indicate that access is disabled
+            document.cookie = "access_disabled=true; max-age=43200"; // 12 hours in seconds
+
+            // Redirect to community.html
+            window.location.href = "bennethawaiting.html";
+        }
+
+        // Check if access is disabled when the page loads
+        window.onload = function () {
+            var accessDisabled = getCookie("access_disabled");
+            if (accessDisabled === "true") {
+                // Access is disabled, redirect to community.html
+                window.location.href = "bennethawaiting.html";
+            } else {
+                // Access is not disabled, start the countdown timer
+                var duration = 1500; // 25 minutes in seconds
+                startTimer(duration);
+            }
+        };
+
+        // Function to get the value of a cookie by name
+        function getCookie(name) {
+            var cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+            return cookieValue ? cookieValue.pop() : null;
+        }
+
+        <!-- Place this script in your HTML file -->
+
+        
+// Function to shuffle an array
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Array to hold question numbers
+const questionNumbers = Array.from({ length: 40 }, (_, i) => i + 1);
+
+// Function to assign shuffled question numbers to question labels
+function assignQuestionNumbers() {
+    const questionDivs = document.querySelectorAll('.question');
+    questionDivs.forEach((div, index) => {
+        const label = div.querySelector('label');
+        label.textContent = `${label.textContent.slice(label.textContent.indexOf(' ') + 1)}`;
+    });
+}
+
+
+    </script>
+</body>
+</html>

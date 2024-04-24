@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Piano Learning</title>
+    <style>
+        body {
+            background-color: #0077be; /* Sea blue */
+            color: white;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #7ec8e3; /* Light blue */
+        }
+        .payment-button {
+            background-color: #004e80; /* Blue */
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Keyboard Piano Learning</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Topic</th>
+                <th>Price ($)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Introduction to Piano Basics</td>
+                <td>20</td>
+                <td><button class="payment-button" onclick="makePayment(20)">Pay Now</button></td>
+            </tr>
+            <tr>
+                <td>Understanding Musical Notes and Symbols</td>
+                <td>25</td>
+                <td><button class="payment-button" onclick="makePayment(25)">Pay Now</button></td>
+            </tr>
+            <tr>
+                <td>Learning Major and Minor Scales</td>
+                <td>30</td>
+                <td><button class="payment-button" onclick="makePayment(30)">Pay Now</button></td>
+            </tr>
+            <tr>
+                <td>Playing Simple Melodies</td>
+                <td>35</td>
+                <td><button class="payment-button" onclick="makePayment(35)">Pay Now</button></td>
+            </tr>
+            <tr>
+                <td>Chord Progressions and Accompaniment</td>
+                <td>40</td>
+                <td><button class="payment-button" onclick="makePayment(40)">Pay Now</button></td>
+            </tr>
+            <tr>
+                <td>Advanced Techniques and Improvisation</td>
+                <td>45</td>
+                <td><button class="payment-button" onclick="makePayment(45)">Pay Now</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function makePayment(amount) {
+            // This is a placeholder function for handling payments
+            // You can implement your payment logic here
+            alert("Payment of $" + amount + " processed successfully!");
+        }
+    </script>
+</body>
+</html>

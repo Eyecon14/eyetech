@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Settings</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.settings {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    margin-top: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+    </style>
+<header>
+    <div class="logo">Your Website Name</div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="settings">
+        <h1>Settings</h1>
+        
+        <!-- Account Settings -->
+        <h2>Account Settings</h2>
+        <form>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <!-- Add more account settings fields -->
+            <input type="submit" value="Save Changes">
+        </form>
+
+        <!-- Notification Settings -->
+        <h2>Notification Settings</h2>
+        <!-- Add notification settings options -->
+
+        <!-- Privacy Settings -->
+        <h2>Privacy Settings</h2>
+        <!-- Add privacy settings options -->
+
+        <!-- Preferences -->
+        <h2>Preferences</h2>
+        <!-- Add general preferences options -->
+    </section>
+</main>
+
+<footer>
+    <ul>
+        <li><a href="/terms">Terms of Service</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <!-- Add more footer links as needed -->
+    </ul>
+</footer>
+
+</body>
+</html>

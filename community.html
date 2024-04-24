@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EyeconTECH Community</title>
+    <style>
+        body {
+            background-color: #7a6ea7;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            text-align: center;
+        }
+
+        #content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 5p0x;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: moveBubble linear infinite;
+        }
+
+        @keyframes moveBubble {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(calc(100vh + 200px)) translateX(calc(100vw + 200px));
+            }
+        }
+
+        .bubble:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            left: 10%;
+            animation-duration: 10s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            left: 20%;
+            animation-duration: 12s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            left: 30%;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 90px;
+            height: 90px;
+            left: 40%;
+            animation-duration: 11s;
+        }
+
+        .bubble:nth-child(5) {
+            width: 110px;
+            height: 110px;
+            left: 50%;
+            animation-duration: 9s;
+        }
+
+        .bubble:nth-child(6) {
+            width: 70px;
+            height: 70px;
+            left: 60%;
+            animation-duration: 13s;
+        }
+
+        .bubble:nth-child(7) {
+            width: 130px;
+            height: 130px;
+            left: 70%;
+            animation-duration: 7s;
+        }
+
+        .bubble:nth-child(8) {
+            width: 85px;
+            height: 85px;
+            left: 80%;
+            animation-duration: 10s;
+        }
+
+        .bubble:nth-child(9) {
+            width: 95px;
+            height: 95px;
+            left: 90%;
+            animation-duration: 12s;
+        }
+
+        .head {
+            background-color: #fff;
+            border-radius: 30px;
+            color: rgb(86, 123, 202);
+        }
+
+        .speech {
+            background-color: aquamarine;
+            border-radius: 10px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="head">
+            <header>
+                <h1>Welcome To EyeconTECH Community</h1>
+            </header>
+        </div>
+
+        <div class="speech">
+            <h4>
+                <b><u>
+                    Are you dreaming of becoming a member of this noble community? <br>
+                    Then you dream is coming true... <br>
+                    EyeconTECH is a short term for Eyecon TECHNOLOGIES. This team is 
+                    specialized in modern technology. It comprises of group of 
+                    committed members to help you build the technological world.
+                </u></b>
+            </h4>
+        </div>
+
+        <div>
+            <h5>
+                ARE YOU STILL WAITING FOR SOMETHING?
+                <a href="communityform.html">Join Now!!!</a>
+            </h5>
+        </div>
+
+        <div id="files">
+            <h3>
+                MOBILE PHONES
+            </h3>
+            <img src="ads/phones2.jpeg" alt="" width="100" height="80">
+            <a href="phones.html" class="btn">View Products</a>
+        </div>
+
+        <div id="files">
+            <h3>
+                MOBILE PHONES
+            </h3>
+            <img src="ads/phones2.jpeg" alt="" width="100" height="80">
+            <a href="phones.html" class="btn">View Products</a>
+        </div>
+
+        <div id="files">
+            <h3>
+                MOBILE PHONES
+            </h3>
+            <img src="ads/phones2.jpeg" alt="" width="100" height="80">
+            <a href="phones.html" class="btn">View Products</a>
+        </div>
+
+    </section>
+
+    <div id="background">
+        <!-- Bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Quick start shader template: https://codepen.io/pen/?template=ZEyrWNe -->
+
+<div id="main">
+    <h1>Wavey Footer</h1>
+    <p>A GLSL shader inspired by <a href="https://twitter.com/marioecg/status/1455744243423645696">Mario Carrillo</a>.</p>
+  </div>
+  
+  <canvas id="canvas"></canvas>
+  <footer>Made by <a href="https://twitter.com/jhancock532">@jhancock532</a></footer>
+  
+  <script id="vertexShader" type="x-shader/x-vertex">
+    attribute vec4 position;
+  
+    void main() {
+      gl_Position = vec4( position );
+    }
+  </script>
+  
+  <script id="fragmentShader" type="x-shader/x-fragment">
+    #ifdef GL_FRAGMENT_PRECISION_HIGH
+    precision highp float;
+    #else
+    precision mediump float;
+    #endif
+  
+    uniform vec2 u_resolution;
+    uniform float u_time;
+    uniform vec2 u_mouse;
+    
+    
+    //Taken from Book of Shaders
+    //https://thebookofshaders.com/edit.php#11/2d-gnoise.frag
+    vec2 random2(vec2 st){
+      st = vec2( dot(st,vec2(127.1,311.7)),
+                 dot(st,vec2(269.5,183.3)) );
+      return -1.0 + 2.0*fract(sin(st)*43758.5453123);
+    }
+  
+    // Gradient Noise by Inigo Quilez - iq/2013
+    // https://www.shadertoy.com/view/XdXGW8
+    float noise(vec2 st) {
+        vec2 i = floor(st);
+        vec2 f = fract(st);
+  
+        vec2 u = f*f*(3.0-2.0*f);
+  
+        return mix( mix( dot( random2(i + vec2(0.0,0.0) ), f - vec2(0.0,0.0) ),
+                         dot( random2(i + vec2(1.0,0.0) ), f - vec2(1.0,0.0) ), u.x),
+                    mix( dot( random2(i + vec2(0.0,1.0) ), f - vec2(0.0,1.0) ),
+                         dot( random2(i + vec2(1.0,1.0) ), f - vec2(1.0,1.0) ), u.x), u.y);
+    }
+  
+    void main() {
+      vec2 uv = gl_FragCoord.xy / u_resolution;
+      
+      float waveOffset = 0.3;
+      float waveCenter = 1.;
+      float waveFocus = 0.25;
+      float waveSpeed = 2.; //Lower faster.
+      
+      float wMin = waveCenter - waveFocus;
+      float wMax = waveCenter + waveFocus;
+      
+      //Smoothly extend on the x axis without stretching the noise
+      uv.x *= u_resolution.x/u_resolution.y;
+      uv.x += 1787.74328; //random starting seed
+      uv.y *= 2.;
+  
+      float rn = noise( vec2(uv.x, u_time / waveSpeed));
+      float ry = uv.y - rn;
+      float r = smoothstep(wMin, wMax, ry);
+      
+      float bn = noise( vec2(uv.x, u_time / waveSpeed - waveOffset));
+      float by = uv.y - bn;
+      float b = smoothstep(wMin, wMax, by);
+      
+      float gn = noise( vec2(uv.x, u_time / waveSpeed + waveOffset));
+      float gy = uv.y - gn;
+      float g = smoothstep(wMin, wMax, gy);
+      
+      //float a = (r + g + b) / 3.0;
+      
+      gl_FragColor = vec4(r, b, g, 1.0);
+    }
+  </script>
+
+</body>
+</html>
