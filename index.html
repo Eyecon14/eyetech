@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>EyeconTECH</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #1f1642;
+            color: #7a7297;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            margin-left: 20px;
+        }
+        .highlight {
+            background: linear-gradient(to right, #ff9900, #0000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-bg {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        nav {
+            margin-right: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            color: #ffcc00; /* Change color on hover */
+        }
+
+        .bb {
+            display: ;
+        }
+
+        .b {
+            display: ;
+        }
+      /*Image slider*/  
+.bttn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+
+  .container {
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background-color: white;
+    border-radius: 30px;
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    bottom: 0;
+    width: 99%;
+}
+
+.iconz {
+    position: absolute;
+    margin-top: -54px;
+    margin-left: 631px;
+    background-color: #fff;
+    border: 3rem;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.set1 {
+    width: 40px;
+    height: 40px;
+}
+
+.set2 {
+    width: 40px;
+    height: 40px;
+}
+
+.set3 {
+    width: 40px;
+    height: 40px;
+}
+
+
+.icon {
+    position: absolute;
+}
+
+
+        /* Style for the dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 20px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            width: 200px;
+        }
+
+        /* Style for the dropdown items */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color on hover */
+        .dropdown-content a:hover {
+            background-color: #bb8888;
+        }
+
+        /* Show the dropdown content when hovering over the dropdown */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .select label{
+            font-size: 20px;
+        }
+
+        .dropdown button{
+            margin-top: 5px;
+            border-radius: 1px;
+            margin-left: -10px;
+            border-radius: 30px;
+        }
+
+
+/* Media Query for Phones */
+@media screen and (max-width: 600px) {
+
+    .bb {
+        display: ;
+    }
+
+    .b {
+        display: none;
+    }
+
+    header {
+            background-color: #333;
+            color: #7a7297;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            margin-left: 20px;
+        }
+        .highlight {
+            background: linear-gradient(to right, #ff9900, #ccccdd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            margin-left: -90px;
+        }
+        .highlight-bg {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        nav {
+            margin-right: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            color: #ffcc00; /* Change color on hover */
+        }
+
+
+    .iconz {
+        position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    width: 30px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 10px;
+    margin-left: 310px;
+    margin-top: -290px;
+}
+
+
+    .set1 {
+        width: 28px;
+        height: 30px;
+    }
+
+    .set2 {
+        width: 28px;
+        height: 28px;
+    }
+
+    .set3 {
+        width: 30px;
+        height: 30px;
+    }
+
+
+          /*Image slider*/  
+.bttn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.slider-container {
+    text-align: center;
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.img1 {
+    display: flex;
+    width: 350px;
+    height: 100px;
+}
+
+.img2 {
+    display: flex;
+    width: 350px;
+    height: 100px;
+}
+.img3 {
+    display: flex;
+    width: 350px;
+    height: 100px;
+}
+
+        /* Style for the dropdown content */
+        .dropdown-content {
+            display: none;
+            position: relative;
+            background-color: #f9f9f9;
+            box-shadow: 20px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            width: 130px;
+        }
+
+        /* Style for the dropdown items */
+        .dropdown-content a {
+
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color on hover */
+        .dropdown-content a:hover {
+            background-color: #bb8888;
+        }
+
+        /* Show the dropdown content when hovering over the dropdown */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .select label{
+            font-size: 20px;
+        }
+
+        .dropdown button{
+            margin-top: 5px;
+            border-radius: 1px;
+            margin-left: -10px;
+            border-radius: 300px;
+        }
+
+        .drop {
+            width: 30px;
+            height: 40px;
+            border-radius: 3px;
+            position: absolute;
+            margin-top: -60px;
+            margin-left: -200px;
+        }
+
+    .community {
+    text-align: center;
+    margin-top: 450px;
+}
+
+.buttom {
+    color: black;
+    background-color: #130749;
+    border-radius: 15px;
+    text-align: center;
+}
+
+    .container {
+        display: none;
+    width: 180px;
+    height: 217px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 83%;
+    right: 70%;
+    transform: translate(50%, -50%);
+    background-color: white;
+    border-radius: 30px;
+    border: #0000ff;
+    border-style: groove;
+  }
+
+  
+  .search-container {
+    display: none;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 auto;
+  }
+
+  .search-input {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .search-button {
+    display: none;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .result-container {
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+  }
+
+  .moving-text {
+    animation: moveText 5s linear infinite;
+    margin-top: 0px;
+    margin-left: 70px;
+    margin-bottom: 40px;
+    
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+    header {
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+        text-align: center; /* Center text within header */
+    }
+    .logo {
+        margin: 10px 0; /* Add margin to top and bottom */
+    }
+    nav {
+        margin: 10px 0; /* Add margin to top and bottom */
+    }
+    .but1 {
+        margin-left: 220px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .but2 {
+        margin-left: 220px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .but3 {
+        margin-left: 220px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .but4 {
+        margin-left: 220px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .but5 {
+        margin-left: 220px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .but6 {
+        margin-left: 220px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+
+        /* Styles for PC screens */
+        @media screen and (min-width: 601px) {
+            /* Add specific styles for PC screens here */
+
+            .under {
+                display: none;
+    margin-left: 190px;
+    margin-bottom: -520px;
+}
+
+.bb {
+    display: none;
+}
+
+.b {
+    display: ;
+}
+
+            .moving-text {
+    animation: moveText 5s linear infinite;
+    margin-left: 590px;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+            .community {
+    text-align: center;
+    margin-top: 590px;
+}
+
+
+      /*Image slider*/  
+      .bttn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+.bttn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+.bttn {
+    position: absolute;
+    top: 65%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    margin-left: 1030px;
+    margin-top: -120px;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+
+
+.buttom {
+    color: black;
+    background-color: #130749;
+    border-radius: 15px;
+    text-align: center;
+}
+
+            .container {
+    width: 300px;
+    height: 250px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: absolute;
+    top: 57%;
+    right: 13%;
+    transform: translate(50%, -50%);
+    background-color: white;
+    border-radius: 30px;
+  }
+
+            .but1 {
+        margin-left: 50px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .but2 {
+        margin-left: -190px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .but3 {
+        margin-left: -190px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .but4 {
+        margin-left: 50px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .but5 {
+        margin-left: 290px;
+        margin-top: -370px;
+        text-align: center;
+        align-items: center;
+    }
+    .but6 {
+        margin-left: 290px;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+        }
+
+
+        .search-container {
+    max-width: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 auto;
+    margin-top: -445px;
+    margin-right: -0px;
+  }
+  
+
+  .search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    width: 70px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: -50px;
+    margin-left: 278px;
+  }
+
+  .result-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+  }
+
+  .community {
+    text-align: center;
+    margin-top: 500px;
+}
+
+.buttom {
+    color: black;
+    background-color: #130749;
+    border-radius: 15px;
+    text-align: center;
+    margin: 10px;
+}
+
+.moving-text {
+    animation: moveText 5s linear infinite;
+    
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+#social-icons {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.social-icon {
+    margin-bottom: 10px;
+}
+
+.social-icon img {
+    width: 30px; /* Adjust as needed */
+    height: auto;
+}
+
+                    /* Style for the dropdown menu */
+                    .dropdown {
+            position: absolute;
+            display: inline-block;
+            margin-left: 220px;
+            margin-top: -73px;
+        }
+
+        .moving-image {
+    position: relative; /* Ensure the image position is relative */
+    animation: moveImage 2s infinite alternate; /* Apply the animation */
+}
+
+@keyframes moveImage {
+    from {
+        transform: translateX(0); /* Start position */
+    }
+    to {
+        transform: translateX(200px); /* End position */
+    }
+}
+
+.img2{
+    width: 300;
+}
+
+
+    </style>
+</head>
+<body>
+    <section>
+    <header> 
+        <div class="logo">
+            <h1>
+                <div class="highlight-bg">
+                    <span class="highlight">Eyecon</span>TECH
+                </div>
+            </h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="bb">Contact</a></li>
+                <li><a href="contact.html" class="b">Contact</a></li>
+                <li><a href="trading.html">Products</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dropdown">
+        <button class="dropbtn"> <img src="ads/menu1.jpeg" alt="" class="drop" width="35px" height="25px"></button>
+        <div class="dropdown-content">
+            <a href="services.html">Services</a>
+            <a href="whatsapp.html">Need A Help!</a>
+            <a href="under-construction.html">Support Us</a>
+            <a href="other_sites.html">Other Sites</a>
+            <a href="eyecon.html">*Developer$*</a>
+        </div>
+</section>
+
+<div class="iconz">
+    <a href="#" ><img src="ads/settings2.jpeg" class="set1" alt="WhatsApp" width="70" height="57"></a>
+    <a href="#" ><img src="ads/noti1.jpeg" alt="Email" class="set2" width="50" height="50"></a>
+    <a href="#" ><img src="ads/feedback1.jpeg" alt="Instagram" class="set3" width="50" height="50"></a>
+</div>
+
+
+    <section>
+        <div class="moving-text">
+            <p>Welcome to EyeconTECH World!</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="but1">
+            <button>
+                <img src="learn/learn1.jpeg" alt="" width="110" height="100">
+                 <a href="learning.html">Open</a>
+            </button>
+        </div>
+
+        <div class="but2">
+            <button>
+                <img src="trade/lap.jpeg" alt="" width="110" height="100">
+                <a href="trading.html">Open</a>
+            </button>
+        </div>
+
+        <div class="but3">
+            <button>
+                <img src="soft/software.jpeg" alt="" width="110" height="100">
+                <a href="softwares.html">Open</a>
+            </button>
+        </div>
+
+        <div class="but4">
+            <button>
+                <img src="ads/website1.jpeg" alt="" width="110" height="100">
+                <a href="other_sites.html">Open</a>
+            </button>
+        </div>
+
+        <div class="but5">
+            <button>
+                <img src="ads/research1.jpeg" alt="" width="110" height="110">
+                <a href="dict.html">Open</a>
+            </button>
+        </div>
+
+        <div class="but6">
+            <button>
+                <img src="ads/advert1.jpeg" alt="" width="110" height="100">
+                <a href="advertising.html">Open</a>
+            </button>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h3><u><b>Mission Statement:</b></u></h3>
+                <p>EyeconTECH's mission is to empower individuals and businesses through innovative technology solutions.
+                     We strive to create cutting-edge software products that enhance productivity, improve efficiency,
+                      and simplify complex processes. By leveraging the latest advancements in coding and technology, we aim to make a positive
+                     impact on the lives of our users and contribute to the advancement of society as a whole.</p> 
+                
+                     <h3><u><b>Vision Statement:</b></u></h3>
+                Our vision at EyeconTECH is to be a leader in the software industry,
+                 recognized for our commitment to excellence, creativity, and customer satisfaction.
+                  We envision a future where our solutions are integral to everyday life,
+                   seamlessly integrating into various industries and transforming the way people work,
+                    communicate, and interact with technology. Through continuous learning, collaboration,
+                     and innovation, we aim to shape the future of technology and inspire the next generation of coders and innovators.
+                
+                <h3><u><b>Learning about Eyecon:</b></u></h3>
+                To learn more about EyeconTECH and their approach to coding, aspiring developers can explore their website,
+                 read about their projects and products, and study any available case studies or whitepapers. Additionally,
+                  following EyeconTECH on social media platforms and attending industry events where they may be presenting 
+                  can provide valuable insights into their coding practices, technology stack, and company culture. 
+                  Engaging with current and former employees through networking platforms like LinkedIn can also offer 
+                  firsthand perspectives on what it's like to work at EyeconTECH and the coding skills and knowledge they value.
+                
+                <h3><u><b>Learning code skills:</b></u></h3>
+                For individuals interested in coding, whether as a hobby or a career, 
+                there are numerous resources available to learn programming languages,
+                 software development methodologies, and best practices. Online learning platforms like Codecademy,
+                  Coursera, and Udemy offer courses on a wide range of programming languages such as Python, JavaScript, Java, and more.
+                   Additionally, free resources like the documentation and tutorials provided by language-specific 
+                   communities and open-source projects can be invaluable for learning practical coding skills. Hands-on practice
+                    through personal projects, coding challenges, and contributions to open-source projects can further solidify 
+                    understanding and proficiency in coding.</li>
+        </div>
+    </section>
+
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="search-button" onclick="showResult()">SRH</button>
+        <div class="result-container" id="resultContainer"></div>
+      </div>
+
+      <section class="community">
+        <ul>Become a member of EyeconTECH Community</ul>
+        <a href="www.html" class="btn">Join Now!!!</a>
+    </section>
+
+    <!--Image slider-->
+    <div class="slider-container">
+        <div class="slider">
+            <a href="phones.html" class="img1"><img src="trade/phones2.jpeg" alt="Image 1" width="350" height="200"></a>
+            <a href="laptops.html" class="img2"><img src="trade/lap30.jpeg" alt="Image 2" width="350" height="200"></a>
+            <a href="https://chat.whatsapp.com/GCE1Wem8mWa8VEKO8zXKqr" class="img3"><img src="ads/commnity1.jpeg" alt="Image 3" width="350" height="200"></a>
+            <!-- Add more images as needed -->
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <div id="social-icons">
+        <a href="https://wa.me/+233507326886" class="social-icon" id="whatsapp"><img src="ads/whatsapp1.jpeg" alt="WhatsApp"></a>
+        <a href="mailto:eyecongh14@gmail.com" class="social-icon" id="email"><img src="ads/email.jpeg" alt="Email"></a>
+        <a href="https://instagram.com/eyecon.gh" class="social-icon" id="instagram"><img src="ads/instagram.jpeg" alt="Instagram"></a>
+        <a href="https://telegram.com/@EyeconTECH" class="social-icon" id="twitter"><img src="ads/tele.jpeg" alt="Twitter"></a>
+        <a href="https://tiktok.com/@eyecontech" class="social-icon" id="tiktok"><img src="ads/tiktok.jpeg" alt="TikTok"></a>
+        <a href="https://facebook.com/eyecon GH" class="social-icon" id="facebook"><img src="ads/face2.jpeg" alt="Facebook"></a>
+    </div>
+    
+
+    <section class="buttom">
+        <nav>
+            <ul>
+                <li><a href="other_sites.html">Other Sites</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="whatsapp.html">Real-time Chat</a></li>
+                <li><a href="advertising.html">Advertising</a></li>
+                <li><a href="eyecon.html">About the developer</a></li>
+            </ul>
+        </nav>
+    </section>
+
+
+
+    <footer>
+        <p>&copy; 2024 EyeconTECH World. All rights reserved.</p>
+    </footer>
+      
+      <script>
+
+let slideIndex = 0;
+showSlide(slideIndex);
+
+// Set the interval for automatic slide change
+let slideInterval = setInterval(() => {
+    changeSlide(1); // Move to the next slide every 3 seconds
+}, 3000);
+
+function changeSlide(n) {
+    showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+    let slides = document.getElementsByClassName("slider")[0].getElementsByTagName("img");
+    
+    if (n >= slides.length) {slideIndex = 0}
+    if (n < 0) {slideIndex = slides.length - 1}
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    
+    slides[slideIndex].style.display = "block";
+}
+
+// Function to pause the automatic slide change on mouseover
+function pauseSlide() {
+    clearInterval(slideInterval);
+}
+
+// Function to resume the automatic slide change on mouseout
+function resumeSlide() {
+    slideInterval = setInterval(() => {
+        changeSlide(1);
+    }, 3000);
+}
+
+
+        function showResult() {
+          const resultContainer = document.getElementById('resultContainer');
+          resultContainer.innerHTML = '<p>{EyeconBOT: Hi please, it seems you are looking for something here. Kindly get in touch with my boss on +233-533-420-206}</p>';
+        }
+      </script>
+    
+
+</body>
+</html>
