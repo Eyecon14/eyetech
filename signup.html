@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+    <title>EyeconTECH</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -28,7 +28,7 @@
     .contact-form {
         flex: 1;
         padding: 20px;
-        margin: 20px;
+        margin: 10px;
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -54,7 +54,7 @@
     
     .contact-container {
         --light-color: #fff;
-        height: 405px;
+        height: 535px;
         width: 904px;
         background: var(--light-color);
         position: fixed;
@@ -198,7 +198,7 @@ flex-direction: column;
 
 .contact-container {
 --light-color: #fff;
-height: 370px;
+height: 480px;
 width: 304px;
 background: var(--light-color);
 position: fixed;
@@ -258,11 +258,11 @@ color: #a9a9a9;
 display: flex;
 align-items: center;
 padding: 11px 5px;
-font-size: 20px;
+font-size: 22px;
 color: #fff;
 gap: 14px;
 border: none;
-border-radius: 18px;
+border-radius: 15px;
 background: linear-gradient(270deg,#ff994f,#fa6d86);
 cursor: pointer;
 }
@@ -331,13 +331,15 @@ height: 25px;
 <div class="contact-container">
     <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
         <div class="contact-left-title">
-            <h2>Register For The Course</h2>
+            <h2>Trade With Confidence</h2>
             <hr>
         </div>
         <input type="hidden" name="access_key" value="32f2745b-fa77-4668-8e3e-45105a8205cd">
         <input type="text" name="name" placeholder="Enter your name here..." class="contact-inputs" required>
+        <input type="text" name="name" placeholder="Enter your contact here..." class="contact-inputs" required>
+        <input type="text" name="name" placeholder="Enter your location here..." class="contact-inputs" required>
         <input type="email" name="email" placeholder="example@gmail.com" class="contact-inputs" required>
-        <textarea name="message" placeholder="Course name here..." class="contact-inputs" required></textarea>
+        <textarea name="message" placeholder="Please are you in to sell or to buy?" class="contact-inputs" required></textarea>
         <button type="submit">Submit <img src="images/send.png" alt=""></button>
     </form>
     </div>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">  
+        <title>Typing Speed Test App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="./style.css">
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #2C3A47;
+}
+
+::selection {
+    color: #fff;
+    background: #4CAF50;
+}
+
+.wrapper {
+    text-align: center;
+    width: 770px;
+    padding: 35px;
+    background: #F4F4F4;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .input-field {
+    opacity: 0;
+    z-index: -999;
+    position: absolute;
+}
+
+.wrapper .content-box {
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #E0E0E0;
+}
+
+.content-box .typing-text {
+    overflow: hidden;
+    max-height: 256px;
+}
+
+.typing-text::-webkit-scrollbar {
+    width: 0;
+}
+
+.typing-text p {
+    font-size: 18px;
+    text-align: justify;
+    letter-spacing: 1px;
+    word-break: break-all;
+    color: #333;
+}
+
+.typing-text p span {
+    position: relative;
+}
+
+.typing-text p span.correct {
+    color: #4CAF50;
+}
+
+.typing-text p span.incorrect {
+    color: #FF5722;
+}
+
+.typing-text p span.active {
+    color: #3498DB;
+}
+
+.typing-text p span.active::before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    border-radius: 5px;
+    background: #3498DB;
+    animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 1;
+    }
+}
+
+.content-box .content {
+    margin-top: 17px;
+    display: flex;
+    padding: 12px 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #E0E0E0;
+}
+
+.content button {
+    outline: none;
+    border: none;
+    width: 105px;
+    color: #fff;
+    padding: 8px 0;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #3498DB;
+    transition: transform 0.3s ease;
+}
+
+.content button:active {
+    transform: scale(0.97);
+}
+
+.content .result-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: calc(100% - 140px);
+    justify-content: space-between;
+}
+
+.result-details li {
+    display: flex;
+    height: 20px;
+    list-style: none;
+    position: relative;
+    align-items: center;
+}
+
+.result-details li:not(:first-child) {
+    padding-left: 22px;
+    border-left: 1px solid #E0E0E0;
+}
+
+.result-details li p {
+    font-size: 18px;
+}
+
+.result-details li span {
+    display: block;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+li span b {
+    font-weight: 500;
+}
+
+li:not(:first-child) span {
+    font-weight: 500;
+}
+
+@media (max-width: 745px) {
+    .wrapper {
+        padding: 20px;
+    }
+
+    .content-box {
+        text-align: center;
+    }
+
+    .content-box .content {
+        padding: 20px 0;
+    }
+
+    .content-box .typing-text {
+        max-height: 100%;
+    }
+
+    .typing-text p {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .content button {
+        width: 100%;
+        font-size: 15px;
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+
+    .content .result-details {
+        width: 100%;
+    }
+
+    .result-details li:not(:first-child) {
+        border-left: 0;
+        padding: 0;
+    }
+
+    .result-details li p,
+    .result-details li span {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 518px) {
+    .wrapper .content-box {
+        padding: 10px 15px 0;
+    }
+
+    .typing-text p {
+        font-size: 16px;
+    }
+
+    .result-details li {
+        margin-bottom: 10px;
+    }
+
+    .content button {
+        margin-top: 10px;
+    }
+}
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <input type="text" class="input-field">
+            <div class="content-box">
+                <h1 style="color: #333;">Typing Speed Test App</h1> 
+                <div class="content">
+                    <ul class="result-details">
+                        <li class="time">
+                            <p style="color: #333;">Time Left:</p> 
+                            <span><b>60</b>s</span>
+                        </li>
+                        <li class="mistake">
+                            <p style="color: #333;">Mistakes:</p>
+                            <span>0</span>
+                        </li>
+                        <li class="wpm">
+                            <p style="color: #333;">WPM:</p>
+                            <span>0</span>
+                        </li>
+                        <li class="cpm">
+                            <p style="color: #333;">CPM:</p> 
+                            <span>0</span>
+                        </li>
+                    </ul>
+                    <button style="background: #4CAF50;">Try Again</button>
+                </div>
+                <div class="typing-text">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script>
+            const paragraphs = [
+    "Once upon a time, in a quaint village nestled between lush green hills, there lived a young girl named Lily. Lily was known for her adventurous spirit and her insatiable curiosity. One sunny afternoon, while exploring the attic of her old family house, Lily stumbled upon a dusty, forgotten map tucked away in a forgotten corner.",
+    "The map depicted intricate drawings of landmarks and symbols that seemed to lead to a mysterious treasure hidden deep within the forest. Excitement bubbled within Lily's heart as she realized she had stumbled upon a secret adventure waiting to unfold. With determination in her eyes, Lily decided to embark on a journey to uncover the hidden treasure. Equipped with the map and a sense of adventure, she ventured into the dense forest, braving through thickets and crossing babbling brooks.",
+    "As the sun began to set, casting long shadows across the forest floor, Lily finally reached the spot marked on the map. With trembling hands, she began to dig beneath an old oak tree, following the clues on the map. And there, buried beneath the earth, she found it - a chest filled with sparkling jewels and ancient artifacts. Overwhelmed with joy, Lily realized that the true treasure lay not in the riches she had uncovered, but in the adventure itself and the memories she had created along the way. With a heart full of gratitude, Lily returned to her village, eager to share her tale of discovery with her friends and family.",
+    "From that day forth, Lily's village was filled with stories of her bravery and her adventurous spirit, inspiring others to seek out their own hidden treasures, whether they be found in the depths of the forest or within the depths of their own hearts. And as the years passed, the legend of Lily and the forgotten treasure became a cherished tale passed down from generation to generation, reminding all who heard it of the magic that lies waiting to be discovered in the world around them."
+];
+
+        </script>
+        <script>
+            const typingText = document.querySelector(".typing-text p"),
+inpField = document.querySelector(".wrapper .input-field"),
+tryAgainBtn = document.querySelector(".content button"),
+timeTag = document.querySelector(".time span b"),
+mistakeTag = document.querySelector(".mistake span"),
+wpmTag = document.querySelector(".wpm span"),
+cpmTag = document.querySelector(".cpm span");
+
+let timer,
+maxTime = 60,
+timeLeft = maxTime,
+charIndex = mistakes = isTyping = 0;
+
+function loadParagraph() {
+    const ranIndex = Math.floor(Math.random() * paragraphs.length);
+    typingText.innerHTML = "";
+    paragraphs[ranIndex].split("").forEach(char => {
+        let span = `<span>${char}</span>`
+        typingText.innerHTML += span;
+    });
+    typingText.querySelectorAll("span")[0].classList.add("active");
+    document.addEventListener("keydown", () => inpField.focus());
+    typingText.addEventListener("click", () => inpField.focus());
+}
+
+function initTyping() {
+    let characters = typingText.querySelectorAll("span");
+    let typedChar = inpField.value.split("")[charIndex];
+    if(charIndex < characters.length - 1 && timeLeft > 0) {
+        if(!isTyping) {
+            timer = setInterval(initTimer, 1000);
+            isTyping = true;
+        }
+        if(typedChar == null) {
+            if(charIndex > 0) {
+                charIndex--;
+                if(characters[charIndex].classList.contains("incorrect")) {
+                    mistakes--;
+                }
+                characters[charIndex].classList.remove("correct", "incorrect");
+            }
+        } else {
+            if(characters[charIndex].innerText == typedChar) {
+                characters[charIndex].classList.add("correct");
+            } else {
+                mistakes++;
+                characters[charIndex].classList.add("incorrect");
+            }
+            charIndex++;
+        }
+        characters.forEach(span => span.classList.remove("active"));
+        characters[charIndex].classList.add("active");
+
+        let wpm = Math.round(((charIndex - mistakes)  / 5) / (maxTime - timeLeft) * 60);
+        wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
+        
+        wpmTag.innerText = wpm;
+        mistakeTag.innerText = mistakes;
+        cpmTag.innerText = charIndex - mistakes;
+    } else {
+        clearInterval(timer);
+        inpField.value = "";
+    }   
+}
+
+function initTimer() {
+    if(timeLeft > 0) {
+        timeLeft--;
+        timeTag.innerText = timeLeft;
+        let wpm = Math.round(((charIndex - mistakes)  / 5) / (maxTime - timeLeft) * 60);
+        wpmTag.innerText = wpm;
+    } else {
+        clearInterval(timer);
+    }
+}
+
+function resetGame() {
+    loadParagraph();
+    clearInterval(timer);
+    timeLeft = maxTime;
+    charIndex = mistakes = isTyping = 0;
+    inpField.value = "";
+    timeTag.innerText = timeLeft;
+    wpmTag.innerText = 0;
+    mistakeTag.innerText = 0;
+    cpmTag.innerText = 0;
+}
+
+loadParagraph();
+inpField.addEventListener("input", initTyping);
+tryAgainBtn.addEventListener("click", resetGame);
+        </script>
+    </body>
+</html>

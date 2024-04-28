@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 40px);
+      gap: 2px;
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      background-color: #bbb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .cell:hover {
+      background-color: #ddd;
+    }
+
+    .mine {
+      background-color: red;
+      color: white;
+    }
+
+    .start-button {
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button class="start-button" id="startButton">Start Game</button>
+  <div class="grid" id="grid" style="display: none;"></div>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const startButton = document.getElementById('startButton');
+    const gridSize = 5;
+    const totalCells = gridSize * gridSize;
+    const totalMines = 3;
+    let mineLocations = [];
+
+    // Create the grid
+    for (let i = 0; i < totalCells; i++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cell.dataset.index = i;
+      grid.appendChild(cell);
+    }
+
+    // Handle start game button click
+    startButton.addEventListener('click', startGame);
+
+    // Start the game
+    function startGame() {
+      startButton.style.display = 'none';
+      grid.style.display = 'grid';
+      startCountdown();
+      placeMines();
+    }
+
+    // Place mines randomly
+    function placeMines() {
+      mineLocations = [];
+      for (let i = 0; i < totalMines; i++) {
+        let randomIndex;
+        do {
+          randomIndex = Math.floor(Math.random() * totalCells);
+        } while (mineLocations.includes(randomIndex));
+        mineLocations.push(randomIndex);
+      }
+    }
+
+    // Start countdown
+    function startCountdown() {
+      let seconds = 30;
+      const countdownInterval = setInterval(() => {
+        startButton.textContent = `Starting in ${seconds} seconds`;
+        seconds--;
+        if (seconds < 0) {
+          clearInterval(countdownInterval);
+          startButton.style.display = 'none';
+          startButton.textContent = 'Start Game';
+          revealGrid();
+        }
+      }, 1000);
+    }
+
+    // Reveal the grid after countdown
+    function revealGrid() {
+      grid.style.display = 'grid';
+    }
+
+    // Handle cell click
+    grid.addEventListener('click', function(event) {
+      const clickedCell = event.target;
+      const index = parseInt(clickedCell.dataset.index);
+
+      // Check if clicked cell is a mine
+      if (mineLocations.includes(index)) {
+        clickedCell.classList.add('mine');
+        revealMines();
+        setTimeout(() => {
+          gameOver();
+        }, 500);
+      } else {
+        // Calculate adjacent mine count
+        const adjacentMines = countAdjacentMines(index);
+        if (adjacentMines > 0) {
+          clickedCell.textContent = adjacentMines;
+        } else {
+          // If no adjacent mines, reveal neighboring cells
+          revealEmptyCells(index);
+        }
+      }
+    });
+
+    // Count adjacent mines
+    function countAdjacentMines(index) {
+      let count = 0;
+      const neighbors = [-gridSize - 1, -gridSize, -gridSize + 1, -1, 1, gridSize - 1, gridSize, gridSize + 1];
+      neighbors.forEach(offset => {
+        const neighborIndex = index + offset;
+        if (isValidCell(neighborIndex) && mineLocations.includes(neighborIndex)) {
+          count++;
+        }
+      });
+      return count;
+    }
+
+    // Reveal empty cells recursively
+    function revealEmptyCells(index) {
+      const cell = grid.children[index];
+      if (!cell || cell.classList.contains('revealed')) return;
+      cell.classList.add('revealed');
+
+      const adjacentMines = countAdjacentMines(index);
+      if (adjacentMines > 0) {
+        cell.textContent = adjacentMines;
+      } else {
+        const neighbors = [-gridSize - 1, -gridSize, -gridSize + 1, -1, 1, gridSize - 1, gridSize, gridSize + 1];
+        neighbors.forEach(offset => {
+          const neighborIndex = index + offset;
+          if (isValidCell(neighborIndex)) {
+            revealEmptyCells(neighborIndex);
+          }
+        });
+      }
+    }
+
+    // Check if cell index is valid
+    function isValidCell(index) {
+      return index >= 0 && index < totalCells;
+    }
+
+    // Reveal all mines
+    function revealMines() {
+      mineLocations.forEach(mineIndex => {
+        const mineCell = grid.children[mineIndex];
+        mineCell.classList.add('mine');
+      });
+    }
+
+    // Game over
+    function gameOver() {
+      setTimeout(() => {
+        const choice = confirm('Game Over! Do you want to start again?');
+        if (choice) {
+          location.reload(); // Start again
+        } else {
+          window.location.href = 'games.html'; // Quit game
+        }
+      }, 500);
+    }
+  </script>
+</body>
+</html>

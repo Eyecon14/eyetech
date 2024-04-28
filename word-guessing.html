@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 70%;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #message {
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Word Guessing Game</h1>
+  <p>["apple", "banana", "orange", "grape", "kiwi"]</p>
+  <p>Guess the word: <span id="word"></span></p>
+  <p>Remaining guesses: <span id="guesses"></span></p>
+  <input type="text" id="guessInput" placeholder="Enter your guess">
+  <button onclick="checkGuess()">Guess</button>
+  <p id="message"></p>
+  <p id="timer">Time remaining: <span id="countdown">30</span> seconds</p>
+</div>
+
+<script>
+  // Array of words to guess
+  const words = ["apple", "banana", "orange", "grape", "kiwi"];
+
+  // Choose a random word from the array
+  let randomIndex = Math.floor(Math.random() * words.length);
+  let chosenWord = words[randomIndex];
+
+  // Initialize variables
+  let remainingGuesses = 5;
+  let guessedLetters = [];
+  let wordDisplay = [];
+
+  // Initialize word display
+  for (let i = 0; i < chosenWord.length; i++) {
+    wordDisplay.push("_");
+  }
+
+  // Update HTML elements with initial values
+  document.getElementById("word").innerText = wordDisplay.join(" ");
+  document.getElementById("guesses").innerText = remainingGuesses;
+
+  // Start countdown timer
+  let timeLeft = 30;
+  let countdown = setInterval(function() {
+    timeLeft--;
+    document.getElementById("countdown").innerText = timeLeft;
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      endGame();
+    }
+  }, 1000);
+
+  // Function to check the guessed letter
+  function checkGuess() {
+    let guess = document.getElementById("guessInput").value.toLowerCase();
+
+    // Check if the letter has already been guessed
+    if (guessedLetters.includes(guess)) {
+      document.getElementById("message").innerText = "You've already guessed that letter!";
+      return;
+    }
+
+    // Add the letter to the guessed letters array
+    guessedLetters.push(guess);
+
+    // Check if the guessed letter is in the word
+    if (chosenWord.includes(guess)) {
+      // Update the word display with the guessed letter
+      for (let i = 0; i < chosenWord.length; i++) {
+        if (chosenWord[i] === guess) {
+          wordDisplay[i] = guess;
+        }
+      }
+      document.getElementById("word").innerText = wordDisplay.join(" ");
+    } else {
+      remainingGuesses--;
+      document.getElementById("guesses").innerText = remainingGuesses;
+    }
+
+    // Check if the game is won or lost
+    if (wordDisplay.join("") === chosenWord) {
+      endGame();
+    } else if (remainingGuesses === 0) {
+      endGame();
+    }
+
+    // Clear the guess input field
+    document.getElementById("guessInput").value = "";
+  }
+
+  // Function to end the game
+  function endGame() {
+    clearInterval(countdown);
+    document.getElementById("timer").style.display = "none";
+    let score = remainingGuesses * 10;
+    document.getElementById("message").innerText = "Game Over! Your score: " + score;
+    document.getElementById("guessInput").setAttribute("disabled", "disabled");
+
+    // Display options to play again or quit
+    let playAgainButton = document.createElement("button");
+    playAgainButton.textContent = "Play Again";
+    playAgainButton.onclick = function() {
+      location.reload();
+    };
+
+    let quitButton = document.createElement("button");
+    quitButton.textContent = "Quit Game";
+    quitButton.onclick = function() {
+      window.close();
+    };
+
+    document.body.appendChild(playAgainButton);
+    document.body.appendChild(quitButton);
+  }
+</script>
+
+</body>
+</html>

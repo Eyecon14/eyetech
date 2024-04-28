@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    .game-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .game {
+      margin: 20px;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .game:hover {
+      transform: translateY(-5px);
+    }
+    .game img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .game h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .game p {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Choose a Game to Play</h1>
+  
+  <div class="game-container">
+    <!-- Game 1 -->
+    <div class="game" onclick="window.location.href='snake.html';">
+      <img src="games/OIP (4).jpeg" alt="Game 1">
+      <h2>Snake Game</h2>
+      <p>Try To Get The Highest Score!</p>
+    </div>
+
+    <!-- Game 2 -->
+    <div class="game" onclick="window.location.href='newsweeper.html';">
+      <img src="games/OIP (5).jpeg" alt="Game 2">
+      <h2>Minesweeper</h2>
+      <p>Choose Carefully!</p>
+    </div>
+
+              <!-- Game 2 -->
+    <div class="game" onclick="window.location.href='puzzle.html';">
+        <img src="games/OIP (7).jpeg" alt="Game 2">
+        <h2>Numbers Puzzle</h2>
+        <p>Arrange The Numbers!</p>
+      </div>
+
+                    <!-- Game 2 -->
+    <div class="game" onclick="window.location.href='mental.html';">
+        <img src="games/OIP (2).jpeg" alt="Game 2">
+        <h2>Align The Colors</h2>
+        <p>Click To Reveal The Color.</p>
+      </div>
+
+          <!-- Game 2 -->
+    <div class="game" onclick="window.location.href='word-guessing.html';">
+        <img src="games/OIF.jpeg" alt="Game 2">
+        <h2>Guess The Word</h2>
+        <p>Very Difficult Game. Try it Out!</p>
+      </div>
+    <!-- Add more games as needed -->
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Guessing Game</title>
+
+<style>
+    .contact-container {
+        margin: 0 auto;
+        max-width: 500px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-left-title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .contact-left-title h2 {
+        font-size: 24px;
+        color: #333;
+    }
+    
+    .contact-left-title hr {
+        width: 50px;
+        height: 2px;
+        background-color: #333;
+        border: none;
+        margin: 10px auto;
+    }
+    
+    .contact-inputs {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    .contact-inputs:focus {
+        outline: none;
+        border-color: #4CAF50;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    
+    /* Additional Styles for Payment Plan Dropdown */
+    .contact-inputs.payment-plan {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    /* Media Query for Responsive Design */
+    @media (max-width: 600px) {
+        .contact-container {
+            max-width: 90%;
+        }
+    }
+    
+</style>
+
+<div class="contact-container">
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+        <div class="contact-left-title">
+            <h2>Registration Form</h2>
+            <hr>
+        </div>
+        <input type="hidden" name="access_key" value="32f2745b-fa77-4668-8e3e-45105a8205cd">
+        <input type="text" name="full_name" placeholder="Name Of The Student" class="contact-inputs" required>
+        <input type="email" name="email" placeholder="Student's Email" class="contact-inputs" required>
+        <input type="date" name="Date of birth" placeholder="Date of birth" class="contact-inputs" required>
+        <input type="text" name="region" placeholder="Region" class="contact-inputs" required>
+        <input type="text" name="district" placeholder="District" class="contact-inputs" required>
+        <input type="text" name="school" placeholder="School" class="contact-inputs" required>
+        <input type="text" name="guidance_name" placeholder="Guidance name" class="contact-inputs" required>
+        <input type="tel" name="guidance_contact" placeholder="Guidance contact" class="contact-inputs" required>
+        <input type="tel" name="whatsapp_number" placeholder="Student's Whatsapp number" class="contact-inputs" required>
+        <input type="tel" name="telephone_number" placeholder="Student's telephone number" class="contact-inputs" required>
+
+        <p>
+            Rgistration fee = GHC 20.00 <br>
+            Procesing fee = GHC 2.00 <br>
+            Other Charges = GHC 3.00 <br>
+            <b>Amount Payable: GHC 25.00</b>
+        </p>
+        <label for="payment_plan">Choose your payment plan or method:</label>
+        <select name="payment_plan" id="payment_plan" class="contact-inputs" required>
+            <option value="">Select...</option>
+            <option value="A">Bank Account</option>
+            <option value="B">Credit/Debit Card</option>
+            <option value="C">Mobile Money</option>
+            <option value="D">Other</option>
+        </select>
+        <button type="print" id="print-button">Print or Download</button> <br> <br>
+        <button type="submit">Submit <img src="images/send.png" alt=""></button>
+
+    </form>
+
+</div>
+
+<script>
+    document.getElementById("print-button").addEventListener("click", function() {
+        window.print();
+    });
+</script>
+</body>
+</html>

@@ -38,6 +38,89 @@
     .publisher {
         color: #666;
     }
+
+    .image-button img {
+        width: 80px; /* Adjust width for phones */
+        height: 80px; /* Adjust height for phones */
+    }
+    
+    .image-button {
+        border: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+        margin-left: 265px;
+        margin-top: 75px;
+    }
+    
+    .image-button img {
+        width: 80px; /* Adjust width as needed */
+        height: 80px; /* Adjust height as needed */
+        border-radius: 50%;
+        overflow: hidden;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+    
+    .image-button:hover img {
+        transform: scale(1.1); /* Adjust scale factor as needed */
+    }
+    
+    /* For screens larger than 768px (PC and laptop screens) */
+    @media only screen and (min-width: 769px) {
+    /* CSS styles for larger screens */
+            /* CSS for Image Button */
+            .image-button {
+                position: fixed;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                margin-left: 1250px;
+                margin-top: 10px;
+            }
+            
+            .image-button img {
+                width: 80px; /* Adjust width as needed */
+                height: 80px; /* Adjust height as needed */
+                border-radius: 50%;
+                overflow: hidden;
+                object-fit: cover;
+                transition: transform 0.3s;
+            }
+            
+            .image-button:hover img {
+                transform: scale(1.1); /* Adjust scale factor as needed */
+            }
+        } 
+
+        .book-item {
+            color: #333;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+          }
+        
+          .book-title {
+            font-weight: bold;
+            color: #007bff; /* Blue */
+          }
+        
+          .publisher {
+            color: #28a745; /* Green */
+          }
+        
+          .telephone {
+            color: #dc3545; /* Red */
+          }
+        
+          .email {
+            color: #ffc107; /* Yellow */
+          }
+        
+          .location {
+            color: #6610f2; /* Purple */
+          }
 </style>
 </head>
 <body>
@@ -45,18 +128,46 @@
 <div class="container">
     <h1>Recommended Books</h1>
     <ul class="book-list">
-        <li class="book-item">
-            <span class="book-title">Book 1</span> - <span class="publisher">Publisher 1</span>
-        </li>
-        <li class="book-item">
-            <span class="book-title">Book 2</span> - <span class="publisher">Publisher 2</span>
-        </li>
-        <li class="book-item">
-            <span class="book-title">Book 3</span> - <span class="publisher">Publisher 3</span>
-        </li>
-        <!-- Add more books and publishers as needed -->
+          <ul>
+            <li class="book-item">
+                <span class="book-title">English Language</span> - <span class="publisher">Publisher 1</span> - <span class="telephone">1234567890</span> - <span class="email">publisher1@example.com</span> - <span class="location">Location 1</span>
+            </li>
+            <li class="book-item">
+                <span class="book-title">Computing</span> - <span class="publisher">Publisher 2</span> - <span class="telephone">0987654321</span> - <span class="email">publisher2@example.com</span> - <span class="location">Location 2</span>
+            </li>
+            <li class="book-item">
+                <span class="book-title">Mathematics</span> - <span class="publisher">Publisher 3</span> - <span class="telephone">5551234567</span> - <span class="email">publisher3@example.com</span> - <span class="location">Location 3</span>
+            </li>
+            <li class="book-item">
+                <span class="book-title">Science</span> - <span class="publisher">Publisher 1</span> - <span class="telephone">7778889999</span> - <span class="email">publisher1@example.com</span> - <span class="location">Location 1</span>
+            </li>
+            <li class="book-item">
+                <span class="book-title">French Language</span> - <span class="publisher">Publisher 2</span> - <span class="telephone">1112223333</span> - <span class="email">publisher2@example.com</span> - <span class="location">Location 2</span>
+            </li>
+            <li class="book-item">
+                <span class="book-title">Ghanaian Lang.</span> - <span class="publisher">Publisher 3</span> - <span class="telephone">4445556666</span> - <span class="email">publisher3@example.com</span> - <span class="location">Location 3</span>
+            </li>
+            <li class="book-item">
+                <span class="book-title">R.M.E</span> - <span class="publisher">Publisher 1</span> - <span class="telephone">6667778888</span> - <span class="email">publisher1@example.com</span> - <span class="location">Location 1</span>
+            </li>
+            <li class="book-item">
+                <span class="book-title">O.W.O.P</span> - <span class="publisher">Publisher 2</span> - <span class="telephone">9990001111</span> - <span class="email">publisher2@example.com</span> - <span class="location">Location 2</span>
+            </li>
+            <li class="book-item">
+                <span class="book-title">History</span> - <span class="publisher">Publisher 3</span> - <span class="telephone">2223334444</span> - <span class="email">publisher3@example.com</span> - <span class="location">Location 3</span>
+            </li>
+          </ul>
+          
     </ul>
 </div>
+
+<!-- Circular Images -->
+<div class="circular-img">
+    <a href="whatsapp.html" target="_blank">
+        <button class="image-button">
+            <img src="ads/speech.webp" alt="Your Other Website">
+        </button>
+    </a>
 
 </body>
 </html>

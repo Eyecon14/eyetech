@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #2c3e50; /* Dark blue */
+    }
+
+    canvas {
+      display: block;
+      margin: auto;
+      background-color: #34495e; /* Light blue */
+      border: 4px solid #2980b9; /* Border color */
+      border-radius: 10px; /* Rounded corners */
+      width: 100%;
+      max-width: 400px; /* Adjust as needed */
+      height: auto;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .control-button {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #2980b9; /* Darker blue */
+      color: #fff; /* White text */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .score {
+      color: #fff; /* White text */
+      font-size: 20px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+  
+  <div class="controls">
+    <button class="control-button" id="upButton">Up</button>
+    <br>
+    <button class="control-button" id="leftButton">Left</button>
+    <button class="control-button" id="rightButton">Right</button>
+    <br>
+    <button class="control-button" id="downButton">Down</button>
+  </div>
+
+  <div class="score" id="scoreDisplay"></div>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+
+    // Define the size of each cell and the number of cells
+    const CELL_SIZE = 20;
+    const CELL_COUNT_X = canvas.width / CELL_SIZE;
+    const CELL_COUNT_Y = canvas.height / CELL_SIZE;
+
+    // Initialize the snake position and direction
+    let snake = [{ x: 10, y: 10 }];
+    let direction = { x: 1, y: 0 };
+
+    // Initialize the food position and score
+    let food = { x: Math.floor(Math.random() * CELL_COUNT_X), y: Math.floor(Math.random() * CELL_COUNT_Y) };
+    let score = 0;
+
+    // Game loop
+    function gameLoop() {
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Move the snake
+      let head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+      snake.unshift(head);
+
+      // Check if the snake ate the food
+      if (head.x === food.x && head.y === food.y) {
+        // Generate new food position
+        food = { x: Math.floor(Math.random() * CELL_COUNT_X), y: Math.floor(Math.random() * CELL_COUNT_Y) };
+        score += 10; // Increment score
+      } else {
+        // Remove the tail
+        snake.pop();
+      }
+
+      // Draw the snake
+      ctx.fillStyle = "#2ecc71"; // Green
+      snake.forEach(segment => {
+        ctx.fillRect(segment.x * CELL_SIZE, segment.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+      });
+
+      // Draw the food
+      ctx.fillStyle = "#e74c3c"; // Red
+      ctx.fillRect(food.x * CELL_SIZE, food.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+
+      // Draw the score
+      ctx.fillStyle = "#fff"; // White
+      ctx.font = "20px Arial";
+      ctx.fillText("Score: " + score, 10, 30);
+
+      // Check for collision with walls
+      if (head.x < 0 || head.x >= CELL_COUNT_X || head.y < 0 || head.y >= CELL_COUNT_Y) {
+        endGame();
+        return;
+      }
+
+      // Check for collision with itself
+      for (let i = 1; i < snake.length; i++) {
+        if (head.x === snake[i].x && head.y === snake[i].y) {
+          endGame();
+          return;
+        }
+      }
+
+      // Call the game loop again
+      setTimeout(gameLoop, 100);
+    }
+
+    // Start the game loop
+    gameLoop();
+
+    // Function to handle key presses
+    document.addEventListener("keydown", event => {
+      if (event.key === "ArrowUp" && direction.y !== 1) {
+        direction = { x: 0, y: -1 };
+      } else if (event.key === "ArrowDown" && direction.y !== -1) {
+        direction = { x: 0, y: 1 };
+      } else if (event.key === "ArrowLeft" && direction.x !== 1) {
+        direction = { x: -1, y: 0 };
+      } else if (event.key === "ArrowRight" && direction.x !== -1) {
+        direction = { x: 1, y: 0 };
+      }
+    });
+
+    // Function to handle touch events for controls
+    function handleControlTouch(directionX, directionY) {
+      return function() {
+        if (direction.x !== -directionX || direction.y !== -directionY) {
+          direction = { x: directionX, y: directionY };
+        }
+      };
+    }
+
+    // Assign touch event handlers to control buttons
+    document.getElementById("upButton").addEventListener("click", handleControlTouch(0, -1));
+    document.getElementById("leftButton").addEventListener("click", handleControlTouch(-1, 0));
+    document.getElementById("rightButton").addEventListener("click", handleControlTouch(1, 0));
+    document.getElementById("downButton").addEventListener("click", handleControlTouch(0, 1));
+
+    // Function to end the game
+    function endGame() {
+      const choice = confirm("Game Over! Your score: " + score + "\n\nDo you want to start again?");
+      if (choice) {
+        location.reload(); // Reload the page to restart the game
+      } else {
+        window.location.href = "games.html"; // Redirect to games.html
+      }
+    }
+  </script>
+</body>
+</html>

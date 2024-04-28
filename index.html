@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>EyeconTECH</title>
     <style>
@@ -190,9 +191,449 @@
             border-radius: 30px;
         }
 
+            /* Add this CSS for better section */
+            .better {
+                position: absolute;
+                top: 720px;
+                left: 35%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            /* Style for buttons */
+            .better-btn {
+                background-color: #0077be; /* Blue */
+                border: none;
+                color: white;
+                padding: 15px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 12px;
+                margin: 10px;
+                cursor: pointer;
+                border-radius: 10px;
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            
+            .better-btn:hover {
+                transform: translateY(-3px); /* Add hover effect */
+                box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+            }
+            
+
+/* Add this CSS for best section */
+.best {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px; /* Adjust margin as needed */
+}
+
+.image-link {
+    border: 2px solid #ccc; /* Add border */
+    border-radius: 10px; /* Add border radius */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition */
+}
+
+.image-link:hover {
+    transform: translateY(-5px); /* Add hover effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+.image-link img {
+    width: 200px; /* Adjust width of the images */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+}
+
+.best1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px; /* Adjust margin as needed */
+}
+
+.image-link1 {
+    border: 2px solid #ccc; /* Add border */
+    border-radius: 10px; /* Add border radius */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition */
+}
+
+.image-link1:hover {
+    transform: translateY(-5px); /* Add hover effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+.image-link1 img {
+    width: 200px; /* Adjust width of the images */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+}
+
+footer {
+    background: #140B5C;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+footer::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100px;
+    height: 1px;
+    width: 100%;
+    background: #AFAFB6;
+}
+footer .content {
+    max-width: 1250px;
+    margin: auto;
+    padding: 30px 40px 40px 40px;
+}
+footer .content .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+  .content .top .logo-details{
+    color: #fff;
+    font-size: 30px;
+  }
+  .content .top .media-icons{
+    display: flex;
+  }
+  .content .top .media-icons a{
+    height: 40px;
+    width: 40px;
+    margin: 0 8px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+  }
+  .top .media-icons a:nth-child(1){
+    background: #4267B2;
+  }
+  .top .media-icons a:nth-child(1):hover{
+    color: #4267B2;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(2){
+    background: #1DA1F2;
+  }
+  .top .media-icons a:nth-child(2):hover{
+    color: #1DA1F2;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(3){
+    background: #E1306C;
+  }
+  .top .media-icons a:nth-child(3):hover{
+    color: #E1306C;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(4){
+    background: #0077B5;
+  }
+  .top .media-icons a:nth-child(4):hover{
+    color: #0077B5;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(5){
+    background: #FF0000;
+  }
+  .top .media-icons a:nth-child(5):hover{
+    color: #FF0000;
+    background: #fff;
+  }
+  footer .content .link-boxes{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  footer .content .link-boxes .box{
+    width: calc(100% / 5 - 10px);
+  }
+  .content .link-boxes .box .link_name{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .link-boxes .box .link_name::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 35px;
+    background: #fff;
+  }
+  .content .link-boxes .box li{
+    margin: 6px 0;
+    list-style: none;
+  }
+  .content .link-boxes .box li a{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.4s ease
+  }
+  .content .link-boxes .box li a:hover{
+    opacity: 1;
+    text-decoration: underline;
+  }
+  .content .link-boxes .input-box{
+    margin-right: 55px;
+  }
+  .link-boxes .input-box input{
+    height: 40px;
+    width: calc(100% + 55px);
+    outline: none;
+    border: 2px solid #AFAFB6;
+    background: #140B5C;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-size: 15px;
+    color: #fff;
+    margin-top: 5px;
+  }
+  .link-boxes .input-box input::placeholder{
+    color: #AFAFB6;
+    font-size: 16px;
+  }
+  .link-boxes .input-box input[type="button"]{
+    background: #fff;
+    color: #140B5C;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 4px 0;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  .input-box input[type="button"]:hover{
+    opacity: 1;
+  }
+  footer .bottom-details{
+    width: 100%;
+    background: #0F0844;
+  }
+  footer .bottom-details .bottom_text{
+    max-width: 1250px;
+    margin: auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .bottom-details .bottom_text span,
+  .bottom-details .bottom_text a{
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    opacity: 0.8;
+    text-decoration: none;
+  }
+  .bottom-details .bottom_text a:hover{
+    opacity: 1;
+    text-decoration: underline;
+  }
+  .bottom-details .bottom_text a{
+    margin-right: 10px;
+  }
+  @media (max-width: 900px) {
+    footer .content .link-boxes{
+      flex-wrap: wrap;
+    }
+    footer .content .link-boxes .input-box{
+      width: 40%;
+      margin-top: 10px;
+    }
+  }
+  @media (max-width: 700px){
+    footer{
+      position: relative;
+    }
+    .content .top .logo-details{
+      font-size: 26px;
+    }
+    .content .top .media-icons a{
+      height: 35px;
+      width: 35px;
+      font-size: 14px;
+      line-height: 35px;
+    }
+    footer .content .link-boxes .box{
+      width: calc(100% / 3 - 10px);
+    }
+    footer .content .link-boxes .input-box{
+      width: 60%;
+    }
+    .bottom-details .bottom_text span,
+    .bottom-details .bottom_text a{
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 520px){
+    footer::before{
+      top: 145px;
+    }
+    footer .content .top{
+      flex-direction: column;
+    }
+    .content .top .media-icons{
+      margin-top: 16px;
+    }
+    footer .content .link-boxes .box{
+      width: calc(100% / 2 - 10px);
+    }
+    footer .content .link-boxes .input-box{
+      width: 100%;
+    }
+  }
+
+  .ben-assistor {
+    border-radius: 50%;
+    width: 70px; /* adjust size as needed */
+    height: 70px; /* adjust size as needed */
+    overflow: hidden;
+    cursor: pointer;
+    position: fixed;
+    left: 1250px;
+    top: 550px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+  }
+  .ben-assistor img {
+    width: 100%;
+    height: auto;
+  }
+
 
 /* Media Query for Phones */
 @media screen and (max-width: 600px) {
+
+
+    .ben-assistor {
+        border-radius: 70%;
+        width: 80px; /* adjust size as needed */
+        height: 80px; /* adjust size as needed */
+        overflow: hidden;
+        cursor: pointer;
+        position: absolute;
+        left: 90px;
+        top: 270px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+      }
+      .ben-assistor img {
+        width: 100%;
+        height: auto;
+      }
+
+/* Add this CSS for best section */
+.best {
+    position: relative; /* Set the position of the container to relative */
+}
+
+.image-link {
+    position: absolute; /* Position the images absolutely */
+    border: 2px solid #ccc; /* Add border */
+    margin-top: -1360px;
+    margin-right: 109px;
+    border-radius: 10px; /* Add border radius */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition */
+}
+
+.image-link:hover {
+    transform: translateY(-5px); /* Add hover effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+.image-link img {
+    width: 170px; /* Adjust width of the images */
+    height: 170px; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+}
+
+.best1 {
+    position: absolute; /* Set the position of the container to relative */
+}
+
+.image-link1 {
+    margin-top: -2160px;
+    margin-left: 39px;
+    border: 2px solid #ccc; /* Add border */
+    border-radius: 10px; /* Add border radius */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition */
+}
+
+.image-link1:hover {
+    transform: translateY(-5px); /* Add hover effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+.image-link1 img {
+    width: 170px; /* Adjust width of the images */
+    height: 170px; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+}
+
+            /* Add this CSS for better section */
+.better {
+    position: absolute;
+    top: 720px;
+    left: 35%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Style for buttons */
+.better-btn {
+    background-color: #0077be; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.better-btn:hover {
+    transform: translateY(-3px); /* Add hover effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
 
     .bb {
         display: ;
@@ -522,6 +963,79 @@
         @media screen and (min-width: 601px) {
             /* Add specific styles for PC screens here */
 
+    /* Add this CSS for best section */
+.best {
+    position: relative; /* Set the position of the container to relative */
+}
+
+.image-link {
+    position: absolute; /* Position the images absolutely */
+    border: 2px solid #ccc; /* Add border */
+    margin-top: -130px;
+    margin-right: 850px;
+    border-radius: 10px; /* Add border radius */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition */
+}
+
+.image-link:hover {
+    transform: translateY(-5px); /* Add hover effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+.image-link img {
+    width: 350px; /* Adjust width of the images */
+    height: 255px; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+}
+
+.best1 {
+    position: absolute; /* Set the position of the container to relative */
+}
+
+.image-link1 {
+    margin-top: -1150px;
+    margin-left: 71px;
+    border: 2px solid #ccc; /* Add border */
+    border-radius: 10px; /* Add border radius */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition */
+}
+
+.image-link1:hover {
+    transform: translateY(-5px); /* Add hover effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+.image-link1 img {
+    width: 350px; /* Adjust width of the images */
+    height: 255px; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+}
+
+            /* Add this CSS for better section */
+.better {
+    display: none;
+    position: absolute;
+    top: 720px;
+    left: 35%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Add this CSS for better section */
+.better {
+    display: none; /* Use flexbox to display buttons horizontally */
+    justify-content: space-around; /* Adjust spacing between buttons */
+    align-items: center; /* Align buttons vertically center */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+
             .under {
                 display: none;
     margin-left: 190px;
@@ -684,7 +1198,7 @@
     border: 1px solid #ccc;
     padding: 10px;
     position: absolute;
-    top: 57%;
+    top: 67%;
     right: 13%;
     transform: translate(50%, -50%);
     background-color: white;
@@ -737,7 +1251,7 @@
     flex-direction: column;
     align-items: stretch;
     margin: 0 auto;
-    margin-top: -445px;
+    margin-top: -645px;
     margin-right: -0px;
   }
   
@@ -816,6 +1330,7 @@
     height: auto;
 }
 
+
                     /* Style for the dropdown menu */
                     .dropdown {
             position: absolute;
@@ -841,7 +1356,6 @@
 .img2{
     width: 300;
 }
-
 
     </style>
 </head>
@@ -871,7 +1385,7 @@
         <div class="dropdown-content">
             <a href="services.html">Services</a>
             <a href="whatsapp.html">Need A Help!</a>
-            <a href="under-construction.html">Support Us</a>
+            <a href="sponsor.html">Sponsor Us</a>
             <a href="other_sites.html">Other Sites</a>
             <a href="eyecon.html">*Developer$*</a>
         </div>
@@ -880,7 +1394,7 @@
 <div class="iconz">
     <a href="#" ><img src="ads/settings2.jpeg" class="set1" alt="WhatsApp" width="70" height="57"></a>
     <a href="#" ><img src="ads/noti1.jpeg" alt="Email" class="set2" width="50" height="50"></a>
-    <a href="#" ><img src="ads/feedback1.jpeg" alt="Instagram" class="set3" width="50" height="50"></a>
+    <a href="whatsapp.html" ><img src="ads/feedback1.jpeg" alt="Instagram" class="set3" width="50" height="50"></a>
 </div>
 
 
@@ -933,6 +1447,28 @@
             </button>
         </div>
     </section>
+
+    <section class="best">
+        <a href="https://api.whatsapp.com/send?phone=+233202039530" class="image-link"><img src="ads/ads2.jpg" alt="Image 1"></a>
+
+    </section>
+
+    <section class="best1">
+        <a href="flyer1.html" class="image-link1"><img src="ads/ads1.jpg" alt="Image 1"></a>
+    </section>
+    
+    
+
+    <section class="better">
+        <a class="better-btn" href="regions.html">School Networks</a>
+        <a class="better-btn" href="sponsor.html">Sponsorship</a>
+        <a class="better-btn" href="https://whatsapp.com/channel/0029VabxXr82P59qv8VJbG2r">EyeconTECH Channel</a>
+        <a class="better-btn" href="https://chat.whatsapp.com/GCE1Wem8mWa8VEKO8zXKqr">EyeconTECH Community</a>
+        <a class="better-btn" href="under-construction.html">EyeconTECH QUOTES</a>
+        <a class="better-btn" href="under-construction.html">Explore More...</a>
+    </section>
+    
+    
 
     <section>
         <div class="container">
@@ -997,32 +1533,111 @@
         <a href="https://wa.me/+233507326886" class="social-icon" id="whatsapp"><img src="ads/whatsapp1.jpeg" alt="WhatsApp"></a>
         <a href="mailto:eyecongh14@gmail.com" class="social-icon" id="email"><img src="ads/email.jpeg" alt="Email"></a>
         <a href="https://instagram.com/eyecon.gh" class="social-icon" id="instagram"><img src="ads/instagram.jpeg" alt="Instagram"></a>
-        <a href="https://telegram.com/@EyeconTECH" class="social-icon" id="twitter"><img src="ads/tele.jpeg" alt="Twitter"></a>
+        <a href="https://telegram.com/@EyeconTECH" class="social-icon" id="twitter"><img src="ads/tele1.jpeg" alt="Twitter"></a>
         <a href="https://tiktok.com/@eyecontech" class="social-icon" id="tiktok"><img src="ads/tiktok.jpeg" alt="TikTok"></a>
-        <a href="https://facebook.com/eyecon GH" class="social-icon" id="facebook"><img src="ads/face2.jpeg" alt="Facebook"></a>
+        <a href="https://facebook.com/eyeconGH" class="social-icon" id="facebook"><img src="ads/face2.jpeg" alt="Facebook"></a>
     </div>
     
 
     <section class="buttom">
         <nav>
             <ul>
-                <li><a href="other_sites.html">Other Sites</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="whatsapp.html">Real-time Chat</a></li>
-                <li><a href="advertising.html">Advertising</a></li>
-                <li><a href="eyecon.html">About the developer</a></li>
+                <li><a href="">***</a></li>
+                <li><a href="">***</a></li>
+                <li><a href="">***</a></li>
+                <li><a href="">***</a></li>
+                <li><a href="">***</a></li>
+                <li><a href="">***</a></li>
             </ul>
         </nav>
     </section>
 
+    <a href="whatsapp.html">
+        <div class="ben-assistor">
+          <img src="ads/speech.webp" alt="Circular Image">
+        </div>
+      </a>
 
 
     <footer>
-        <p>&copy; 2024 EyeconTECH World. All rights reserved.</p>
-    </footer>
+        <div class="content">
+          <div class="top">
+            <div class="logo-details">
+              <i class="fab fa-slack"></i>
+              <span class="logo_name">EyeconTECH</span>
+            </div>
+            <div class="media-icons">
+              <a href="https://facebook.com/eyeconGH"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="https://instagram.com/eyecon.gh"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://youtube.com/eyecon.gh"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="link-boxes">
+            <ul class="box">
+              <li class="link_name">Company</li>
+              <li><a href="#">Home</a></li>
+              <li><a href="contact.html">Contact us</a></li>
+              <li><a href="eyecon.html">About us</a></li>
+              <li><a href="whatsapp.html">Get started</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Services</li>
+              <li><a href="softwares.html">Softwares design</a></li>
+              <li><a href="other_sites.html">Web design</a></li>
+              <li><a href="password.html">S.B Quiz</a></li>
+              <li><a href="trading.html">Purchase</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">EyeconTECH</li>
+              <li><a href="https://whatsapp.com/channel/0029VabxXr82P59qv8VJbG2r">Join Channel</a></li>
+              <li><a href="https://chat.whatsapp.com/GCE1Wem8mWa8VEKO8zXKqr">Join Community</a></li>
+              <li><a href="under-construction.html">Networks</a></li>
+              <li><a href="under-construction.html">Eye-QUotes</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Courses</li>
+              <li><a href="html.html">HTML & CSS</a></li>
+              <li><a href="javascript.html">JavaScript</a></li>
+              <li><a href="python.html">Python</a></li>
+              <li><a href="vba.html">Visual Basics</a></li>
+            </ul>
+            <ul class="box input-box">
+              <li class="link_name">Subscribe</li>
+                <li><input type="email" placeholder="Enter your email" required></li>
+                <li><button type="button" onclick="openWhatsApp()">Subscribe via WhatsApp</button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom-details">
+          <div class="bottom_text">
+            <span class="copyright_text">Copyright &#169; 2024 <a href="https://whatsapp.com/channel/0029VabxXr82P59qv8VJbG2r">EyeconTECH.</a>All rights reserved</span>
+            <span class="policy_terms">
+              <a href="privacy.html">Privacy policy</a>
+              <a href="terms.html">Terms & condition</a>
+            </span>
+          </div>
+        </div>
+      </footer>
+    
       
       <script>
+
+        function openPage(url) {
+            window.location.href = url;
+        }
+    
+        function openWhatsApp(whatsappLink) {
+            window.open(whatsappLink, '_blank');
+        }
+
+        function openWhatsApp() {
+            var phoneNumber = '+233507326886'; // Replace with your phone number
+            var message = 'Hello! I want to subscribe.'; // Your predefined message
+            var whatsappLink = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+            window.open(whatsappLink, '_blank');
+        }
 
 let slideIndex = 0;
 showSlide(slideIndex);

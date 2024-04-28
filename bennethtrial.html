@@ -43,7 +43,7 @@ body {
     padding: 20px;
     border-radius: 15px; /* Rounded corners */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
-    height: 90vh; /* Full height of viewport */
+    height: 100vh; /* Full height of viewport */
     width: auto; /* Full width of viewport */
     overflow-y: auto; /* Enable vertical scrollbar */
 }
@@ -77,20 +77,6 @@ body {
 }
 
 /* Submit button styles */
-.sub {
-    display: block;
-    text-align: center;
-    width: 100%;
-    padding: 15px;
-    background-color: #ffd700; /* Dodger blue background color */
-    color: #fff; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 35px; /* Rounded corners */
-    cursor: pointer; /* Change cursor to pointer */
-    font-size: 26px; /* Font size */
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
 .contact-left button[type="submit"] {
     display: block;
     text-align: center;
@@ -187,27 +173,17 @@ body {
     <div class="contact-container">
         <form id="payment-form" action="https://api.web3forms.com/submit" method="POST" class="contact-left">
             <div class="contact-left-title">
-                <h2>STUDENT BASED QUIZ</h2>
+                <h2>Message Us</h2>
                 <hr>
             </div>
             <input type="hidden" name="access_key" value="32f2745b-fa77-4668-8e3e-45105a8205cd">
-            <h2>FILL ALL THESE INFORMATION BELOW</h2>
-            <h3>
-                TIME ALLOCATED: <u><strong>
-                    30 mins.
-                </strong></u>
-
-            </h3>
-            <input type="text" name="Candidate's Name:" placeholder="Enter your name here..." class="contact-inputs" required onkeydown="return false" onpaste="return false" oncut="return false">
-            <input type="text" name="School attends:" placeholder="Enter your school here..." class="contact-inputs" required onkeydown="return false" onpaste="return false" oncut="return false">
-            <input type="email" name="Valid Email:" placeholder="school@example.com" class="contact-inputs" required onkeydown="return false" onpaste="return false" oncut="return false">
-            <h2>THEORY (20 marks)</h2>
-            <p>Explain the concept of artificial intelligence (AI) and its potential impact on society</p>
-            <textarea name="theory" placeholder="Explain the concept of artificial intelligence (AI) and its potential impact on society" class="contact-inputs" required onkeydown="return false" onpaste="return false" oncut="return false"></textarea>
+            <input type="text" name="name" placeholder="Enter your name here..." class="contact-inputs" required>
+            <input type="text" name="school" placeholder="Enter your school here..." class="contact-inputs" required>
+            <input type="email" name="email" placeholder="school@example.com" class="contact-inputs" required>
+            <textarea name="message" placeholder="Which course are you after?" class="contact-inputs" required></textarea>
 
             <!-- Question form layout -->
 <!-- English -->
-<h2>OBJECTIVE TEST (80 marks)</h2>
 <div class="question">
     <label for="question1">1. What is a synonym for "happy"?</label>
     <div class="options">
@@ -930,7 +906,7 @@ body {
             </div>
 
 
-            <button type="submit" class="sub">Submit <img src="images/send.png" alt=""></button>
+            <button type="submit">Submit <img src="images/send.png" alt=""></button>
         </form>
     </div>
 
@@ -961,96 +937,16 @@ body {
                 // Check if timer has finished
                 if (timer <= 0) {
                     clearInterval(interval);
-                    // After countdown finishes, submit the form and then disable access
-                    submitForm();
+                    document.getElementById("payment-form").submit(); // Submit the form
                 }
             }, 1000); // Update every second
         }
 
-        // Function to submit the form
-        function submitForm() {
-            // Get the form element
-            var form = document.getElementById('payment-form');
-
-            // Create a FormData object from the form
-            var formData = new FormData(form);
-
-            // Send the form data using AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', form.action, true);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // Form submission successful
-                    console.log('Form submitted successfully!');
-                } else {
-                    // Form submission failed
-                    console.error('Form submission failed. Status: ' + xhr.status);
-                }
-                // After submitting the form, disable access for 12 hours
-                disableAccessFor12Hours();
-            };
-            xhr.onerror = function () {
-                // Error occurred during form submission
-                console.error('Error occurred during form submission.');
-                // After submitting the form, disable access for 12 hours
-                disableAccessFor12Hours();
-            };
-            xhr.send(formData);
-        }
-
-        // Function to disable access to the page for 12 hours
-        function disableAccessFor12Hours() {
-            // Set a cookie to indicate that access is disabled
-            document.cookie = "access_disabled=true; max-age=43200"; // 12 hours in seconds
-
-            // Redirect to community.html
-            window.location.href = "bennethawaiting.html";
-        }
-
-        // Check if access is disabled when the page loads
+        // Start the timer when the page loads
         window.onload = function () {
-            var accessDisabled = getCookie("access_disabled");
-            if (accessDisabled === "true") {
-                // Access is disabled, redirect to community.html
-                window.location.href = "bennethawaiting.html";
-            } else {
-                // Access is not disabled, start the countdown timer
-                var duration = 1500; // 25 minutes in seconds
-                startTimer(duration);
-            }
+            var duration = 60; // 1 minute in seconds
+            startTimer(duration);
         };
-
-        // Function to get the value of a cookie by name
-        function getCookie(name) {
-            var cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-            return cookieValue ? cookieValue.pop() : null;
-        }
-
-        <!-- Place this script in your HTML file -->
-
-        
-// Function to shuffle an array
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-// Array to hold question numbers
-const questionNumbers = Array.from({ length: 40 }, (_, i) => i + 1);
-
-// Function to assign shuffled question numbers to question labels
-function assignQuestionNumbers() {
-    const questionDivs = document.querySelectorAll('.question');
-    questionDivs.forEach((div, index) => {
-        const label = div.querySelector('label');
-        label.textContent = `${label.textContent.slice(label.textContent.indexOf(' ') + 1)}`;
-    });
-}
-
-
     </script>
 </body>
 </html>
