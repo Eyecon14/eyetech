@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Application Form</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #bbcbe0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #5dd1e0;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scholarship Application Form</h1>
+    <form id="scholarshipForm">
+        <h2>PERSONAL INFORMATION</h2>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required><br>
+        <label for="placeOfBirth">Place of Birth:</label><br>
+        <input type="text" id="placeOfBirth" name="placeOfBirth" required><br>
+        <label for="homeTown">Home Town:</label><br>
+        <input type="text" id="homeTown" name="homeTown" required><br>
+        <label for="school">School:</label><br>
+        <input type="text" id="school" name="school" required><br>
+        <label for="class">Class:</label><br>
+        <input type="text" id="class" name="class" required><br>
+        <label for="headteacher">Headteacher's name:</label><br>
+        <input type="text" id="headteacher" name="headteacher" required><br>
+        <label for="positionInClass">Position in class:</label><br>
+        <input type="text" id="positionInClass" name="positionInClass" required><br>
+
+        <h2>GUIDANCE INFORMATION</h2>
+        <label for="motherName">Your Mother's name:</label><br>
+        <input type="text" id="motherName" name="motherName" required><br>
+        <label for="motherAlive">Is she alive?</label><br>
+        <input type="checkbox" id="motherAlive" name="motherAlive"><br>
+        <label for="fatherName">Your Father's name:</label><br>
+        <input type="text" id="fatherName" name="fatherName" required><br>
+        <label for="fatherAlive">Is he alive?</label><br>
+        <input type="checkbox" id="fatherAlive" name="fatherAlive"><br>
+        <label for="caretaker">Who is taking care of you?</label><br>
+        <input type="text" id="caretaker" name="caretaker" required><br>
+        <label for="siblings">How many siblings do you have?</label><br>
+        <input type="number" id="siblings" name="siblings" required><br>
+        <label for="caterer">Who cater for you?</label><br>
+        <input type="text" id="caterer" name="caterer" required><br>
+        <label for="guidanceIncome">What is your guidance monthly income?</label><br>
+        <input type="number" id="guidanceIncome" name="guidanceIncome" required><br>
+
+        <h2>OTHERS</h2>
+        <label for="need">Why do you need the scholarship?</label><br>
+        <textarea id="need" name="need" rows="4" cols="50" required></textarea><br>
+        <label for="careerDream">What is your future career dream?</label><br>
+        <textarea id="careerDream" name="careerDream" rows="4" cols="50" required></textarea><br>
+        <label for="eyeconTech">How will you rate EyeconTECH?</label><br>
+        <input type="number" id="eyeconTech" name="eyeconTech" min="1" max="10" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("scholarshipForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get form data
+            var name = document.getElementById("name").value;
+            var dob = document.getElementById("dob").value;
+            var placeOfBirth = document.getElementById("placeOfBirth").value;
+            var homeTown = document.getElementById("homeTown").value;
+            var school = document.getElementById("school").value;
+            var class_ = document.getElementById("class").value;
+            var headteacher = document.getElementById("headteacher").value;
+            var positionInClass = document.getElementById("positionInClass").value;
+
+            var motherName = document.getElementById("motherName").value;
+            var motherAlive = document.getElementById("motherAlive").checked;
+            var fatherName = document.getElementById("fatherName").value;
+            var fatherAlive = document.getElementById("fatherAlive").checked;
+            var caretaker = document.getElementById("caretaker").value;
+            var siblings = document.getElementById("siblings").value;
+            var caterer = document.getElementById("caterer").value;
+            var guidanceIncome = document.getElementById("guidanceIncome").value;
+
+            var need = document.getElementById("need").value;
+            var careerDream = document.getElementById("careerDream").value;
+            var eyeconTech = document.getElementById("eyeconTech").value;
+
+            // Compose WhatsApp message
+            var message = "I want to apply for the scholarship and here are my info:\n";
+            message += "PERSONAL INFORMATION\n";
+            message += "Name: " + name + "\n";
+            message += "Date of Birth: " + dob + "\n";
+            message += "Place of Birth: " + placeOfBirth + "\n";
+            message += "Home Town: " + homeTown + "\n";
+            message += "School: " + school + "\n";
+            message += "Class: " + class_ + "\n";
+            message += "Headteacher's name: " + headteacher + "\n";
+            message += "Position in class: " + positionInClass + "\n\n";
+
+            message += "GUIDANCE INFORMATION\n";
+            message += "Your Mother's name: " + motherName + "\n";
+            message += "Is she alive? " + (motherAlive ? "Yes" : "No") + "\n";
+            message += "Your Father's name: " + fatherName + "\n";
+            message += "Is he alive? " + (fatherAlive ? "Yes" : "No") + "\n";
+            message += "Who is taking care of you? " + caretaker + "\n";
+            message += "How many siblings do you have? " + siblings + "\n";
+            message += "Who cater for you? " + caterer + "\n";
+            message += "What is your guidance monthly income? " + guidanceIncome + "\n\n";
+
+            message += "OTHERS\n";
+            message += "Why do you need the scholarship? " + need + "\n";
+            message += "What is your future career dream? " + careerDream + "\n";
+            message += "How will you rate EyeconTECH? " + eyeconTech;
+
+            // Encode message
+            var encodedMessage = encodeURIComponent(message);
+
+            // Open WhatsApp chat window
+            var whatsappNumber = "+233507326886";
+            var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodedMessage;
+            window.open(whatsappUrl, "_blank");
+        });
+    </script>
+</body>
+</html>
