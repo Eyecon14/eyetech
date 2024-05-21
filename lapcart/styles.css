@@ -1,0 +1,50 @@
+/* Basic styles for header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  /* Style for laptop cards */
+  .laptop-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    float: left;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  /* Style for laptop images */
+  .laptop-card img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* Style for chat and call buttons */
+  .btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
