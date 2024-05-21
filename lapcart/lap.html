@@ -8,9 +8,65 @@
 </head>
 <body>
   <header>
-    <h1>Welcome to EyeconTECH Laptops Deal</h1>
-    <input type="text" id="searchInput" placeholder="Search for laptops...">
+    <h1>Laptops</h1>
   </header>
+
+     <!-- Filter options -->
+     <div id="filters">
+      <label for="price-filter">Price Range:</label>
+      <select id="price-filter">
+        <option value="All">All</option>
+        <option value="100-500">100 - 500 GHC</option>
+        <option value="510-1000">510 - 1000 GHC</option>
+        <option value="1100-1500">1100 - 1500 GHC</option>
+        <option value="1600-2000">1600 - 2000 GHC</option>
+        <option value="2100-3000">2100 - 3000 GHC</option>
+        <option value="3100-5000">3100 - 5000 GHC</option>
+        <option value="5100-10000">5100 - 10000 GHC</option>
+        <option value="11000-50000">11000 - 50000 GHC</option>
+      </select>
+  
+      <label for="type-filter">Laptop Type:</label>
+      <select id="type-filter">
+        <option value="All">All</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Semi-Gaming">Semi-Gaming</option>
+        <option value="Education">Education</option>
+        <option value="UltraBook">UltraBook</option>
+        <option value="Convertible">Convertible</option>
+        <option value="X360 Convertible">X360 Convertible</option>
+        <option value="Surfing">Surfing</option>
+        <option value="Traditional">Traditional</option>
+      </select>
+    
+      <label for="name-filter">Laptop Name:</label>
+      <select id="name-filter">
+        <option value="All">All</option>
+        <option value="HP">HP</option>
+        <option value="MacBook">MacBook</option>
+        <option value="Dell">Dell</option>
+        <option value="Toshiba">Toshiba</option>
+        <option value="Asus">Asus</option>
+        <option value="Acer">Acer</option>
+        <option value="Lenovo">Lenovo</option>
+        <option value="Sony">Sony</option>
+        <option value="MSI">MSI</option>
+        <option value="Alienware">Alienware</option>
+        <option value="Fijitsu">Fijitsu</option>
+        <option value="Samsung">Samsung</option>
+      </select>
+      <label for="processor-filter">Processor:</label>
+      <select id="processor-filter">
+        <option value="All">All</option>
+        <option value="Intel">Intel</option>
+        <option value="AMD">AMD</option>
+        <option value="Nvidia">Nvidia</option>
+      </select>
+    </div>
+  
+    <!-- Laptop list -->
+    <div id="laptopList"></div>
+
   <main id="laptopList">
     <!-- Laptop cards will be dynamically added here -->
   </main>
