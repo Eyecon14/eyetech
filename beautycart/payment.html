@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Game Payment Recording</title>
+</head>
+<body>
+
+<h1>Quiz Game Payment Recording</h1>
+
+<div id="paymentForm">
+    <label for="learnerName">Learner Name:</label>
+    <input type="text" id="learnerName">
+    <label for="paymentAmount">Amount Paid ($):</label>
+    <input type="number" id="paymentAmount">
+    <button onclick="recordPayment()">Record Payment</button>
+</div>
+
+<div id="paymentRecords">
+    <h2>Payment Records</h2>
+    <ul id="paymentList"></ul>
+</div>
+
+<script>
+    // Function to record a payment
+    function recordPayment() {
+        let learnerName = document.getElementById("learnerName").value;
+        let paymentAmount = document.getElementById("paymentAmount").value;
+
+        // Save the learner name to localStorage
+        saveLearnerName(learnerName);
+
+        // Record the payment
+        recordPaymentInMemory(learnerName, paymentAmount);
+
+        // Clear the form fields
+        document.getElementById("learnerName").value = "";
+        document.getElementById("paymentAmount").value = "";
+
+        // Update the displayed payment records
+        displayPayments();
+    }
+
+    // Function to record payment in memory
+    function recordPaymentInMemory(learnerName, paymentAmount) {
+        let payments = JSON.parse(localStorage.getItem('payments')) || [];
+        payments.push({ name: learnerName, amount: paymentAmount });
+        localStorage.setItem('payments', JSON.stringify(payments));
+    }
+
+    // Function to save learner name to localStorage
+    function saveLearnerName(learnerName) {
+        let learnerNames = JSON.parse(localStorage.getItem('learnerNames')) || [];
+        if (!learnerNames.includes(learnerName)) {
+            learnerNames.push(learnerName);
+            localStorage.setItem('learnerNames', JSON.stringify(learnerNames));
+        }
+    }
+
+    // Function to display payment records
+    function displayPayments() {
+        let paymentList = document.getElementById("paymentList");
+        paymentList.innerHTML = ""; // Clear the previous list
+
+        // Retrieve payment records from localStorage
+        let payments = JSON.parse(localStorage.getItem('payments')) || [];
+
+        // Loop through the payments array and add each record to the list
+        payments.forEach(function(payment) {
+            let listItem = document.createElement("li");
+            listItem.textContent = `${payment.name}: $${payment.amount}`;
+            paymentList.appendChild(listItem);
+        });
+    }
+
+    // Initial display of payments
+    displayPayments();
+</script>
+
+</body>
+</html>

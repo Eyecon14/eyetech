@@ -1,0 +1,148 @@
+/* Basic styles for header */
+header {
+  background-color: #1e488f; /* Deep blue */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* Style for search bar */
+#searchBar {
+  margin: 20px auto; /* Adjust margin as needed */
+  padding: 10px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  box-sizing: border-box;
+}
+
+#searchButton {
+  padding: 8px 12px;
+  background-color: #ff007f; /* Pink */
+  color: #fff;
+  border: 1px solid #ff007f; /* Pink */
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+#searchButton:hover {
+  background-color: #ff0055; /* Darker pink */
+  border-color: #ff0055; /* Darker pink */
+}
+
+/* Style for laptop cards */
+.laptop-card {
+  border: 1px solid #1e488f; /* Deep blue */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 10px;
+  width: 270px;
+  float: left;
+  text-align: center;
+  background-color: #f0f8ff; /* Light blue */
+}
+
+/* Style for laptop images */
+.laptop-card img {
+  width: 220px;
+  height: 190px; /* Added 'px' */
+  border-radius: 10px;
+}
+
+/* Style for chat and call buttons */
+.btn {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff; /* Deep blue */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #dd1fc4; /* Dark blue */
+}
+
+/* CSS for filters */
+#filters {
+  margin-top: 10px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filter-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Media queries for smaller screens */
+@media screen and (max-width: 768px) {
+  #filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-group {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* CSS for slideshow */
+.slideshow-container {
+  width: 100px;
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+/* Navigation arrows */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
