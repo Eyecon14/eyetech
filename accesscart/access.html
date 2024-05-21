@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EyeconTECH Accessories Deal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Accessories</h1>
+  </header>
+
+     <!-- Filter options -->
+     <div id="filters">
+      <label for="price-filter">Price Range:</label>
+      <select id="price-filter">
+        <option value="All">All</option>
+        <option value="10-500">10 - 500 GHC</option>
+        <option value="510-1000">510 - 1000 GHC</option>
+        <option value="1100-1500">1100 - 1500 GHC</option>
+        <option value="1600-2000">1600 - 2000 GHC</option>
+        <option value="2100-3000">2100 - 3000 GHC</option>
+        <option value="3100-5000">3100 - 5000 GHC</option>
+        <option value="5100-10000">5100 - 10000 GHC</option>
+        <option value="11000-50000">11000 - 50000 GHC</option>
+      </select>
+  
+      <label for="type-filter">Accessory Type:</label>
+      <select id="type-filter">
+        <option value="All">All</option>
+        <option value="Gaming">Gaming</option>
+        <option value="SSD">SSD</option>
+        <option value="HDD">HDD</option>
+        <option value="HDD/SDD">HDD/SSD</option>
+        <option value="Storage">Storage</option>
+        <option value="PS3">PS3</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+        <option value="X-Box">X-Box</option>
+        <option value="Phone Charger">Phone Charger</option>
+        <option value="Laptop Adaptop">Laptop Adapter</option>
+        <option value="Wireless">Wireless</option>
+        <option value="Wired">Wired</option>
+        <option value="Intel-Core">Intel-Core</option>
+        <option value="AMD">AMD</option>
+        <option value="Nvidia">Nvidia</option>
+        <option value="Glass">Glass</option>
+        <option value="Other">Other</option>
+      </select>
+    
+      <label for="name-filter">Accessory Name:</label>
+      <select id="name-filter">
+        <option value="All">All</option>
+        <option value="Gamepad">Gamepad</option>
+        <option value="RAM">RAM</option>
+        <option value="Memory">Memory</option>
+        <option value="Storage Drive">Storage Drive</option>
+        <option value="Graphics-Card">Graphics-Card</option>
+        <option value="PS-Gaming">PS-Gaming</option>
+        <option value="Modem">Modem</option>
+        <option value="Processor">Processor</option>
+        <option value="Mouse">Mouse</option>
+        <option value="Keyboard">Keyboard</option>
+        <option value="Speaker">Speaker</option>
+        <option value="Headphone">Headphone</option>
+        <option value="Earpins">Earpins</option>
+        <option value="MP3">MP3</option>
+        <option value="Pendrive">Pendrive</option>
+        <option value="Adaptor">Adaptor</option>
+        <option value="Protector">Protector</option>
+        <option value="Cover">Cover</option>
+        <option value="PowerBank">PowerBank</option>
+      </select>
+      <label for="platfomr-filter">Platform:</label>
+      <select id="platform-filter">
+        <option value="All">All</option>
+        <option value="PC">PC</option>
+        <option value="Android">Android</option>
+        <option value="Console">Console</option>
+        <option value="iOS">iOS</option>
+      </select>
+    </div>
+  
+    <!-- Laptop list -->
+    <div id="laptopList"></div>
+
+  <main id="laptopList">
+    <!-- Laptop cards will be dynamically added here -->
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
