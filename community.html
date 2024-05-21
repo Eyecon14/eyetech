@@ -1,293 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>EyeconTECH Community</title>
-    <style>
-        body {
-            background-color: #7a6ea7;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-            text-align: center;
-        }
+<!--
 
-        #content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 1;
-        }
+Template 2097 Pop
 
-        h1 {
-            font-size: 5p0x;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+https://www.tooplate.com/view/2097-pop
 
-        p {
-            font-size: 1.2em;
-        }
+-->
+    <!-- load CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">                                  <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="fontawesome/css/fontawesome-all.min.css">                <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>                       <!-- http://kenwheeler.github.io/slick/ -->
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" href="css/tooplate-style.css">                               <!-- Templatemo style -->
 
-        #background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .bubble {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            animation: moveBubble linear infinite;
-        }
-
-        @keyframes moveBubble {
-            0% {
-                transform: translateY(0) translateX(0);
-            }
-            100% {
-                transform: translateY(calc(100vh + 200px)) translateX(calc(100vw + 200px));
-            }
-        }
-
-        .bubble:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            left: 10%;
-            animation-duration: 10s;
-        }
-
-        .bubble:nth-child(2) {
-            width: 80px;
-            height: 80px;
-            left: 20%;
-            animation-duration: 12s;
-        }
-
-        .bubble:nth-child(3) {
-            width: 120px;
-            height: 120px;
-            left: 30%;
-            animation-duration: 8s;
-        }
-
-        .bubble:nth-child(4) {
-            width: 90px;
-            height: 90px;
-            left: 40%;
-            animation-duration: 11s;
-        }
-
-        .bubble:nth-child(5) {
-            width: 110px;
-            height: 110px;
-            left: 50%;
-            animation-duration: 9s;
-        }
-
-        .bubble:nth-child(6) {
-            width: 70px;
-            height: 70px;
-            left: 60%;
-            animation-duration: 13s;
-        }
-
-        .bubble:nth-child(7) {
-            width: 130px;
-            height: 130px;
-            left: 70%;
-            animation-duration: 7s;
-        }
-
-        .bubble:nth-child(8) {
-            width: 85px;
-            height: 85px;
-            left: 80%;
-            animation-duration: 10s;
-        }
-
-        .bubble:nth-child(9) {
-            width: 95px;
-            height: 95px;
-            left: 90%;
-            animation-duration: 12s;
-        }
-
-        .head {
-            background-color: #fff;
-            border-radius: 30px;
-            color: rgb(86, 123, 202);
-        }
-
-        .speech {
-            background-color: aquamarine;
-            border-radius: 10px;
-            color: #000;
-        }
-    </style>
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.");</script>
+    
 </head>
+
 <body>
+    <div id="tm-bg"></div>
+    <div id="tm-wrap">
+        <div class="tm-main-content">
+            <div class="container tm-site-header-container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-md-col-xl-6 mb-md-0 mb-sm-4 mb-4 tm-site-header-col">
+                        <div class="tm-site-header">
+                            <h1 class="mb-4">EyeconTECH</h1>
+                            <img src="img/underline.png" class="img-fluid mb-4">
+                            <p>Welcome to EyeconTECH Community... Explore our Community!</p>        
+                        </div>                        
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="content">
+                            <div class="grid">
+                                <div class="grid__item" id="home-link">
+                                    <div class="product">
+                                        <div class="tm-nav-link">
+                                            <i class="fas fa-home fa-3x tm-nav-icon"></i>
+                                            <span class="tm-nav-text">Welcome</span>
+                                            <div class="product__bg"></div>        
+                                        </div>                                    
+                                        <div class="product__description">
+                                            <div class="row mb-3">
+                                                <div class="col-12">
+                                                    <h2 class="tm-page-title">Welcome to Eyecon Design</h2>        
+                                                </div>
+                                            </div>                                        
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                    <img src="img/ss.jpg" class="img-fluid mb-3">
+                                                    <p>At EyeconTECH, we're more than just a tech company – we're a community of passionate individuals dedicated to harnessing the power of technology to transform lives. Whether you're a beginner exploring the vast world of programming, an entrepreneur seeking to establish your online presence, or a seasoned professional looking to stay ahead in the digital age, we're here to guide and support you every step of the way. <br>
+                                                        Embark on a journey of discovery with our comprehensive e-learning platform, where knowledge knows no bounds and learning is as engaging as it is rewarding. Dive into our rich library of courses, designed to cater to diverse interests and skill levels, and unlock your full potential with the latest tools and techniques. <br>
+                                                        But EyeconTECH is more than just a place to learn – it's a vibrant community where ideas flourish, collaborations thrive, and dreams take flight. Connect with like-minded individuals, share your passion for technology, and be inspired by the endless possibilities that await.</p>
+                                                    <p>Contact Us Now On: <a rel="nofollow" href="tel:+233533420206" target="_parent">+233-533-420-206</a>. Join us at EyeconTECH, where innovation meets inspiration, and every click brings you closer to realizing your dreams. Together, let's shape the future of technology and create a world where everyone can thrive and succeed. Welcome aboard!</p>    
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                    <img src="img/welcome-2.jpg" class="img-fluid">
+                                                </div>                                        
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
 
-    <section>
-        <div class="head">
-            <header>
-                <h1>Welcome To EyeconTECH Community</h1>
-            </header>
-        </div>
+                                <div class="grid__item" id="team-link">
+                                    <div class="product">
+                                        <div class="tm-nav-link">
+                                            <i class="fas fa-users fa-3x tm-nav-icon"></i>
+                                            <span class="tm-nav-text">Our Team</span>
+                                            <div class="product__bg"></div>            
+                                        </div>                                     
+                                        <div class="product__description">
+                                            <div class="p-sm-4 p-2">
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <h2 class="tm-page-title">Background of Our Team</h2>        
+                                                    </div>
+                                                </div>
+                                                <div class="row tm-reverse-sm">
+                                                    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                                                        <p class="mb-4">Our team combines expertise, passion, and dedication to deliver unparalleled experiences to our users. We're united by a shared vision of transforming online education and empowering individuals to thrive in the digital age. Get to know us, and let's embark on this journey of learning and growth together!</p>
+                                                        <a href="team.html" class="btn tm-btn-gray">Read More</a>        
+                                                    </div>                                                
+                                                    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-lg-0 mb-sm-4 mb-4">
+                                                        <img src="img/team.jpeg" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-        <div class="speech">
-            <h4>
-                <b><u>
-                    Are you dreaming of becoming a member of this noble community? <br>
-                    Then you dream is coming true... <br>
-                    EyeconTECH is a short term for Eyecon TECHNOLOGIES. This team is 
-                    specialized in modern technology. It comprises of group of 
-                    committed members to help you build the technological world.
-                </u></b>
-            </h4>
-        </div>
+                                <div class="grid__item">
+                                    <div class="product">
+                                        <div class="tm-nav-link">
+                                            <i class="fas fa-handshake fa-3x tm-nav-icon"></i>
+                                            <span class="tm-nav-text">Our Work</span>
+                                            <div class="product__bg"></div>             
+                                        </div>                                                                 
+                                        <div class="product__description">
+                                            <div class="p-sm-4 p-2">
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <h2 class="tm-page-title">Our Work</h2>        
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <p>Aliquam interdum, nisl sed faucibus tempor, massa velit laoreet ipsum, et faucibus sapien magna at enim. Suspendisse a dictum tortor, vel rhoncus libero. Integer at lacus velit. Nullam dapibus venenatis placerat.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="p-sm-4 p-2 tm-img-container">
+                                                            <div class="tm-img-slider" id="tmImgSlider">
+                                                              <a href="learning.html" class="tm-slider-img-link"><img src="img/time-management-project-efficiency-strategy-goals-business-technology-internet-concept-time-management-project-efficiency-strategy-109703437.jpg" alt="Image 1" class="img-fluid tm-slider-img"></a>
+                                                              <a href="trading.html" class="tm-slider-img-link"><img src="img/ad.jpeg" alt="Image 2" class="img-fluid tm-slider-img"></a>
+                                                              <a href="price.html" class="tm-slider-img-link"><img src="img/ai1.jpeg" alt="Image 3" class="img-fluid tm-slider-img"></a>
+                                                              <a href="keyboard.html" class="tm-slider-img-link"><img src="img/key1.jpeg" alt="Image 4" class="img-fluid tm-slider-img"></a>
+                                                              <a href="softwares.html" class="tm-slider-img-link"><img src="img/maxresdefault.jpg" alt="Image 5" class="img-fluid tm-slider-img"></a>
+                                                              <a href="flyer1.html" class="tm-slider-img-link"><img src="img/ads1.jpg" alt="Image 6" class="img-fluid tm-slider-img"></a>
+                                                            </div>
+                                                        </div>  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                </div>
 
-        <div>
-            <h5>
-                ARE YOU STILL WAITING FOR SOMETHING?
-                <a href="communityform.html">Join Now!!!</a>
-            </h5>
-        </div>
+                                <div class="grid__item">
+                                    <div class="product">
+                                        <div class="tm-nav-link">
+                                            <i class="fas fa-comments fa-3x tm-nav-icon"></i>
+                                            <span class="tm-nav-text">Contact</span>
+                                            <div class="product__bg"></div>             
+                                        </div>                                                              
+                                        <div class="product__description">
+                                            <div class="pt-sm-4 pb-sm-4 pl-sm-5 pr-sm-5 pt-2 pb-2 pl-3 pr-3">
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <h2 class="tm-page-title">Contact Us</h2>        
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <div class="col-12">
+                                                        <p>Join the vibrant EyeconTECH community and channel, where innovation meets opportunity. Dive into a dynamic ecosystem bursting with creativity and collaboration, where you can connect with like-minded professionals, gain valuable insights, and embark on impactful projects that shape the future of technology. Enjoy exclusive benefits, supportive mentorship, and access to a wealth of resources, all while being part of a global movement dedicated to making a positive impact on the world. Don't miss out on the chance to be part of something extraordinary – join EyeconTECH today and let's shape the future together.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <form action="index.html" method="post" class="contact-form">
+                                                            <a href="https://wa.me/+233507326886?text=Hello!%20I%20want%20to%20join%20your%20community." class="btn btn-primary tm-btn-submit">Join Our Community</a>
+<br>
+                                                            <a href="https://wa.me/233507326886?text=Hello!%20I%20want%20to%20join%20your%20channel." class="btn btn-primary tm-btn-submit">Join Our Channel</a>
 
-        <div id="files">
-            <h3>
-                MOBILE PHONES
-            </h3>
-            <img src="ads/phones2.jpeg" alt="" width="100" height="80">
-            <a href="phones.html" class="btn">View Products</a>
-        </div>
-
-        <div id="files">
-            <h3>
-                MOBILE PHONES
-            </h3>
-            <img src="ads/phones2.jpeg" alt="" width="100" height="80">
-            <a href="phones.html" class="btn">View Products</a>
-        </div>
-
-        <div id="files">
-            <h3>
-                MOBILE PHONES
-            </h3>
-            <img src="ads/phones2.jpeg" alt="" width="100" height="80">
-            <a href="phones.html" class="btn">View Products</a>
-        </div>
-
-    </section>
-
-    <div id="background">
-        <!-- Bubbles -->
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>                       
+                    </div>
+                </div>                
+            </div>
+            <footer>
+                <p class="small tm-copyright-text">Copyright &copy; <span class="tm-current-year">2024</span> EyeconTECH. 
+                </p>
+            </footer>
+        </div> <!-- .tm-main-content -->  
     </div>
+    <!-- load JS -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>         <!-- https://jquery.com/ -->    
+    <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->  
+    <script src="js/anime.min.js"></script>                     <!-- http://animejs.com/ -->
+    <script src="js/main.js"></script>  
+    <script>      
 
-    <!-- Quick start shader template: https://codepen.io/pen/?template=ZEyrWNe -->
+        function setupFooter() {
+            var pageHeight = $('.tm-site-header-container').height() + $('footer').height() + 100;
 
-<div id="main">
-    <h1>Wavey Footer</h1>
-    <p>A GLSL shader inspired by <a href="https://twitter.com/marioecg/status/1455744243423645696">Mario Carrillo</a>.</p>
-  </div>
-  
-  <canvas id="canvas"></canvas>
-  <footer>Made by <a href="https://twitter.com/jhancock532">@jhancock532</a></footer>
-  
-  <script id="vertexShader" type="x-shader/x-vertex">
-    attribute vec4 position;
-  
-    void main() {
-      gl_Position = vec4( position );
-    }
-  </script>
-  
-  <script id="fragmentShader" type="x-shader/x-fragment">
-    #ifdef GL_FRAGMENT_PRECISION_HIGH
-    precision highp float;
-    #else
-    precision mediump float;
-    #endif
-  
-    uniform vec2 u_resolution;
-    uniform float u_time;
-    uniform vec2 u_mouse;
-    
-    
-    //Taken from Book of Shaders
-    //https://thebookofshaders.com/edit.php#11/2d-gnoise.frag
-    vec2 random2(vec2 st){
-      st = vec2( dot(st,vec2(127.1,311.7)),
-                 dot(st,vec2(269.5,183.3)) );
-      return -1.0 + 2.0*fract(sin(st)*43758.5453123);
-    }
-  
-    // Gradient Noise by Inigo Quilez - iq/2013
-    // https://www.shadertoy.com/view/XdXGW8
-    float noise(vec2 st) {
-        vec2 i = floor(st);
-        vec2 f = fract(st);
-  
-        vec2 u = f*f*(3.0-2.0*f);
-  
-        return mix( mix( dot( random2(i + vec2(0.0,0.0) ), f - vec2(0.0,0.0) ),
-                         dot( random2(i + vec2(1.0,0.0) ), f - vec2(1.0,0.0) ), u.x),
-                    mix( dot( random2(i + vec2(0.0,1.0) ), f - vec2(0.0,1.0) ),
-                         dot( random2(i + vec2(1.0,1.0) ), f - vec2(1.0,1.0) ), u.x), u.y);
-    }
-  
-    void main() {
-      vec2 uv = gl_FragCoord.xy / u_resolution;
-      
-      float waveOffset = 0.3;
-      float waveCenter = 1.;
-      float waveFocus = 0.25;
-      float waveSpeed = 2.; //Lower faster.
-      
-      float wMin = waveCenter - waveFocus;
-      float wMax = waveCenter + waveFocus;
-      
-      //Smoothly extend on the x axis without stretching the noise
-      uv.x *= u_resolution.x/u_resolution.y;
-      uv.x += 1787.74328; //random starting seed
-      uv.y *= 2.;
-  
-      float rn = noise( vec2(uv.x, u_time / waveSpeed));
-      float ry = uv.y - rn;
-      float r = smoothstep(wMin, wMax, ry);
-      
-      float bn = noise( vec2(uv.x, u_time / waveSpeed - waveOffset));
-      float by = uv.y - bn;
-      float b = smoothstep(wMin, wMax, by);
-      
-      float gn = noise( vec2(uv.x, u_time / waveSpeed + waveOffset));
-      float gy = uv.y - gn;
-      float g = smoothstep(wMin, wMax, gy);
-      
-      //float a = (r + g + b) / 3.0;
-      
-      gl_FragColor = vec4(r, b, g, 1.0);
-    }
-  </script>
+            var main = $('.tm-main-content');
+
+            if($(window).height() < pageHeight) {
+                main.addClass('tm-footer-relative');
+            }
+            else {
+                main.removeClass('tm-footer-relative');   
+            }
+        }
+
+        /* DOM is ready
+        ------------------------------------------------*/
+        $(function(){
+
+            setupFooter();
+
+            $(window).resize(function(){
+                setupFooter();
+            });
+
+            $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright           
+        });
+
+    </script>             
 
 </body>
 </html>
