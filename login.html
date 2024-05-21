@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>EyeconTECH-Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ring {
+  position: relative;
+  width: 80vw; /* Adjusted width for responsiveness */
+  height: 80vw; /* Adjusted height for responsiveness */
+  max-width: 500px; /* Maximum width for larger screens */
+  max-height: 500px; /* Maximum height for larger screens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ring i {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fff;
+  transition: 0.5s;
+}
+
+.ring i:nth-child(1) {
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  animation: animate 6s linear infinite; /* Add animation for rotation */
+}
+
+.ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate 4s linear infinite; /* Add animation for rotation */
+}
+
+.ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 10s linear infinite; /* Add animation for rotation */
+}
+
+.ring:hover i {
+  border: 6px solid var(--clr);
+  filter: drop-shadow(0 0 20px var(--clr));
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.login {
+  position: absolute;
+  width: 80vw; /* Adjusted width for responsiveness */
+  max-width: 300px; /* Maximum width for larger screens */
+  height: auto; /* Let height be determined by content */
+  padding: 20px; /* Add padding for better spacing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  border-radius: 20px; /* Rounded corners */
+}
+
+.login h2 {
+  font-size: 2em;
+  color: #fff;
+}
+
+.login .inputBx {
+  position: relative;
+  width: 100%;
+}
+
+.login .inputBx input {
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  font-size: 1.2em;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+}
+
+.login .inputBx input[type="submit"] {
+  width: 100%;
+  background: #0078ff;
+  background: linear-gradient(45deg, #ff357a, #fff172);
+  border: none;
+  cursor: pointer;
+}
+
+.login .inputBx input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.login .links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.login .links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+  .ring {
+    width: 80vw;
+    height: 80vw;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .login {
+    width: 80vw;
+    max-width: 250px;
+  }
+}
+
+    </style>
+
+  <!-- Include SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+  <div class="ring">
+    <i style="--clr:#00ff0a;"></i>
+    <i style="--clr:#ff0057;"></i>
+    <i style="--clr:#fffd44;"></i>
+    <div class="login">
+      <h2>Login</h2>
+      <div class="inputBx">
+        <input type="text" id="your_name" placeholder="Name">
+      </div>
+      <div class="inputBx">
+        <input type="text" id="sch_name" placeholder="School">
+      </div>
+      <div class="inputBx">
+        <input type="text" id="username" placeholder="Username">
+      </div>
+      <div class="inputBx">
+        <input type="password" id="password" placeholder="Password">
+      </div>
+      <div class="inputBx">
+        <input type="submit" id="submitBtn" value="Sign in" onclick="validateForm()">
+      </div>
+      <div class="links">
+        <a href="whatsapp.html">Forget Password</a>
+        <a href="regind.html">Signup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include SweetAlert2 library -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function validateForm() {
+      // Get the values of username and password fields
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Check if the username and password are correct
+      // For demonstration purposes, let's assume valid credentials are "user" and "password"
+      var validUsername = "sbquiz001";
+      var validPassword = "eyecontech@";
+
+      if (username === validUsername && password === validPassword) {
+        // If the credentials are correct, redirect to "sbquiz.html"
+        window.location.href = "index11/sbquiz.html";
+      } else {
+        // If the credentials are incorrect, display a professional form using SweetAlert2
+        Swal.fire({
+          icon: 'error',
+          title: 'Incorrect Username or Password',
+          html: 'Please check your username and password and try again.<br><br>' +
+                'If you are facing difficulties signing in, contact Benneth on WhatsApp: ' +
+                '<a href="https://wa.me/233507326886" target="_blank">+233507326886</a>'
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>
