@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EyeconTECH Phones Deal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Phones</h1>
+  </header>
+
+     <!-- Filter options -->
+     <div id="filters">
+      <label for="price-filter">Price Range:</label>
+      <select id="price-filter">
+        <option value="All">All</option>
+        <option value="100-500">100 - 500 GHC</option>
+        <option value="510-1000">510 - 1000 GHC</option>
+        <option value="1100-1500">1100 - 1500 GHC</option>
+        <option value="1600-2000">1600 - 2000 GHC</option>
+        <option value="2100-3000">2100 - 3000 GHC</option>
+        <option value="3100-5000">3100 - 5000 GHC</option>
+        <option value="5100-10000">5100 - 10000 GHC</option>
+        <option value="11000-50000">11000 - 50000 GHC</option>
+      </select>
+  
+      <label for="type-filter">Phone Type:</label>
+      <select id="type-filter">
+        <option value="All">All</option>
+        <option value="Android">Android</option>
+        <option value="iOS">iOS</option>
+        <option value="Google">Google</option>
+        <option value="Xiaomi">Xiaomi</option>
+        <option value="OnePlus">OnePlus</option>
+        <option value="Huawei">Huawei</option>
+        <option value="Sony">Sony</option>
+      </select>
+    
+      <label for="name-filter">Phone Name:</label>
+      <select id="name-filter">
+        <option value="All">All</option>
+        <option value="Samsung">Samsung</option>
+        <option value="Pixel">Pixel</option>
+        <option value="iPhone">iPhone</option>
+        <option value="Redmi">Redmi</option>
+        <option value="Huawei">Huawei</option>
+        <option value="Infinix">Infinix</option>
+        <option value="Tecno">Tecno</option>
+        <option value="Itel">Itel</option>
+        <option value="OnePlus">OnePlus</option>
+        <option value="Oppo">Oppo</option>
+        <option value="Xiaomi">Xiaomi</option>
+        <option value="Sony">Sony</option>
+      </select>
+      <label for="processor-filter">Processor:</label>
+      <select id="processor-filter">
+        <option value="All">All</option>
+        <option value="Exynos">Exynos</option>
+        <option value="Snapdragon">Snapdragon</option>
+        <option value="MediaTek">MediaTek</option>
+        <option value="Bionic">Bionic</option>
+        <option value="Tensor">Tensor</option>
+        <option value="Kirin">Kirin</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+  
+    <!-- Laptop list -->
+    <div id="laptopList"></div>
+
+  <main id="laptopList">
+    <!-- Laptop cards will be dynamically added here -->
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
