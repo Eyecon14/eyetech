@@ -1,133 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Registration Form</title>
-
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EyeconTECH Student Based Quiz Registration Form</title>
+  <style>
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ce7cae;
-    background: #45a049;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
 }
 
 form {
-    background-color: #fff;
-    border-radius: 30px;
-    width: 500px;
-    height: auto;
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
-
+  margin-top: 20px;
 }
 
 label {
-    font-weight: bold;
-    font-size: 20px;
-    text-align: left;
-    align-items: left;
-    background-color: aqua;
-
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-input[type="submit"] {
-    background-color: #4CAF50;
-
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
 }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
+input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-</style>
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
 
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h2>EyeconTECH Student Based Quiz Registration Form</h2>
+    <form id="registration-form">
+      <h3>Student Information</h3>
+      <label for="full-name">Full Name:</label>
+      <input type="text" id="full-name" required>
+      <label for="dob">Date of Birth:</label>
+      <input type="text" id="dob" required>
+      <label for="grade">Grade/Year Level:</label>
+      <input type="text" id="grade" required>
+      <label for="school-name">School Name:</label>
+      <input type="text" id="school-name" required>
+      <label for="school-address">School Address:</label>
+      <input type="text" id="school-address" required>
+      <label for="city">City:</label>
+      <input type="text" id="city" required>
+      <label for="state">State/Province: (Optional)</label>
+      <input type="text" id="state">
+      <label for="postal-code">Postal Code: (Optional)</label>
+      <input type="text" id="postal-code">
+      <label for="email">Email Address:</label>
+      <input type="text" id="email" required>
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" required>
 
-<form id="registrationForm">
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="name" required><br>
+      <h3>Parent/Guardian Information</h3>
+      <label for="parent-name">Full Name:</label>
+      <input type="text" id="parent-name" required>
+      <label for="relationship">Relationship to Student:</label>
+      <input type="text" id="relationship" required>
+      <label for="parent-email">Email Address: (Optional)</label>
+      <input type="text" id="parent-email">
+      <label for="parent-phone">Phone Number:</label>
+      <input type="text" id="parent-phone" required>
 
-  <label for="email">Email:</label><br>
-  <input type="email" id="email" name="email" required><br>
+      <h3>Registration Fee Payment</h3>
+      <p>Please indicate your method of payment:</p>
+      <label><input type="checkbox" name="payment-method" value="Mobile Money">Mobile Money (Please specify): <input type="text" id="other-payment-method"></label>
+      <label><input type="checkbox" name="payment-method" value="Cash">Cash (Please submit payment to the school office)</label>
+      <br>
+      <label><input type="checkbox" name="payment-method" value="Bank Transfer">Bank Transfer (Account details will be provided upon submission of this form)</label>
+  
 
-  <label for="dob">Date of Birth:</label><br>
-  <input type="date" id="dob" name="dob" required><br>
+      <h3>Consent</h3>
+      <label for="consent">I confirm that all the information provided is accurate:</label>
+      <input type="checkbox" id="consent" required>
+      <br>
+      <label for="parent-consent">Parent/Guardian Consent:</label>
+      <input type="checkbox" id="parent-consent" required>
 
-  <label for="sex">Sex:</label><br>
-  <input type="radio" id="male" name="sex" value="male">
-  <label for="male">Male</label>
-  <input type="radio" id="female" name="sex" value="female">
-  <label for="female">Female</label><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
-  <label for="registration_date">Date of Registration:</label><br>
-  <input type="date" id="registration_date" name="registration_date" required><br>
+  <script>
+document.getElementById('registration-form').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-  <label for="whatsapp">WhatsApp Number:</label><br>
-  <input type="tel" id="whatsapp" name="whatsapp"><br>
+  var studentFullName = document.getElementById('full-name').value;
+  var dateOfBirth = document.getElementById('dob').value;
+  var gradeLevel = document.getElementById('grade').value;
+  var schoolName = document.getElementById('school-name').value;
+  var schoolAddress = document.getElementById('school-address').value;
+  var city = document.getElementById('city').value;
+  var stateProvince = document.getElementById('state').value;
+  var postalCode = document.getElementById('postal-code').value;
+  var studentEmail = document.getElementById('email').value;
+  var phoneNumber = document.getElementById('phone').value;
 
-  <label for="telephone">Telephone Number:</label><br>
-  <input type="tel" id="telephone" name="telephone"><br>
+  var parentFullName = document.getElementById('parent-name').value;
+  var relationshipToStudent = document.getElementById('relationship').value;
+  var parentEmail = document.getElementById('parent-email').value;
+  var parentPhoneNumber = document.getElementById('parent-phone').value;
 
-  <label for="school">School:</label><br>
-  <input type="text" id="school" name="school"><br>
+  var paymentMethods = document.getElementsByName('payment-method');
+  var selectedPaymentMethods = [];
+  for (var i = 0; i < paymentMethods.length; i++) {
+    if (paymentMethods[i].checked) {
+      selectedPaymentMethods.push(paymentMethods[i].value);
+    }
+  }
+  var otherPaymentMethod = document.getElementById('other-payment-method').value;
 
-  <label for="district">District:</label><br>
-  <input type="text" id="district" name="district"><br>
+  var consentCheckbox = document.getElementById('consent');
+  var parentConsentCheckbox = document.getElementById('parent-consent');
 
-  <label for="class">Class:</label><br>
-  <input type="text" id="class" name="class"><br>
+  var message = "Please I want to register for the Student Based Quiz and below are my information\n\n" +
+                "Student Information:\n" +
+                "Full Name: " + studentFullName + "\n" +
+                "Date of Birth: " + dateOfBirth + "\n" +
+                "Grade/Year Level: " + gradeLevel + "\n" +
+                "School Name: " + schoolName + "\n" +
+                "School Address: " + schoolAddress + "\n" +
+                "City: " + city + "\n" +
+                "State/Province: " + stateProvince + "\n" +
+                "Postal Code: " + postalCode + "\n" +
+                "Email Address: " + studentEmail + "\n" +
+                "Phone Number: " + phoneNumber + "\n\n" +
+                
+                "Parent/Guardian Information:\n" +
+                "Full Name: " + parentFullName + "\n" +
+                "Relationship to Student: " + relationshipToStudent + "\n" +
+                "Email Address: " + parentEmail + "\n" +
+                "Phone Number: " + parentPhoneNumber + "\n\n" +
 
-  <label for="guidance_name">Guardian's Name:</label><br>
-  <input type="text" id="guidance_name" name="guidance_name"><br>
-
-  <label for="guidance_number">Guardian's Number:</label><br>
-  <input type="tel" id="guidance_number" name="guidance_number"><br>
-
-  <label for="payment_method">Method of Payment:</label><br>
-  <select id="payment_method" name="payment_method">
-    <option value="mobile_money">Mobile Money</option>
-    <option value="credit_card">Credit Card</option>
-    <option value="bank_account">Bank Account</option>
-  </select><br>
-
-  <input type="submit" value="Submit">
-</form>
-
-<script>
-document.getElementById("registrationForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent the form from submitting normally
-
-  // Collect form data
-  var formData = new FormData(this);
-  var data = {};
-  formData.forEach(function(value, key){
-    data[key] = value;
-  });
-
-  // Construct the message
-  var message = "Please I want to register for the S.B Quiz and below are my valid information:\n";
-  for (var key in data) {
-    message += key.replace(/_/g, ' ') + ": " + data[key] + "\n";
+                "Registration Fee Payment:\n";
+  for (var i = 0; i < selectedPaymentMethods.length; i++) {
+    message += selectedPaymentMethods[i] + "\n";
+  }
+  if (otherPaymentMethod.trim() !== "") {
+    message += "Mobile Money: " + otherPaymentMethod + "\n";
   }
 
-  // Send the message via WhatsApp API (replace this with your actual API call)
-  var whatsappNumber = "+233507326886";
-  var whatsappMessage = encodeURIComponent(message);
-  var whatsappURL = "https://api.whatsapp.com/send?phone=" + whatsappNumber + "&text=" + whatsappMessage;
-  
-  // Open WhatsApp in a new tab
-  window.open(whatsappURL, "_blank");
-});
-</script>
+  message += "\nConsent:\n";
+  if (consentCheckbox.checked) {
+    message += "I confirm that all the information provided is accurate\n";
+  }
+  if (parentConsentCheckbox.checked) {
+    message += "Parent/Guardian Consent\n";
+  }
 
+  var whatsappLink = "https://wa.me/233507326886?text=" + encodeURIComponent(message);
+  window.open(whatsappLink, '_blank');
+});
+
+  </script>
 </body>
 </html>
