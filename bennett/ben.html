@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyecon</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xSj2wJw7+3+MjvM5u2xsjvgbe1l0b8oYPtTEaOuN7TrQ+xpxw4FV1XfJbH4xVzvW18KUhIrL2OPG7Yp24G0h9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #000;
+            color: #00ff00; /* Green text color */
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #999;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #fff;
+        }
+
+        .home-section {
+            padding: 100px 0;
+            background: url('background.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .animated-text {
+            font-size: 1.5em; /* Reduced font size */
+            margin: 20px 0 0 0;
+            display: block; /* Ensure it's a block element */
+        }
+
+        .typing-text {
+            color: #d80f0f;
+            border-right: .1em solid #666;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #666; }
+        }
+
+        .about-section, .portfolio-section {
+            padding: 50px 0;
+        }
+
+        .portfolio-image {
+            transition: transform 0.2s;
+        }
+
+        .slicing-effect {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            text-align: center; /* Center align the icons */
+            margin-bottom: 10px; /* Adjust spacing between icons and image */
+        }
+
+        .social-icons {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: none; /* Hide the social icons list */
+        }
+
+        @media (min-width: 768px) {
+            .animated-text {
+                font-size: 2em; /* Adjusted font size for larger screens */
+            }
+        }
+
+        .container1 {
+            color: #f0eff5;
+            text-transform: uppercase;
+            font-size: 15px;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .container2 {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .port1 {
+            height: 200px;
+            width: 250px;
+            border-radius: 10px;
+        }
+
+        .design1 {
+            background: #050130;
+        }
+
+        /* CSS for the small images */
+.small-images {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.small-image {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    margin: 0 5px; /* Adjust spacing between images */
+    cursor: pointer;
+}
+
+    /* CSS for the small images1 */
+.small-images1 {
+    justify-content: center;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+
+/* CSS for small images and their names */
+.small-images1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    position: relative;
+    margin: 10px;
+}
+
+.small-image1 {
+    width: 90px; /* Adjust size as needed */
+    height: 90px; /* Maintain aspect ratio */
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+}
+
+.image-name {
+    position: absolute;
+    bottom: -20px; /* Adjust position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    font-size: 17px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.image-container:hover .small-image1 {
+    transform: scale(1.1); /* Adjust scale */
+}
+
+.image-container:hover .image-name {
+    opacity: 1; /* Show image name */
+}
+
+
+/* CSS for the main portfolio image and animations */
+.portfolio-image {
+    width: 190px; /* Adjust size as needed */
+    height: 190px; /* Adjust size as needed */
+    border-radius: 50%; /* Make the image circular */
+    transition: transform 0.3s ease-out; /* Smooth transition for rotation */
+    overflow: hidden; /* Ensure image doesn't overflow the circle */
+}
+
+/* Hover effect */
+.portfolio-item:hover .portfolio-image {
+    transform: scale(1.1) rotate(360deg); /* Adjust scale and rotation */
+}
+
+.portfolio-section {
+    background: linear-gradient(135deg, #010118 10%, #01011d 100%);
+    padding: 50px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.container2 {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.design1 {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.3s ease-out;
+}
+
+.design1 img {
+    max-width: 100%;
+    height: 190px;
+    border: 5px solid #fff;
+    border-radius: 10px;
+}
+
+.design1 a {
+    display: block;
+    color: #fff;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.design1 a:hover {
+    text-decoration: underline;
+}
+
+.design1.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .container2 {
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .design1 a {
+        font-size: 1rem;
+    }
+}
+
+.about-section {
+    background: linear-gradient(135deg, #02051d 10%, #020229 100%);
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.container1 {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.small-images1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.image-container.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.small-image1 {
+    max-width: 100px;
+    height: 90px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+}
+
+.image-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container1 {
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .image-name {
+        font-size: 0.9rem;
+    }
+}
+
+.contact-section {
+    background: linear-gradient(135deg, #0a0a29 10%, #01011f 100%);
+    padding: 50px 0;
+    color: #fff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container3 {
+    width: 80%;
+    margin: 0 auto;
+    background: rgba(148, 84, 84, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #72edf2;
+    box-shadow: 0 0 10px #72edf2;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+textarea {
+    resize: none;
+    height: 150px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #5151e5;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #72edf2;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+    .container4 {
+        justify-content: center;
+        text-align: center;
+    }
+
+
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-icons {
+    margin-bottom: 10px;
+}
+
+.image-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: transform 0.3s ease;
+}
+
+.image-icon:hover {
+    transform: scale(1.1);
+}
+
+.footer-text {
+    margin-top: 10px;
+}
+
+.footer-text a {
+    color: #72edf2;
+    text-decoration: none;
+}
+
+.footer-text a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        width: 95%;
+    }
+
+    .footer-text {
+        font-size: 0.9rem;
+    }
+}
+
+.resume-section {
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    animation: flash 0.3s infinite;
+}
+
+@keyframes flash {
+    0%, 100% {
+        box-shadow: 0 0 10px #007bff, 0 0 20px #007bff, 0 0 30px #007bff, 0 0 40px #007bff;
+    }
+    50% {
+        box-shadow: 0 0 5px #007bff, 0 0 10px #007bff, 0 0 15px #007bff, 0 0 20px #007bff;
+    }
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Benneth</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="home-section">
+        <div class="container text-center">
+            <!-- Wrapper div for the main image -->
+            <div class="portfolio-item">
+                <!-- Container for the small images -->
+                <div class="small-images">
+                    <a href="https://wa.me/+233533420206?text=Hi%20Benneth!" target="_blank">
+                        <img src="imagez/iconz (1).jpg" alt="Small Image 1" class="small-image">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bennett-eyecon-81b1a62a6" target="_blank">
+                        <img src="imagez/OIP (46).jpeg" alt="Small Image 2" class="small-image">
+                    </a>
+                    <a href="https://github.com/Eyecon14/" target="_blank">
+                        <img src="imagez/iconz (2).jpeg" alt="Small Image 3" class="small-image">
+                    </a>
+                    <a href="https://instagram.com/eyecon.gh" target="_blank">
+                        <img src="imagez/iconz (3).jpeg" alt="Small Image 4" class="small-image">
+                    </a>
+                </div>
+                <br> <br>
+                <!-- Main image with slicing effect -->
+                <div class="slicing-effect">
+                    <img src="imagez/a (17).jpg" class="img-fluid portfolio-image" alt="Portfolio Item" >
+                    <br> <br>
+            <h4>WHO IS BENNETH?</h4>
+             <h1 class="animated-text">
+                <b><strong> <span class="typing-text">WhoAmI?</span>
+                <span class="typing-text"></span></strong></b>
+            </h1>
+            <br>
+            <p>Hello, I’m Benneth Kyei Amponsah, a seasoned programmer specializing in Python, HTML, VBA, React, and Firebase technologies.
+                With expertise in developing websites, software solutions, database applications, mobile apps, and more, I bring creativity and efficiency to every project. I am dedicated to delivering scalable solutions that meet client objectives effectively.
+                Let’s collaborate to turn your ideas into impactful realities.</p>
+        </div>
+    </div>
+</div>
+</div>
+    
+<section id="resume" class="resume-section">
+    <div class="container">
+        <a href="iconz/Resume.pdf" download class="download-button">Download Resume</a>
+    </div>
+</section>
+
+<section id="portfolio" class="portfolio-section">
+    <div class="container2">
+        <h2>Portfolio</h2>
+
+        <div class="design1 fly-in">
+            <h3>EyeconTECH</h3>
+            <img src="imagez/a (18).jpg" alt="portfolio" class="port1">
+            <a href="https://www.eyetech.site/">VISIT SITE</a>
+        </div>
+        <div>*******************</div>
+
+        <div class="design1 fly-in">
+            <h3>Eyecon-Codes</h3>
+            <img src="imagez/A (1).jpeg" alt="portfolio" class="port1">
+            <a href="">VISIT SITE</a>
+        </div>
+        <div>*******************</div>
+
+        <div class="design1 fly-in">
+            <h3>E-Learning</h3>
+            <img src="imagez/A (5).jpg" alt="portfolio" class="port1">
+            <a href="https://www.eyetech.site/sbquiz.html">VISIT SITE</a>
+        </div>
+        <div>*******************</div>
+
+        <div class="design1 fly-in">
+            <h3>Online-Trading</h3>
+            <img src="imagez/A (15).jpg" alt="portfolio" class="port1">
+            <a href="https://www.eyetech.site/trading.html">VISIT SITE</a>
+        </div>
+        <div>*******************</div>
+
+        <div class="design1 fly-in">
+            <h3>Eye-Jobz</h3>
+            <img src="imagez/c (1).jpg" alt="portfolio" class="port1">
+            <a href="https://www.eyetech.site/job.html">VISIT SITE</a>
+        </div>
+        <div>*******************</div>
+
+        <div class="design1 fly-in">
+            <h3>Eyecon-Chat</h3>
+            <img src="imagez/download (21).jpeg" alt="portfolio" class="port1">
+            <a href="https://www.eyetech.site/whatsapp.html">VISIT SITE</a>
+        </div>
+    </div>
+</section>
+    
+
+   <section id="about" class="about-section">
+        <div class="container1">
+            <h2>Skills & Tools</h2>
+            <div class="small-images1">
+                <div class="image-container">
+                    <img src="iconz/bootstrap.jpeg" alt="Bootstrap" class="small-image1">
+                    <span class="image-name">Bootstrap</span>
+                </div>
+                <div class="image-container">
+                    <img src="iconz/firebase.jpeg" alt="Firebase" class="small-image1">
+                    <span class="image-name">Firebase</span>
+                </div>
+                <div class="image-container">
+                    <img src="iconz/python.jpeg" alt="Python" class="small-image1">
+                    <span class="image-name">Python</span>
+                </div>
+                <div class="image-container">
+                    <img src="iconz/vba.jpeg" alt="VBA" class="small-image1">
+                    <span class="image-name">VBA</span>
+                </div>
+                <div class="image-container">
+                    <img src="iconz/react.png" alt="React" class="small-image1">
+                    <span class="image-name">React</span>
+                </div>
+                <div class="image-container">
+                    <img src="iconz/html.jpeg" alt="HTML" class="small-image1">
+                    <span class="image-name">HTML</span>
+                </div>
+                <div class="image-container">
+                    <img src="iconz/css.jpeg" alt="CSS" class="small-image1">
+                    <span class="image-name">CSS</span>
+                </div>
+                <div class="image-container">
+                    <img src="iconz/javascript.jpeg" alt="JavaScript" class="small-image1">
+                    <span class="image-name">JavaScript</span>
+                </div>
+                <div class="image-container">
+                    <img src="iconz/OIP (56).jpeg" alt="Node.js" class="small-image1">
+                    <span class="image-name">Node.js</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container4">
+            <h2>A MESSAGE CAN DO!</h2>
+            <p>Want to know more? Want to support me? Want to hire me?</p>
+            <ul>Kindly leave me a message... Thank you!</ul>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container3">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="text" id="contact" name="contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">SEND</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="resume" class="resume-section">
+        <div class="container"> <br>
+            <p>*** My vision is to create a platform which will serve as a way of promoting digitalization across the globe. ***</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="image-icons">
+                <img src="iconz/v (1).jpeg" alt="Icon 1" class="image-icon">
+                <img src="iconz/v (1).jpg" alt="Icon 2" class="image-icon">
+                <img src="iconz/v (3).jpeg" alt="Icon 3" class="image-icon">
+                <img src="iconz/v (2).jpeg" alt="Icon 4" class="image-icon">
+                <img src="iconz/v (4).jpeg" alt="Icon 5" class="image-icon">
+                <img src="iconz/v (5).jpeg" alt="Icon 6" class="image-icon">
+                <img src="iconz/v (6).jpeg" alt="Icon 7" class="image-icon">
+                <img src="iconz/v (7).jpeg" alt="Icon 8" class="image-icon">
+            </div>
+            <div class="footer-text">
+                <p>&copy; 2024 <a href="https://www.eyecon.com">Eyecon</a> | Designed by <a href="https://www.benneth.com">Benneth</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div>
+        **********
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+
+(function(){
+            emailjs.init('lNWaq3IJHWC-3VViB');
+        })();
+        
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            emailjs.sendForm('service_czer5bp', 'template_kbgpcic', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    alert('Failed to send message, please try again.');
+                });
+        });
+
+        $(document).ready(function() {
+            // Function to animate typing effect
+            function typeWriter(textElement, textArray, loopIndex) {
+                // Current text index
+                let charIndex = 0;
+
+                // Start typing
+                function type() {
+                    if (charIndex < textArray[loopIndex].length) {
+                        textElement.innerHTML += textArray[loopIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(type, 120); // Typing speed in milliseconds
+                    } else {
+                        setTimeout(erase, 1000); // Delay before starting to erase
+                    }
+                }
+
+                // Start erasing
+                function erase() {
+                    if (charIndex >= 0) {
+                        let tempText = textArray[loopIndex].substring(0, charIndex);
+                        textElement.innerHTML = tempText;
+                        charIndex--;
+                        setTimeout(erase, 50); // Erasing speed in milliseconds
+                    } else {
+                        loopIndex = (loopIndex + 1) % textArray.length; // Move to next text
+                        setTimeout(type, 500); // Delay before starting to type again
+                    }
+                }
+
+                // Start typing animation
+                type();
+            }
+
+            // Get the typing text element and text array
+            let textElement = document.querySelector('.typing-text');
+            let textArray = [
+                'WHO AM I?',
+                'CEO of EyeconTECH',
+                'A Front End Developer',
+                'A Software Engineer',
+                'A Web App Developer',
+                'A Student'
+            ];
+
+            // Start the typing effect
+            typeWriter(textElement, textArray, 0);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const designElements = document.querySelectorAll('.design1');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    designElements.forEach(element => {
+        observer.observe(element);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const imageContainers = document.querySelectorAll('.image-container');
+    
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                }, [...imageContainers].indexOf(entry.target) * 300);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    imageContainers.forEach(container => {
+        observer.observe(container);
+    });
+});
+ 
+
+    
+    </script>
+</body>
+</html>
