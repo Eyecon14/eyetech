@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics Trials</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        #quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #results {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #timer {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        #show-answers {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>HTML Basics Trials 2</h1>
+        <div id="timer">Time left: 1:00</div>
+        <form id="quiz-form">
+            <div class="question">
+                <div class="quiz-container">
+                    <div class="question">
+                        <p>1. What does CSS stand for?</p>
+                        <label><input type="radio" name="q1" value="a"> Cascading Style Sheets</label><br>
+                        <label><input type="radio" name="q1" value="b"> Computer Style Sheets</label><br>
+                        <label><input type="radio" name="q1" value="c"> Colorful Style Sheets</label><br>
+                        <label><input type="radio" name="q1" value="d"> Creative Style Sheets</label><br>
+                    </div>
+                    <div class="question">
+                        <p>2. Which HTML attribute is used to define inline styles?</p>
+                        <label><input type="radio" name="q2" value="a"> class</label><br>
+                        <label><input type="radio" name="q2" value="b"> style</label><br>
+                        <label><input type="radio" name="q2" value="c"> font</label><br>
+                        <label><input type="radio" name="q2" value="d"> styles</label><br>
+                    </div>
+                    <div class="question">
+                        <p>3. What is the correct HTML for creating a hyperlink?</p>
+                        <label><input type="radio" name="q3" value="a"> &lt;a&gt;http://www.example.com&lt;/a&gt;</label><br>
+                        <label><input type="radio" name="q3" value="b"> &lt;a name="http://www.example.com"&gt;Example&lt;/a&gt;</label><br>
+                        <label><input type="radio" name="q3" value="c"> &lt;a url="http://www.example.com"&gt;Example&lt;/a&gt;</label><br>
+                        <label><input type="radio" name="q3" value="d"> &lt;a href="http://www.example.com"&gt;Example&lt;/a&gt;</label><br>
+                    </div>
+                    <div class="question">
+                        <p>4. Which HTML element is used to define important text?</p>
+                        <label><input type="radio" name="q4" value="a"> &lt;important&gt;</label><br>
+                        <label><input type="radio" name="q4" value="b"> &lt;strong&gt;</label><br>
+                        <label><input type="radio" name="q4" value="c"> &lt;b&gt;</label><br>
+                        <label><input type="radio" name="q4" value="d"> &lt;i&gt;</label><br>
+                    </div>
+                    <div class="question">
+                        <p>5. What does the "alt" attribute in an image tag provide?</p>
+                        <label><input type="radio" name="q5" value="a"> It defines the alignment of the image</label><br>
+                        <label><input type="radio" name="q5" value="b"> It specifies the URL of the image</label><br>
+                        <label><input type="radio" name="q5" value="c"> It provides alternate text for an image if the image cannot be displayed</label><br>
+                        <label><input type="radio" name="q5" value="d"> It specifies the size of the image</label><br>
+                    </div>
+                    <div class="question">
+                        <p>6. What is the correct HTML for inserting a line break?</p>
+                        <label><input type="radio" name="q6" value="a"> &lt;break&gt;</label><br>
+                        <label><input type="radio" name="q6" value="b"> &lt;lb&gt;</label><br>
+                        <label><input type="radio" name="q6" value="c"> &lt;br&gt;</label><br>
+                        <label><input type="radio" name="q6" value="d"> &lt;linebreak&gt;</label><br>
+                    </div>
+                    <div class="question">
+                        <p>7. Which attribute is used to specify that an input field must be filled out?</p>
+                        <label><input type="radio" name="q7" value="a"> required</label><br>
+                        <label><input type="radio" name="q7" value="b"> validate</label><br>
+                        <label><input type="radio" name="q7" value="c"> placeholder</label><br>
+                        <label><input type="radio" name="q7" value="d"> autofill</label><br>
+                    </div>
+                    <div class="question">
+                        <p>8. What is the correct HTML for creating a dropdown list?</p>
+                        <label><input type="radio" name="q8" value="a"> &lt;list&gt;</label><br>
+                        <label><input type="radio" name="q8" value="b"> &lt;select&gt;</label><br>
+                        <label><input type="radio" name="q8" value="c"> &lt;input type="dropdown"&gt;</label><br>
+                        <label><input type="radio" name="q8" value="d"> &lt;dropdown&gt;</label><br>
+                    </div>
+                    <div class="question">
+                        <p>9. Which HTML tag is used to define an internal style sheet?</p>
+                        <label><input type="radio" name="q9" value="a"> &lt;style&gt;</label><br>
+                        <label><input type="radio" name="q9" value="b"> &lt;css&gt;</label><br>
+                        <label><input type="radio" name="q9" value="c"> &lt;script&gt;</label><br>
+                        <label><input type="radio" name="q9" value="d"> &lt;link&gt;</label><br>
+                    </div>
+                    <div class="question">
+                        <p>10. What is the correct HTML for inserting an image?</p>
+                        <label><input type="radio" name="q10" value="a"> &lt;img src="image.jpg" alt="MyImage"&gt;</label><br>
+                        <label><input type="radio" name="q10" value="b"> &lt;image&gt;image.jpg&lt;/image&gt;</label><br>
+                        <label><input type="radio" name="q10" value="c"> &lt;picture&gt;&lt;source srcset="image.jpg" type="image/jpeg"&gt;&lt;/picture&gt;</label><br>
+                        <label><input type="radio" name="q10" value="d"> &lt;image src="image.jpg"&gt;</label><br>
+                    </div>
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        </form>
+        <div id="results"></div>
+        <button id="show-answers" type="button" onclick="showAnswers()">Show Answers</button>
+    </div>
+    <script>
+        const correctAnswers = {
+            q1: 'a',
+            q2: 'b',
+            q3: 'd',
+            q4: 'b',
+            q5: 'c',
+            q6: 'c',
+            q7: 'a',
+            q8: 'b',
+            q9: 'a',
+            q10: 'a'
+        };
+
+        let timeLeft = 59; // 2 minutes in seconds
+        const timerElement = document.getElementById('timer');
+        const showAnswersButton = document.getElementById('show-answers');
+
+        const timer = setInterval(() => {
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                timerElement.textContent = 'Time is up!';
+                showAnswersButton.style.display = 'block';
+                submitQuiz();
+            } else {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerElement.textContent = `Time left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                timeLeft--;
+            }
+        }, 1000);
+
+        function submitQuiz() {
+            const form = document.getElementById('quiz-form');
+            const resultsDiv = document.getElementById('results');
+            let score = 0;
+            let totalQuestions = Object.keys(correctAnswers).length;
+
+            for (let question in correctAnswers) {
+                const userAnswer = form.elements[question].value;
+                if (userAnswer === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}.`;
+        }
+
+        function showAnswers() {
+            const answersDiv = document.getElementById('results');
+            let answerText = '<h2>Correct Answers:</h2>';
+            
+            for (let question in correctAnswers) {
+                answerText += `<p>Question ${question.slice(1)}: ${correctAnswers[question]}</p>`;
+            }
+            
+            answersDiv.innerHTML = answerText;
+        }
+    </script>
+</body>
+</html>

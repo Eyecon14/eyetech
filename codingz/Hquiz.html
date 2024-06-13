@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics Trials</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        #quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #results {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #timer {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        #show-answers {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>HTML Basics Trials 1</h1>
+        <div id="timer">Time left: 1:00</div>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. What does HTML stand for?</p>
+                <label><input type="radio" name="q1" value="a"> Hyperlinks and Text Markup Language</label><br>
+                <label><input type="radio" name="q1" value="b"> Home Tool Markup Language</label><br>
+                <label><input type="radio" name="q1" value="c"> Hyper Text Markup Language</label><br>
+                <label><input type="radio" name="q1" value="d"> Hyperlinking Text Mark Language</label><br>
+            </div>
+            <div class="question">
+                <p>2. Who is making the Web standards?</p>
+                <label><input type="radio" name="q2" value="a"> Microsoft</label><br>
+                <label><input type="radio" name="q2" value="b"> Google</label><br>
+                <label><input type="radio" name="q2" value="c"> The World Wide Web Consortium</label><br>
+                <label><input type="radio" name="q2" value="d"> Mozilla</label><br>
+            </div>
+            <div class="question">
+                <p>3. Choose the correct HTML element for the largest heading:</p>
+                <label><input type="radio" name="q3" value="a"> &lt;h1&gt;</label><br>
+                <label><input type="radio" name="q3" value="b"> &lt;h6&gt;</label><br>
+                <label><input type="radio" name="q3" value="c"> &lt;heading&gt;</label><br>
+                <label><input type="radio" name="q3" value="d"> &lt;head&gt;</label><br>
+            </div>
+            <div class="question">
+                <p>4. What is the correct HTML element for inserting a line break?</p>
+                <label><input type="radio" name="q4" value="a"> &lt;break&gt;</label><br>
+                <label><input type="radio" name="q4" value="b"> &lt;lb&gt;</label><br>
+                <label><input type="radio" name="q4" value="c"> &lt;br&gt;</label><br>
+                <label><input type="radio" name="q4" value="d"> &lt;linebreak&gt;</label><br>
+            </div>
+            <div class="question">
+                <p>5. What is the correct HTML for adding a background color?</p>
+                <label><input type="radio" name="q5" value="a"> &lt;background&gt;yellow&lt;/background&gt;</label><br>
+                <label><input type="radio" name="q5" value="b"> &lt;body bg="yellow"&gt;</label><br>
+                <label><input type="radio" name="q5" value="c"> &lt;body style="background-color:yellow;"&gt;</label><br>
+                <label><input type="radio" name="q5" value="d"> &lt;background-color&gt;yellow&lt;/background-color&gt;</label><br>
+            </div>
+            <div class="question">
+                <p>6. Choose the correct HTML element to define important text:</p>
+                <label><input type="radio" name="q6" value="a"> &lt;important&gt;</label><br>
+                <label><input type="radio" name="q6" value="b"> &lt;strong&gt;</label><br>
+                <label><input type="radio" name="q6" value="c"> &lt;b&gt;</label><br>
+                <label><input type="radio" name="q6" value="d"> &lt;i&gt;</label><br>
+            </div>
+            <div class="question">
+                <p>7. Choose the correct HTML element to define emphasized text:</p>
+                <label><input type="radio" name="q7" value="a"> &lt;i&gt;</label><br>
+                <label><input type="radio" name="q7" value="b"> &lt;em&gt;</label><br>
+                <label><input type="radio" name="q7" value="c"> &lt;italic&gt;</label><br>
+                <label><input type="radio" name="q7" value="d"> &lt;emphasize&gt;</label><br>
+            </div>
+            <div class="question">
+                <p>8. What is the correct HTML for creating a hyperlink?</p>
+                <label><input type="radio" name="q8" value="a"> &lt;a&gt;http://www.example.com&lt;/a&gt;</label><br>
+                <label><input type="radio" name="q8" value="b"> &lt;a name="http://www.example.com"&gt;Example&lt;/a&gt;</label><br>
+                <label><input type="radio" name="q8" value="c"> &lt;a url="http://www.example.com"&gt;Example&lt;/a&gt;</label><br>
+                <label><input type="radio" name="q8" value="d"> &lt;a href="http://www.example.com"&gt;Example&lt;/a&gt;</label><br>
+            </div>
+            <div class="question">
+                <p>9. How can you open a link in a new tab/browser window?</p>
+                <label><input type="radio" name="q9" value="a"> &lt;a href="url" new&gt;</label><br>
+                <label><input type="radio" name="q9" value="b"> &lt;a href="url" target="new"&gt;</label><br>
+                <label><input type="radio" name="q9" value="c"> &lt;a href="url" target="_blank"&gt;</label><br>
+                <label><input type="radio" name="q9" value="d"> &lt;a href="url" target="new_tab"&gt;</label><br>
+            </div>
+            <div class="question">
+                <p>10. Which of these elements are all <strong>table elements</strong>?</p>
+                <label><input type="radio" name="q10" value="a"> &lt;table&gt;, &lt;tr&gt;, &lt;tt&gt;</label><br>
+                <label><input type="radio" name="q10" value="b"> &lt;thead&gt;, &lt;body&gt;, &lt;tr&gt;</label><br>
+                <label><input type="radio" name="q10" value="c"> &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;</label><br>
+                <label><input type="radio" name="q10" value="d"> &lt;table&gt;, &lt;head&gt;, &lt;tfoot&gt;</label><br>
+            </div>
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        </form>
+        <div id="results"></div>
+        <button id="show-answers" type="button" onclick="showAnswers()">Show Answers</button>
+    </div>
+    <script>
+        const correctAnswers = {
+            q1: 'c',
+            q2: 'c',
+            q3: 'a',
+            q4: 'c',
+            q5: 'c',
+            q6: 'b',
+            q7: 'b',
+            q8: 'd',
+            q9: 'c',
+            q10: 'c'
+        };
+
+        let timeLeft = 59; // 2 minutes in seconds
+        const timerElement = document.getElementById('timer');
+        const showAnswersButton = document.getElementById('show-answers');
+
+        const timer = setInterval(() => {
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                timerElement.textContent = 'Time is up!';
+                showAnswersButton.style.display = 'block';
+                submitQuiz();
+            } else {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerElement.textContent = `Time left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                timeLeft--;
+            }
+        }, 1000);
+
+        function submitQuiz() {
+            const form = document.getElementById('quiz-form');
+            const resultsDiv = document.getElementById('results');
+            let score = 0;
+            let totalQuestions = Object.keys(correctAnswers).length;
+
+            for (let question in correctAnswers) {
+                const userAnswer = form.elements[question].value;
+                if (userAnswer === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}.`;
+        }
+
+        function showAnswers() {
+            const answersDiv = document.getElementById('results');
+            let answerText = '<h2>Correct Answers:</h2>';
+            
+            for (let question in correctAnswers) {
+                answerText += `<p>Question ${question.slice(1)}: ${correctAnswers[question]}</p>`;
+            }
+            
+            answersDiv.innerHTML = answerText;
+        }
+    </script>
+</body>
+</html>

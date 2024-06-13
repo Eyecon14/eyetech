@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EyeconTECH Code Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2b2b2b; /* Dark background */
+            color: #f0f0f0; /* Light text */
+            flex-direction: column; /* Center content vertically */
+        }
+        .header {
+            background-color: #333; /* Darker header background */
+            color: #f0f0f0; /* Light text */
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 2px solid #55cc55; /* Green accent */
+        }
+        .editor-container {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            height: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: #3a3a3a; /* Slightly lighter background */
+            margin-top: 20px; /* Adjust spacing from header */
+            border-radius: 8px; /* Rounded corners */
+            overflow: hidden; /* Hide overflow */
+        }
+        textarea {
+            width: 100%;
+            height: 60%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #555; /* Darker border */
+            font-family: monospace;
+            font-size: 16px;
+            resize: none;
+            background-color: #3a3a3a; /* Match container background */
+            color: #f0f0f0; /* Light text */
+            box-sizing: border-box;
+        }
+        #runButton {
+            padding: 10px 20px;
+            border: none;
+            background-color: #55cc55; /* Green button */
+            color: #f0f0f0; /* Light text */
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        #runButton:hover {
+            background-color: #4abf4a; /* Darker green on hover */
+        }
+        iframe {
+            width: 100%;
+            height: 40%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        EyeconTECH Code Editor
+    </div>
+    <div class="editor-container">
+        <textarea id="htmlCode" placeholder="Write your HTML code here..."></textarea>
+        <button id="runButton">Run</button>
+        <iframe id="output" title="Output"></iframe>
+    </div>
+    <script>
+        document.getElementById('runButton').addEventListener('click', function() {
+            const htmlContent = document.getElementById('htmlCode').value;
+            const outputFrame = document.getElementById('output');
+            outputFrame.srcdoc = htmlContent;
+        });
+    </script>
+</body>
+</html>
