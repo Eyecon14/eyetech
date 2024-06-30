@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML TEST</title>
+    <style>
+/* Base CSS for beautifying the questionnaire section */
+
+/* Global styles */
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background color */
+}
+
+.question {
+        user-select: none;
+    }
+
+/* Progress bar styles */
+.progress-bar-container {
+    width: 100%;
+    background-color: #ffffff; /* Dodger blue background color */
+    height: 10px; /* Reduce height for better appearance */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px;
+    position: fixed; /* Fixed position to keep it at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 10px; /* Rounded corners */
+    background-color: #c5b883; /* Yellow by default */
+    width: 100%; /* Initially full width */
+    transition: width 1s linear; /* Smooth transition */
+}
+
+/* Contact form styles */
+.contact-container {
+    background-color: #71a6db; /* Dodger blue background color */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    height: 90vh; /* Full height of viewport */
+    width: auto; /* Full width of viewport */
+    overflow-y: auto; /* Enable vertical scrollbar */
+}
+
+.contact-left {
+    background-color: #fff; /* White background color */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+.contact-left-title {
+    text-align: center;
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+/* Input and textarea styles */
+.contact-left input[type="text"],
+.contact-left input[type="email"],
+.contact-left textarea {
+    width: calc(100% - 42px); /* Adjusted width for inputs to fit within the container */
+    padding: 10px;
+    margin-bottom: 20px; /* Add spacing between input fields */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+}
+
+.contact-left textarea {
+    height: 100px; /* Reduced height for better appearance */
+}
+
+/* Submit button styles */
+.sub {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    background-color: #ffd700; /* Dodger blue background color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 35px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 26px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.contact-left button[type="submit"] {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #1e90ff; /* Dodger blue background color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.contact-left button[type="submit"]:hover {
+    background-color: #187bcd; /* Darker blue on hover */
+    text-align: center;
+
+}
+
+/* Questionnaire styles */
+.question-container {
+    margin-top: 20px; /* Add spacing between form and questions */
+}
+
+.question {
+    background-color: #fff; /* White background color */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    margin-bottom: 20px; /* Add spacing between questions */
+}
+
+.question h3 {
+    margin-top: 0; /* Remove default margin */
+}
+
+/* Options styles */
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.options label {
+    background-color: #f9f9f9;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.options label:hover {
+    background-color: #e0e0e0;
+}
+
+.options input[type="radio"] {
+    display: none;
+}
+
+.options input[type="radio"]:checked+label {
+    background-color: #17b63e;
+    color: #fff;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        height: auto; /* Auto height for smaller screens */
+        width: auto;
+    }
+
+    .contact-left {
+        max-width: 100%; /* Fill the screen width */
+        margin: 0; /* Remove margin */
+    }
+
+    .contact-left input[type="text"],
+    .contact-left input[type="email"],
+    .contact-left textarea {
+        width: calc(100% - 20px); /* Adjusted width for inputs to fit within the container */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Progress bar container -->
+    <div class="progress-bar-container">
+        <div id="progress-fill" class="progress-bar"></div>
+    </div>
+
+    <!-- Contact form container -->
+    <div class="contact-container">
+        <form id="payment-form" action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <div class="contact-left-title">
+                <h2>HTML ONLINE TEST</h2>
+                <hr>
+            </div>
+            <input type="hidden" name="access_key" value="32f2745b-fa77-4668-8e3e-45105a8205cd">
+            <h2>FILL ALL THE INFORMATION BELOW</h2>
+            <h3>
+                TIME ALLOCATED: <u><strong>
+                    360 seconds.
+                </strong></u>
+
+            </h3>
+            <input type="text" name="Candidate's Name:" placeholder="Enter your name here..." class="contact-inputs" required onkeydown="return false" onpaste="return false" oncut="return false">
+            <input type="text" name="School attends:" placeholder="Enter your contact here..." class="contact-inputs" required onkeydown="return false" onpaste="return false" oncut="return false">
+            <input type="email" name="Valid Email:" placeholder="email@example.com" class="contact-inputs" required onkeydown="return false" onpaste="return false" oncut="return false">
+            <h2>THEORY (20 marks)</h2>
+            <p>Is this course helping you? Write your feedback</p>
+            <textarea name="theory" placeholder="Explain how you are coping with the course so far?" class="contact-inputs" required onpaste="handlePaste(event)" oninput="checkTextarea(this)"></textarea>
+
+<!-- HTML -->
+<h2>OBJECTIVE TEST (30 marks)</h2>
+
+<!-- Question 1 -->
+<div class="question">
+    <label for="question1">1. What does HTML stand for?</label>
+    <div class="options">
+        <input type="radio" id="html" name="html_acronym" value="html">
+        <label for="html">HyperText Markup Language</label>
+
+        <input type="radio" id="hypertext" name="html_acronym" value="hypertext">
+        <label for="hypertext">HyperText Makeup Language</label>
+
+        <input type="radio" id="hypermedia" name="html_acronym" value="hypermedia">
+        <label for="hypermedia">HyperMedia Markup Language</label>
+
+        <input type="radio" id="http" name="html_acronym" value="http">
+        <label for="http">HyperText Transfer Protocol</label>
+    </div>
+</div>
+
+<!-- Question 2 -->
+<div class="question">
+    <label for="question2">2. What tag is used for creating a hyperlink in HTML?</label>
+    <div class="options">
+        <input type="radio" id="a" name="hyperlink_tag" value="a">
+        <label for="a">&lt;a&gt;</label>
+
+        <input type="radio" id="link" name="hyperlink_tag" value="link">
+        <label for="link">&lt;link&gt;</label>
+
+        <input type="radio" id="href" name="hyperlink_tag" value="href">
+        <label for="href">&lt;href&gt;</label>
+
+        <input type="radio" id="hyperlink" name="hyperlink_tag" value="hyperlink">
+        <label for="hyperlink">&lt;hyperlink&gt;</label>
+    </div>
+</div>
+
+<!-- Question 3 -->
+<div class="question">
+    <label for="question3">3. Which tag is used to display a picture in a web page?</label>
+    <div class="options">
+        <input type="radio" id="img" name="image_tag" value="img">
+        <label for="img">&lt;img&gt;</label>
+
+        <input type="radio" id="pic" name="image_tag" value="pic">
+        <label for="pic">&lt;pic&gt;</label>
+
+        <input type="radio" id="image" name="image_tag" value="image">
+        <label for="image">&lt;image&gt;</label>
+
+        <input type="radio" id="src" name="image_tag" value="src">
+        <label for="src">&lt;src&gt;</label>
+    </div>
+</div>
+
+<!-- Question 4 -->
+<div class="question">
+    <label for="question4">4. How do you create a numbered list in HTML?</label>
+    <div class="options">
+        <input type="radio" id="ol" name="numbered_list" value="ol">
+        <label for="ol">&lt;ol&gt;</label>
+
+        <input type="radio" id="ul" name="numbered_list" value="ul">
+        <label for="ul">&lt;ul&gt;</label>
+
+        <input type="radio" id="li" name="numbered_list" value="li">
+        <label for="li">&lt;li&gt;</label>
+
+        <input type="radio" id="list" name="numbered_list" value="list">
+        <label for="list">&lt;list&gt;</label>
+    </div>
+</div>
+
+<!-- Question 5 -->
+<div class="question">
+    <label for="question5">5. Which attribute is used to provide a unique identifier to an HTML element?</label>
+    <div class="options">
+        <input type="radio" id="id" name="unique_identifier" value="id">
+        <label for="id">id</label>
+
+        <input type="radio" id="class" name="unique_identifier" value="class">
+        <label for="class">class</label>
+
+        <input type="radio" id="name" name="unique_identifier" value="name">
+        <label for="name">name</label>
+
+        <input type="radio" id="style" name="unique_identifier" value="style">
+        <label for="style">style</label>
+    </div>
+</div>
+
+<!-- Question 6 -->
+<div class="question">
+    <label for="question6">6. How do you specify a background color in HTML?</label>
+    <div class="options">
+        <input type="radio" id="bgcolor" name="background_color" value="bgcolor">
+        <label for="bgcolor">bgcolor</label>
+
+        <input type="radio" id="background" name="background_color" value="background">
+        <label for="background">background</label>
+
+        <input type="radio" id="color" name="background_color" value="color">
+        <label for="color">color</label>
+
+        <input type="radio" id="bg" name="background_color" value="bg">
+        <label for="bg">bg</label>
+    </div>
+</div>
+
+<!-- Question 7 -->
+<div class="question">
+    <label for="question7">7. Which tag is used to define a table in HTML?</label>
+    <div class="options">
+        <input type="radio" id="table" name="table_tag" value="table">
+        <label for="table">&lt;table&gt;</label>
+
+        <input type="radio" id="tab" name="table_tag" value="tab">
+        <label for="tab">&lt;tab&gt;</label>
+
+        <input type="radio" id="td" name="table_tag" value="td">
+        <label for="td">&lt;td&gt;</label>
+
+        <input type="radio" id="tr" name="table_tag" value="tr">
+        <label for="tr">&lt;tr&gt;</label>
+    </div>
+</div>
+
+<!-- Question 8 -->
+<div class="question">
+    <label for="question8">8. What is the correct HTML for inserting a line break?</label>
+    <div class="options">
+        <input type="radio" id="br" name="line_break" value="br">
+        <label for="br">&lt;br&gt;</label>
+
+        <input type="radio" id="break" name="line_break" value="break">
+        <label for="break">&lt;break&gt;</label>
+
+        <input type="radio" id="lb" name="line_break" value="lb">
+        <label for="lb">&lt;lb&gt;</label>
+
+        <input type="radio" id="newline" name="line_break" value="newline">
+        <label for="newline">&lt;newline&gt;</label>
+    </div>
+</div>
+
+<!-- Question 9 -->
+<div class="question">
+    <label for="question9">9. Which HTML attribute is used to define inline styles?</label>
+    <div class="options">
+        <input type="radio" id="style" name="inline_style" value="style">
+        <label for="style">style</label>
+
+        <input type="radio" id="css" name="inline_style" value="css">
+        <label for="css">css</label>
+
+        <input type="radio" id="script" name="inline_style" value="script">
+        <label for="script">script</label>
+
+        <input type="radio" id="inline" name="inline_style" value="inline">
+        <label for="inline">inline</label>
+    </div>
+</div>
+
+<!-- Question 10 -->
+<div class="question">
+    <label for="question10">10. How do you create an ordered list in HTML?</label>
+    <div class="options">
+        <input type="radio" id="ol" name="ordered_list" value="ol">
+        <label for="ol">&lt;ol&gt;</label>
+
+        <input type="radio" id="ul" name="ordered_list" value="ul">
+        <label for="ul">&lt;ul&gt;</label>
+
+        <input type="radio" id="li" name="ordered_list" value="li">
+        <label for="li">&lt;li&gt;</label>
+
+        <input type="radio" id="list" name="ordered_list" value="list">
+        <label for="list">&lt;list&gt;</label>
+    </div>
+</div>
+
+<!-- Question 11 -->
+<div class="question">
+    <label for="question11">11. How do you add a comment in HTML?</label>
+    <div class="options">
+        <input type="radio" id="comment" name="comment" value="comment">
+        <label for="comment">&lt;!-- This is a comment --&gt;</label>
+
+        <input type="radio" id="rem" name="comment" value="rem">
+        <label for="rem">&lt;rem&gt; This is a comment &lt;/rem&gt;</label>
+
+        <input type="radio" id="note" name="comment" value="note">
+        <label for="note">&lt;note&gt; This is a comment &lt;/note&gt;</label>
+
+        <input type="radio" id="cmnt" name="comment" value="cmnt">
+        <label for="cmnt">&lt;cmnt&gt; This is a comment &lt;/cmnt&gt;</label>
+    </div>
+</div>
+
+<!-- Question 12 -->
+<div class="question">
+    <label for="question12">12. Which tag is used to define the head section of an HTML document?</label>
+    <div class="options">
+        <input type="radio" id="head" name="head_section" value="head">
+        <label for="head">&lt;head&gt;</label>
+
+        <input type="radio" id="header" name="head_section" value="header">
+        <label for="header">&lt;header&gt;</label>
+
+        <input type="radio" id="section" name="head_section" value="section">
+        <label for="section">&lt;section&gt;</label>
+
+        <input type="radio" id="heading" name="head_section" value="heading">
+        <label for="heading">&lt;heading&gt;</label>
+    </div>
+</div>
+
+<!-- Question 13 -->
+<div class="question">
+    <label for="question13">13. Which tag is used to define the body of an HTML document?</label>
+    <div class="options">
+        <input type="radio" id="body" name="body_section" value="body">
+        <label for="body">&lt;body&gt;</label>
+
+        <input type="radio" id="main" name="body_section" value="main">
+        <label for="main">&lt;main&gt;</label>
+
+        <input type="radio" id="section" name="body_section" value="section">
+        <label for="section">&lt;section&gt;</label>
+
+        <input type="radio" id="content" name="body_section" value="content">
+        <label for="content">&lt;content&gt;</label>
+    </div>
+</div>
+
+<!-- Question 14 -->
+<div class="question">
+    <label for="question14">14. How do you create a text area in HTML?</label>
+    <div class="options">
+        <input type="radio" id="textarea" name="textarea" value="textarea">
+        <label for="textarea">&lt;textarea&gt;</label>
+
+        <input type="radio" id="input" name="textarea" value="input">
+        <label for="input">&lt;input&gt;</label>
+
+        <input type="radio" id="text" name="textarea" value="text">
+        <label for="text">&lt;text&gt;</label>
+
+        <input type="radio" id="textfield" name="textarea" value="textfield">
+        <label for="textfield">&lt;textfield&gt;</label>
+    </div>
+</div>
+
+<!-- Question 15 -->
+<div class="question">
+    <label for="question15">15. Which tag is used to define an unordered list in HTML?</label>
+    <div class="options">
+        <input type="radio" id="ul" name="unordered_list" value="ul">
+        <label for="ul">&lt;ul&gt;</label>
+
+        <input type="radio" id="ol" name="unordered_list" value="ol">
+        <label for="ol">&lt;ol&gt;</label>
+
+        <input type="radio" id="li" name="unordered_list" value="li">
+        <label for="li">&lt;li&gt;</label>
+
+        <input type="radio" id="list" name="unordered_list" value="list">
+        <label for="list">&lt;list&gt;</label>
+    </div>
+</div>
+
+<!-- Question 16 -->
+<div class="question">
+    <label for="question16">16. Which HTML element is used to specify a footer for a document or section?</label>
+    <div class="options">
+        <input type="radio" id="footer" name="footer" value="footer">
+        <label for="footer">&lt;footer&gt;</label>
+
+        <input type="radio" id="foot" name="footer" value="foot">
+        <label for="foot">&lt;foot&gt;</label>
+
+        <input type="radio" id="bottom" name="footer" value="bottom">
+        <label for="bottom">&lt;bottom&gt;</label>
+
+        <input type="radio" id="footnote" name="footer" value="footnote">
+        <label for="footnote">&lt;footnote&gt;</label>
+    </div>
+</div>
+
+<!-- Question 17 -->
+<div class="question">
+    <label for="question17">17. Which tag is used to define a list item?</label>
+    <div class="options">
+        <input type="radio" id="li" name="list_item" value="li">
+        <label for="li">&lt;li&gt;</label>
+
+        <input type="radio" id="list" name="list_item" value="list">
+        <label for="list">&lt;list&gt;</label>
+
+        <input type="radio" id="item" name="list_item" value="item">
+        <label for="item">&lt;item&gt;</label>
+
+        <input type="radio" id="i" name="list_item" value="i">
+        <label for="i">&lt;i&gt;</label>
+    </div>
+</div>
+
+<!-- Question 18 -->
+<div class="question">
+    <label for="question18">18. Which attribute is used to define the source file of an image?</label>
+    <div class="options">
+        <input type="radio" id="src" name="image_source" value="src">
+        <label for="src">src</label>
+
+        <input type="radio" id="href" name="image_source" value="href">
+        <label for="href">href</label>
+
+        <input type="radio" id="link" name="image_source" value="link">
+        <label for="link">link</label>
+
+        <input type="radio" id="file" name="image_source" value="file">
+        <label for="file">file</label>
+    </div>
+</div>
+
+<!-- Question 19 -->
+<div class="question">
+    <label for="question19">19. How do you define an internal style sheet in HTML?</label>
+    <div class="options">
+        <input type="radio" id="style" name="internal_style_sheet" value="style">
+        <label for="style">&lt;style&gt;</label>
+
+        <input type="radio" id="css" name="internal_style_sheet" value="css">
+        <label for="css">&lt;css&gt;</label>
+
+        <input type="radio" id="script" name="internal_style_sheet" value="script">
+        <label for="script">&lt;script&gt;</label>
+
+        <input type="radio" id="stylesheet" name="internal_style_sheet" value="stylesheet">
+        <label for="stylesheet">&lt;stylesheet&gt;</label>
+    </div>
+</div>
+
+<!-- Question 20 -->
+<div class="question">
+    <label for="question20">20. What is the correct HTML element for playing video files?</label>
+    <div class="options">
+        <input type="radio" id="video" name="video_element" value="video">
+        <label for="video">&lt;video&gt;</label>
+
+        <input type="radio" id="media" name="video_element" value="media">
+        <label for="media">&lt;media&gt;</label>
+
+        <input type="radio" id="movie" name="video_element" value="movie">
+        <label for="movie">&lt;movie&gt;</label>
+
+        <input type="radio" id="source" name="video_element" value="source">
+        <label for="source">&lt;source&gt;</label>
+    </div>
+</div>
+
+<!-- Question 21 -->
+<div class="question">
+    <label for="question21">21. What does CSS stand for?</label>
+    <div class="options">
+        <input type="radio" id="stylesheet" name="css_acronym" value="stylesheet">
+        <label for="stylesheet">Cascading Style Sheets</label>
+
+        <input type="radio" id="style" name="css_acronym" value="style">
+        <label for="style">Creative Style Sheets</label>
+
+        <input type="radio" id="sheet" name="css_acronym" value="sheet">
+        <label for="sheet">Computer Style Sheets</label>
+
+        <input type="radio" id="sheets" name="css_acronym" value="sheets">
+        <label for="sheets">Cascading Sheets Style</label>
+    </div>
+</div>
+
+<!-- Question 22 -->
+<div class="question">
+    <label for="question22">22. Which HTML attribute is used to define inline styles?</label>
+    <div class="options">
+        <input type="radio" id="style" name="inline_styles" value="style">
+        <label for="style">style</label>
+
+        <input type="radio" id="css" name="inline_styles" value="css">
+        <label for="css">css</label>
+
+        <input type="radio" id="script" name="inline_styles" value="script">
+        <label for="script">script</label>
+
+        <input type="radio" id="styles" name="inline_styles" value="styles">
+        <label for="styles">styles</label>
+    </div>
+</div>
+
+<!-- Question 23 -->
+<div class="question">
+    <label for="question23">23. How do you define a hyperlink in HTML?</label>
+    <div class="options">
+        <input type="radio" id="a" name="hyperlink" value="a">
+        <label for="a">&lt;a&gt;</label>
+
+        <input type="radio" id="link" name="hyperlink" value="link">
+        <label for="link">&lt;link&gt;</label>
+
+        <input type="radio" id="hyperlink" name="hyperlink" value="hyperlink">
+        <label for="hyperlink">&lt;hyperlink&gt;</label>
+
+        <input type="radio" id="href" name="hyperlink" value="href">
+        <label for="href">&lt;href&gt;</label>
+    </div>
+</div>
+
+<!-- Question 24 -->
+<div class="question">
+    <label for="question24">24. Which CSS property is used to change the text color of an element?</label>
+    <div class="options">
+        <input type="radio" id="color" name="text_color" value="color">
+        <label for="color">color</label>
+
+        <input type="radio" id="fgcolor" name="text_color" value="fgcolor">
+        <label for="fgcolor">fgcolor</label>
+
+        <input type="radio" id="textcolor" name="text_color" value="textcolor">
+        <label for="textcolor">text-color</label>
+
+        <input type="radio" id="fontcolor" name="text_color" value="fontcolor">
+        <label for="fontcolor">font-color</label>
+    </div>
+</div>
+
+<!-- Question 25 -->
+<div class="question">
+    <label for="question25">25. Which CSS property is used to change the font of an element?</label>
+    <div class="options">
+        <input type="radio" id="font" name="font" value="font">
+        <label for="font">font-family</label>
+
+        <input type="radio" id="fonttext" name="font" value="fonttext">
+        <label for="fonttext">font-text</label>
+
+        <input type="radio" id="textfont" name="font" value="textfont">
+        <label for="textfont">text-font</label>
+
+        <input type="radio" id="textfamily" name="font" value="textfamily">
+        <label for="textfamily">text-family</label>
+    </div>
+</div>
+
+<!-- Question 26 -->
+<div class="question">
+    <label for="question26">26. Which CSS property is used to change the background color of an element?</label>
+    <div class="options">
+        <input type="radio" id="background" name="background_color" value="background">
+        <label for="background">background-color</label>
+
+        <input type="radio" id="color" name="background_color" value="color">
+        <label for="color">color</label>
+
+        <input type="radio" id="bgcolor" name="background_color" value="bgcolor">
+        <label for="bgcolor">bgcolor</label>
+
+        <input type="radio" id="backgroundstyle" name="background_color" value="backgroundstyle">
+        <label for="backgroundstyle">background-style</label>
+    </div>
+</div>
+
+<!-- Question 27 -->
+<div class="question">
+    <label for="question27">27. Which CSS property is used to change the left margin of an element?</label>
+    <div class="options">
+        <input type="radio" id="marginleft" name="margin_left" value="marginleft">
+        <label for="marginleft">margin-left</label>
+
+        <input type="radio" id="margin" name="margin_left" value="margin">
+        <label for="margin">margin</label>
+
+        <input type="radio" id="paddingleft" name="margin_left" value="paddingleft">
+        <label for="paddingleft">padding-left</label>
+
+        <input type="radio" id="padding" name="margin_left" value="padding">
+        <label for="padding">padding</label>
+    </div>
+</div>
+
+<!-- Question 28 -->
+<div class="question">
+    <label for="question28">28. Which CSS property is used to add space between the content and the border of an element?</label>
+    <div class="options">
+        <input type="radio" id="padding" name="padding" value="padding">
+        <label for="padding">padding</label>
+
+        <input type="radio" id="margin" name="padding" value="margin">
+        <label for="margin">margin</label>
+
+        <input type="radio" id="spacing" name="padding" value="spacing">
+        <label for="spacing">spacing</label>
+
+        <input type="radio" id="border" name="padding" value="border">
+        <label for="border">border</label>
+    </div>
+</div>
+
+<!-- Question 29 -->
+<div class="question">
+    <label for="question29">29. How do you select an element with the id "example" in CSS?</label>
+    <div class="options">
+        <input type="radio" id="dotexample" name="example_id" value="dotexample">
+        <label for="dotexample">.example</label>
+
+        <input type="radio" id="hashexample" name="example_id" value="hashexample">
+        <label for="hashexample">#example</label>
+
+        <input type="radio" id="idexample" name="example_id" value="idexample">
+        <label for="idexample">id=example</label>
+
+        <input type="radio" id="example" name="example_id" value="example">
+        <label for="example">example</label>
+    </div>
+</div>
+
+<!-- Question 30 -->
+<div class="question">
+    <label for="question30">30. How do you select elements with the class name "example" in CSS?</label>
+    <div class="options">
+        <input type="radio" id="dotexampleclass" name="example_class" value="dotexampleclass">
+        <label for="dotexampleclass">.example</label>
+
+        <input type="radio" id="hashexampleclass" name="example_class" value="hashexampleclass">
+        <label for="hashexampleclass">#example</label>
+
+        <input type="radio" id="classexampleclass" name="example_class" value="classexampleclass">
+        <label for="classexampleclass">class=example</label>
+
+        <input type="radio" id="exampleclass" name="example_class" value="exampleclass">
+        <label for="exampleclass">example</label>
+    </div>
+</div>
+
+            </div>
+
+
+            <button type="submit" class="sub">Submit <img src="images/send.png" alt=""></button>
+        </form>
+    </div>
+
+    <script>
+        // Countdown timer function
+        function startTimer(duration) {
+            var timer = duration;
+            var progressBar = document.getElementById('progress-fill');
+            var progress = 100;
+            var interval = setInterval(function () {
+                timer--;
+
+                // Calculate progress percentage
+                var progressPercentage = (timer / duration) * 100;
+
+                // Update progress bar color based on remaining time
+                if (progressPercentage > 70) {
+                    progressBar.style.backgroundColor = "#17b63e"; // Green
+                } else if (progressPercentage > 30) {
+                    progressBar.style.backgroundColor = "#f3e628"; // Sky blue
+                } else {
+                    progressBar.style.backgroundColor = "#eb1313"; // Tomato red
+                }
+
+                // Update progress bar width
+                progressBar.style.width = progressPercentage + "%";
+
+                // Check if timer has finished
+                if (timer <= 0) {
+                    clearInterval(interval);
+                    // After countdown finishes, submit the form and then disable access
+                    submitForm();
+                }
+            }, 1000); // Update every second
+        }
+
+        // Function to submit the form
+        function submitForm() {
+            // Get the form element
+            var form = document.getElementById('payment-form');
+
+            // Create a FormData object from the form
+            var formData = new FormData(form);
+
+            // Send the form data using AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action, true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Form submission successful
+                    console.log('Form submitted successfully!');
+                } else {
+                    // Form submission failed
+                    console.error('Form submission failed. Status: ' + xhr.status);
+                }
+                // After submitting the form, disable access for 12 hours
+                disableAccessFor12Hours();
+            };
+            xhr.onerror = function () {
+                // Error occurred during form submission
+                console.error('Error occurred during form submission.');
+                // After submitting the form, disable access for 12 hours
+                disableAccessFor12Hours();
+            };
+            xhr.send(formData);
+        }
+
+        // Function to disable access to the page for 12 hours
+        function disableAccessFor12Hours() {
+            // Set a cookie to indicate that access is disabled
+            document.cookie = "access_disabled=true; max-age=43200"; // 12 hours in seconds
+
+            // Redirect to community.html
+            window.location.href = "bennethawaiting.html";
+        }
+
+        // Check if access is disabled when the page loads
+        window.onload = function () {
+            var accessDisabled = getCookie("access_disabled");
+            if (accessDisabled === "true") {
+                // Access is disabled, redirect to community.html
+                window.location.href = "Awaiting.html";
+            } else {
+                // Access is not disabled, start the countdown timer
+                var duration = 360; // 25 minutes in seconds
+                startTimer(duration);
+            }
+        };
+
+        // Function to get the value of a cookie by name
+        function getCookie(name) {
+            var cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+            return cookieValue ? cookieValue.pop() : null;
+        }
+
+        <!-- Place this script in your HTML file -->
+
+        
+// Function to shuffle an array
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Array to hold question numbers
+const questionNumbers = Array.from({ length: 40 }, (_, i) => i + 1);
+
+// Function to assign shuffled question numbers to question labels
+function assignQuestionNumbers() {
+    const questionDivs = document.querySelectorAll('.question');
+    questionDivs.forEach((div, index) => {
+        const label = div.querySelector('label');
+        label.textContent = `${label.textContent.slice(label.textContent.indexOf(' ') + 1)}`;
+    });
+}
+
+
+    </script>
+</body>
+</html>
